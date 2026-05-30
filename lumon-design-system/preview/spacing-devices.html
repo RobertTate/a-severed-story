@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .devs { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .d .n { font-family:var(--font-mono); font-size:10.5px; color:var(--fg-2); margin-bottom:10px; }
+  .striped-thick { height:16px; color:var(--ink);
+    background: repeating-linear-gradient(to bottom, currentColor 0 1.5px, transparent 1.5px 4.5px); }
+  .label-row { display:flex; align-items:center; gap:12px; }
+  .label-row .pipe { width:3px; height:34px; background:var(--ink); }
+  .label-row .t { font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.14em; text-transform:uppercase; line-height:1.05; }
+  .lozenge { display:inline-flex; align-items:center; justify-content:center; padding:6px 16px; border:2px solid var(--ink); border-radius:999px; font-weight:800; letter-spacing:0.1em; font-size:14px; }
+</style></head>
+<body>
+<div class="card pad-lg">
+  <div class="cap">Graphic devices</div>
+  <div class="devs">
+    <div class="d"><div class="n">striped rule (divider)</div><div class="striped-thick"></div></div>
+    <div class="d"><div class="n">pipe + tracked label</div><div class="label-row"><span class="pipe"></span><span class="t">Security<br>Office</span></div></div>
+    <div class="d" style="grid-column:1 / -1"><div class="n">lozenge / pill (logo geometry)</div><span class="lozenge">LUMON</span></div>
+  </div>
+</div>
+</body></html>

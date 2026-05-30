@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .term {
+    background: radial-gradient(120% 130% at 50% 0%, #A9DDD5 0%, #9AD4CC 55%, #7FC2B9 100%);
+    padding:20px 22px 22px; position:relative; overflow:hidden;
+  }
+  .term::after { content:""; position:absolute; inset:0; pointer-events:none;
+    background: repeating-linear-gradient(to bottom, rgba(12,63,57,0.05) 0 1px, transparent 1px 3px); }
+  .bins { display:flex; gap:10px; position:relative; }
+  .bin { flex:1; }
+  .bin .head { display:flex; justify-content:space-between; font-family:var(--font-mono); font-weight:600; font-size:12px; color:var(--mdr-ink); margin-bottom:5px; }
+  .bin .track { height:16px; border:1.5px solid var(--mdr-ink); position:relative; }
+  .bin .track > i { position:absolute; inset:0 auto 0 0; background:var(--mdr-bin-blue); }
+  .bin .pct { font-family:var(--font-mono); font-size:10.5px; color:var(--mdr-ink-soft); margin-top:4px; text-align:right; }
+</style></head>
+<body>
+<div class="card" style="padding:0">
+  <div class="term">
+    <div class="bins">
+      <div class="bin"><div class="head"><span>01</span></div><div class="track"><i style="width:35%"></i></div><div class="pct">35%</div></div>
+      <div class="bin"><div class="head"><span>02</span></div><div class="track"><i style="width:62%"></i></div><div class="pct">62%</div></div>
+      <div class="bin"><div class="head"><span>03</span></div><div class="track"><i style="width:18%"></i></div><div class="pct">18%</div></div>
+      <div class="bin"><div class="head"><span>04</span></div><div class="track"><i style="width:80%"></i></div><div class="pct">80%</div></div>
+      <div class="bin"><div class="head"><span>05</span></div><div class="track"><i style="width:44%"></i></div><div class="pct">44%</div></div>
+    </div>
+  </div>
+</div>
+</body></html>

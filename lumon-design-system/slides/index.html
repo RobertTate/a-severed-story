@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumon · Slide Templates</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #06080b; }
+  deck-stage:not(:defined) { visibility: hidden; }
+  deck-stage section iframe { width: 1280px; height: 720px; border: 0; display: block; }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+  <section data-label="Title"><iframe src="TitleSlide.html" title="Title"></iframe></section>
+  <section data-label="Section"><iframe src="SectionSlide.html" title="Section"></iframe></section>
+  <section data-label="Quote"><iframe src="QuoteSlide.html" title="Quote"></iframe></section>
+  <section data-label="Content"><iframe src="ContentSlide.html" title="Content"></iframe></section>
+</deck-stage>
+<script src="deck-stage.js"></script>
+</body>
+</html>

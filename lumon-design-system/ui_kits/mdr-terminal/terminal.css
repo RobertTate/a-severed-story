@@ -1,0 +1,155 @@
+/* MDR Terminal — kit-local styling. Imports the Lumon foundations. */
+@import url('../../colors_and_type.css');
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  background: #06100E;
+  font-family: var(--font-mono);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- The CRT stage ------------------------------------------------------- */
+.crt {
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(130% 120% at 50% 8%, #B6E6DE 0%, #9AD4CC 42%, #79BEB4 78%, #5FA89E 100%);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+/* scanlines */
+.crt::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 50;
+  background: repeating-linear-gradient(to bottom, rgba(8,48,43,0.10) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+/* vignette + flicker */
+.crt::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 51;
+  background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(4,28,25,0.42) 100%);
+  animation: flicker 6s infinite steps(60);
+}
+@keyframes flicker { 0%,97%{opacity:1} 98%{opacity:.92} 99%{opacity:.97} 100%{opacity:1} }
+
+.ink { color: var(--mdr-ink); }
+.ink-soft { color: var(--mdr-ink-soft); }
+.glow-text { text-shadow: 0 0 7px rgba(201,240,234,0.85), 0 0 2px rgba(201,240,234,0.6); }
+
+/* ---- Header bar ---------------------------------------------------------- */
+.term-header {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 22px 12px;
+}
+.term-header .logo { height: 22px; opacity: 0.9; }
+.term-header .file {
+  flex: 1; text-align: center;
+  font-family: var(--font-display); font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: 17px;
+}
+.term-header .pct {
+  font-family: var(--font-mono); font-weight: 600; font-size: 15px;
+  border: 1.5px solid var(--mdr-ink); padding: 4px 12px; min-width: 92px; text-align: center;
+}
+.term-rule { position: relative; z-index: 10; height: 2px; margin: 0 22px;
+  background: var(--mdr-ink); opacity: 0.7; }
+.term-rule.thin { height: 0; border-top: 1px solid var(--mdr-line); }
+
+/* ---- Number field -------------------------------------------------------- */
+.field {
+  position: relative; z-index: 5; flex: 1; overflow: hidden;
+  cursor: crosshair;
+}
+.field-inner {
+  position: absolute; inset: 0;
+  display: grid; place-content: center;
+  padding: 16px;
+}
+.num-grid { display: grid; gap: 0; }
+.num {
+  font-family: var(--font-mono); font-weight: 600;
+  color: var(--mdr-ink); text-align: center;
+  user-select: none; will-change: transform;
+  transition: color .12s, text-shadow .12s, transform .15s;
+}
+.num.scary { animation: quiver 2.6s ease-in-out infinite; }
+.num.huge  { animation: quiver 1.4s ease-in-out infinite; }
+.num.selected { color: #0a514a; text-shadow: 0 0 10px rgba(201,240,234,1); }
+@keyframes quiver {
+  0%,100% { transform: translate(0,0) scale(1); }
+  20% { transform: translate(1px,-1.5px) scale(1.12); }
+  45% { transform: translate(-1.5px,1px) scale(1.18); }
+  70% { transform: translate(1px,1px) scale(1.1); }
+}
+@keyframes drift {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* drag selection rectangle */
+.sel-box {
+  position: absolute; z-index: 8; pointer-events: none;
+  border: 1.5px solid var(--mdr-ink);
+  background: rgba(255,255,255,0.16);
+  box-shadow: 0 0 14px rgba(201,240,234,0.5) inset;
+}
+
+/* ---- Bins ---------------------------------------------------------------- */
+.bin-tray {
+  position: relative; z-index: 10;
+  display: flex; gap: 14px; padding: 10px 22px 24px;
+}
+.bin { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.bin .num-id { font-family: var(--font-mono); font-weight: 700; font-size: 13px; letter-spacing: 0.18em; }
+.bin .lid {
+  width: 100%; height: 12px; border: 1.5px solid var(--mdr-ink); border-bottom: 0;
+  transform-origin: bottom center; transition: transform .35s ease;
+  background: rgba(255,255,255,0.12);
+}
+.bin.open .lid { transform: perspective(200px) rotateX(-58deg); }
+.bin .track { width: 100%; height: 20px; border: 1.5px solid var(--mdr-ink); position: relative; overflow: hidden; }
+.bin .track > i { position: absolute; inset: 0 auto 0 0; background: var(--mdr-bin-blue);
+  transition: width .5s cubic-bezier(.2,.7,.2,1); }
+.bin .track > i::after { content:""; position:absolute; inset:0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0 6px, transparent 6px 12px); }
+.bin .pct { font-family: var(--font-mono); font-size: 12px; font-weight: 600; }
+.bin .flag { font-size: 0; }
+
+/* flying number on refine */
+.fly {
+  position: fixed; z-index: 60; font-family: var(--font-mono); font-weight: 700;
+  color: var(--mdr-ink); pointer-events: none;
+  transition: transform .55s cubic-bezier(.4,.6,.3,1), opacity .55s;
+}
+
+/* ---- Footer status ------------------------------------------------------- */
+.term-footer {
+  position: relative; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 22px 12px; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* ---- Intake screen ------------------------------------------------------- */
+.intake {
+  position: relative; z-index: 10; flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+  padding: 40px;
+}
+.intake .welcome { font-family: var(--font-display); font-weight: 300; font-size: 30px; letter-spacing: 0.02em; text-align: center; }
+.intake .welcome b { font-weight: 700; }
+.intake .files { display: flex; flex-direction: column; gap: 0; width: min(520px, 90%);
+  border: 1.5px solid var(--mdr-ink); }
+.intake .file-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; border-bottom: 1px solid var(--mdr-line);
+  cursor: pointer; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em;
+  transition: background .12s;
+}
+.intake .file-row:last-child { border-bottom: 0; }
+.intake .file-row:hover { background: rgba(255,255,255,0.18); }
+.intake .file-row .meta { font-family: var(--font-mono); font-size: 11px; font-weight: 500; }
+.intake .hint { font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+
+.globe-spin { animation: drift 5s ease-in-out infinite; }

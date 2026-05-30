@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .btns { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .grp { display:flex; flex-direction:column; gap:8px; }
+  .grp .n { font-family:var(--font-mono); font-size:10px; color:var(--fg-2); }
+  .btn { font-family:var(--font-text); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+    padding:11px 22px; border-radius:3px; border:1.5px solid var(--ink); cursor:pointer; transition: background .15s, color .15s; }
+  .btn-primary { background:var(--lumon-blue); border-color:var(--lumon-blue); color:#fff; }
+  .btn-primary:hover { background:var(--lumon-blue-deep); }
+  .btn-ghost { background:transparent; color:var(--ink); }
+  .btn-ghost:hover { background:var(--ink); color:var(--paper); }
+  .btn-quiet { background:transparent; border-color:var(--hairline-strong); color:var(--fg-2); }
+  .btn[disabled]{ opacity:.4; cursor:not-allowed; }
+</style></head>
+<body>
+<div class="card pad-lg">
+  <div class="cap">Buttons</div>
+  <div class="btns">
+    <div class="grp"><span class="n">primary</span><button class="btn btn-primary">Proceed</button></div>
+    <div class="grp"><span class="n">ghost</span><button class="btn btn-ghost">Acknowledge</button></div>
+    <div class="grp"><span class="n">quiet</span><button class="btn btn-quiet">Defer</button></div>
+    <div class="grp"><span class="n">disabled</span><button class="btn btn-ghost" disabled>Refine</button></div>
+  </div>
+</div>
+</body></html>

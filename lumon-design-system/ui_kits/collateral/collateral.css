@@ -1,0 +1,64 @@
+/* Collateral & Wayfinding kit — Lumon's printed/physical document system. */
+@import url('../../colors_and_type.css');
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: var(--font-text); background: var(--wall); -webkit-font-smoothing: antialiased; }
+
+.archive { display: flex; height: 100%; }
+
+/* ---- Sidebar ------------------------------------------------------------- */
+.rail {
+  width: 296px; flex: none; background: var(--ink); color: var(--paper);
+  display: flex; flex-direction: column; padding: 26px 0;
+}
+.rail .brand { display: flex; align-items: center; gap: 11px; padding: 0 24px 22px; }
+.rail .brand img { height: 26px; }
+.rail .brand .t { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.2; }
+.rail .sect { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,243,238,0.45); padding: 16px 24px 8px; }
+.rail .item {
+  display: flex; flex-direction: column; gap: 2px; padding: 12px 24px;
+  cursor: pointer; border-left: 3px solid transparent; transition: background .12s, border-color .12s;
+}
+.rail .item:hover { background: rgba(244,243,238,0.06); }
+.rail .item.active { background: rgba(244,243,238,0.10); border-left-color: var(--pantone-298); }
+.rail .item .nm { font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: 0.01em; }
+.rail .item .meta { font-family: var(--font-mono); font-size: 10.5px; color: rgba(244,243,238,0.5); letter-spacing: 0.04em; }
+.rail .foot { margin-top: auto; padding: 16px 24px 0; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,243,238,0.4); }
+
+/* ---- Viewer -------------------------------------------------------------- */
+.viewer {
+  flex: 1; overflow: auto; padding: 56px;
+  display: flex; align-items: flex-start; justify-content: center;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #F2F1EC 0%, var(--wall) 60%);
+}
+.viewer-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.doc-caption { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); }
+
+/* ---- Shared document primitives ------------------------------------------ */
+.paper {
+  background: var(--paper); box-shadow: var(--shadow-card);
+  position: relative;
+}
+.doc-eyebrow { font-family: var(--font-text); font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+.striped { color: currentColor; background: repeating-linear-gradient(to bottom, currentColor 0 1px, transparent 1px 3px); }
+.djr { font-family: var(--font-display); }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* checklist */
+.chk-row { display: flex; align-items: flex-start; gap: 11px; padding: 9px 0; border-bottom: 1px solid rgba(26,29,34,0.14); }
+.chk-row:last-child { border-bottom: 0; }
+.chk-box { width: 17px; height: 17px; border: 1.6px solid currentColor; border-radius: 2px; flex: none; margin-top: 2px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.chk-box.on::after { content: ""; width: 9px; height: 5px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg) translateY(-1px); }
+.chk-row.done .chk-label { text-decoration: line-through; opacity: 0.55; }
+
+/* contention tag */
+.contention-tag { display: inline-block; font-family: var(--font-text); font-style: italic; font-weight: 600; font-size: 15px; padding: 4px 14px; color: var(--paper); }
+
+/* handbook cover sheen */
+.cover-sheen { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.10) 47%, rgba(255,255,255,0.18) 50%, transparent 62%); }
+
+/* wall surface for wayfinding */
+.wall-surface { background: linear-gradient(180deg, #F1F0EB, #E6E5DF); }

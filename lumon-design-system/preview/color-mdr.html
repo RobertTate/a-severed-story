@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 0; border: 1px solid var(--hairline); overflow: hidden; }
+  .screen {
+    background:
+      radial-gradient(120% 100% at 50% 0%, #A9DDD5 0%, #9AD4CC 55%, #7FC2B9 100%);
+    padding: 18px 18px 20px;
+    position: relative;
+  }
+  .screen::after {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: repeating-linear-gradient(to bottom, rgba(12,63,57,0.06) 0 1px, transparent 1px 3px);
+  }
+  .digits { font-family: var(--font-mono); font-weight:600; color:#0C3F39; font-size: 22px; letter-spacing: 0.06em; display:flex; gap:14px; text-shadow: 0 0 6px rgba(201,240,234,0.9); }
+  .digits span:nth-child(2){ transform: translateY(-2px);} .digits span:nth-child(4){ transform: translateY(1px);}
+  .bins { position:relative; display:flex; gap:6px; margin-top:30px; }
+  .bin { flex:1; height: 18px; border:1px solid #0C3F39; position:relative; }
+  .bin > i { position:absolute; left:0; top:0; bottom:0; background:#2C6CB0; }
+  .toks { padding: 14px 14px; display:flex; flex-direction:column; gap:8px; background: var(--paper); }
+  .tok { display:flex; align-items:center; gap:9px; font-size:11px; }
+  .tok b { width:18px; height:18px; border:1px solid var(--hairline); border-radius:2px; }
+  .tok .mono { color: var(--fg-2); }
+</style></head>
+<body>
+<div class="card pad-lg">
+  <div class="cap">Macrodata Refinement — terminal palette</div>
+  <div class="wrap">
+    <div class="screen">
+      <div class="digits"><span>7</span><span>2</span><span>9</span><span>4</span><span>1</span><span>6</span></div>
+      <div class="bins">
+        <div class="bin"><i style="width:35%"></i></div>
+        <div class="bin"><i style="width:62%"></i></div>
+        <div class="bin"><i style="width:18%"></i></div>
+        <div class="bin"><i style="width:80%"></i></div>
+        <div class="bin"><i style="width:44%"></i></div>
+      </div>
+    </div>
+    <div class="toks">
+      <div class="tok"><b style="background:#9AD4CC"></b><span>screen</span><span class="mono">#9AD4CC</span></div>
+      <div class="tok"><b style="background:#0C3F39"></b><span>ink</span><span class="mono">#0C3F39</span></div>
+      <div class="tok"><b style="background:#2C6CB0"></b><span>bin</span><span class="mono">#2C6CB0</span></div>
+      <div class="tok"><b style="background:#C9F0EA"></b><span>glow</span><span class="mono">#C9F0EA</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

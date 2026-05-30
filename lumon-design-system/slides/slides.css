@@ -1,0 +1,57 @@
+/* Lumon slide templates — 1280×720. Grounded in the broadcast "type flag" aesthetic. */
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: #0a0d11;
+  font-family: var(--font-text);
+  display: flex; align-items: center; justify-content: center;
+  -webkit-font-smoothing: antialiased; overflow: hidden;
+}
+.stage { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+.slide {
+  width: 1280px; height: 720px; position: relative; overflow: hidden;
+  flex: none; transform-origin: center center;
+}
+
+/* shared bits */
+.slide .logo-tl { position: absolute; top: 56px; left: 64px; height: 30px; }
+.slide .logo-bc { position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); height: 26px; opacity: 0.9; }
+.slide .eyebrow { font-family: var(--font-text); font-weight: 700; font-size: 16px; letter-spacing: 0.24em; text-transform: uppercase; }
+.slide .striped { height: 9px; background: repeating-linear-gradient(to bottom, currentColor 0 1.5px, transparent 1.5px 4.5px); }
+.foot-meta { position: absolute; bottom: 48px; right: 64px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+.page-no { position: absolute; bottom: 48px; left: 64px; font-family: var(--font-mono); font-size: 13px; opacity: 0.6; }
+
+/* ---- Title (broadcast type-flag) ---------------------------------------- */
+.slide.title { background: var(--lumon-blue); color: #fff; }
+.slide.title .wrap { position: absolute; left: 96px; right: 96px; top: 50%; transform: translateY(-50%); }
+.slide.title h1 { font-family: var(--font-display); font-weight: 300; font-size: 92px; line-height: 1.0; letter-spacing: -0.015em; margin: 0; }
+.slide.title h1 b { font-weight: 800; }
+.slide.title .eyebrow { margin-bottom: 28px; opacity: 0.85; }
+
+/* ---- Section divider ----------------------------------------------------- */
+.slide.section { background: var(--wall); color: var(--ink); }
+.slide.section .wrap { position: absolute; left: 96px; right: 96px; top: 50%; transform: translateY(-50%); }
+.slide.section .idx { font-family: var(--font-display); font-weight: 800; font-size: 30px; letter-spacing: 0.04em; color: var(--lumon-blue); }
+.slide.section .eyebrow { color: var(--fg-2); margin: 8px 0 18px; }
+.slide.section .striped { color: var(--ink); width: 280px; margin-bottom: 28px; }
+.slide.section h1 { font-family: var(--font-display); font-weight: 800; font-size: 76px; line-height: 1.02; letter-spacing: -0.015em; margin: 0; }
+
+/* ---- Quote --------------------------------------------------------------- */
+.slide.quote { background: var(--ink); color: var(--paper); }
+.slide.quote .wrap { position: absolute; left: 110px; right: 110px; top: 50%; transform: translateY(-50%); }
+.slide.quote blockquote { font-family: var(--font-display); font-weight: 300; font-size: 56px; line-height: 1.18; letter-spacing: -0.01em; margin: 0; }
+.slide.quote blockquote .em { font-weight: 700; }
+.slide.quote .attrib { margin-top: 36px; font-family: var(--font-text); font-weight: 700; font-size: 16px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--pantone-298); }
+
+/* ---- Content ------------------------------------------------------------- */
+.slide.content { background: var(--paper); color: var(--ink); }
+.slide.content .hd { position: absolute; left: 96px; right: 96px; top: 96px; }
+.slide.content .eyebrow { color: var(--lumon-blue); margin-bottom: 14px; }
+.slide.content h1 { font-family: var(--font-display); font-weight: 700; font-size: 52px; line-height: 1.05; margin: 0; max-width: 920px; }
+.slide.content .cols { position: absolute; left: 96px; right: 96px; bottom: 120px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+.slide.content p { font-size: 21px; line-height: 1.55; margin: 0; color: var(--fg-1); }
+.slide.content .stat { text-align: left; }
+.slide.content .stat .n { font-family: var(--font-display); font-weight: 800; font-size: 88px; line-height: 0.9; color: var(--lumon-blue); font-variant-numeric: tabular-nums; }
+.slide.content .stat .l { font-size: 15px; letter-spacing: 0.04em; color: var(--fg-2); margin-top: 8px; }

@@ -1,0 +1,35 @@
+/* Shared frame for Design System preview cards. ~700px wide specimens. */
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: var(--font-text);
+  background: var(--paper);
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.card {
+  width: 700px;
+  padding: 28px 30px;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card.pad-lg { padding: 34px 36px; }
+.row { display: flex; gap: 12px; }
+.col { display: flex; flex-direction: column; }
+.muted { color: var(--fg-2); }
+.mono { font-family: var(--font-mono); }
+.cap { font-family: var(--font-text); font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-2); }
+/* striped rule motif */
+.striped {
+  height: 7px;
+  background: repeating-linear-gradient(
+    to bottom,
+    currentColor 0, currentColor 1px,
+    transparent 1px, transparent 3px
+  );
+}
