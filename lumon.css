@@ -1,0 +1,335 @@
+@charset "UTF-8";
+/* ============================================================================
+   A SEVERED STORY — LUMON-FLAVORED OVERRIDES
+   ----------------------------------------------------------------------------
+   Re-skins the LegendKeeper export with the Lumon Industries design system.
+   Loaded AFTER styles.css so it wins cascade conflicts.
+   ============================================================================ */
+
+@import url('./lumon-design-system/colors_and_type.css');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+
+/* Override the LegendKeeper Tailwind utility that preserves source whitespace
+   — without this, the indented HTML source renders as literal indented text. */
+#react-viewer.whitespace-pre-wrap,
+#react-viewer .whitespace-pre-wrap {
+  white-space: normal;
+}
+
+/* ---------- RESET / BASE ---------- */
+html, body {
+  background: var(--wall);
+  color: var(--fg-1);
+  font-family: var(--font-text);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  margin: 0;
+}
+body { padding: 0 !important; }
+
+/* ---------- PAGE CHROME ---------- */
+.page-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 56px 96px;
+  background: var(--wall);
+  position: relative;
+}
+
+/* Top handbook bar — drawn via ::before so we don't touch every HTML file */
+.page-container::before {
+  content: 'A SEVERED STORY  ·  AN ORIENTATION GUIDE FOR SEVERED FLOOR EMPLOYEES';
+  display: block;
+  font-family: var(--font-text);
+  font-weight: var(--w-bold);
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 40px;
+}
+
+/* Footer property line */
+.page-container::after {
+  content: 'PROPERTY OF LUMON INDUSTRIES  ·  PRAISE KIER';
+  display: block;
+  font-family: var(--font-text);
+  font-weight: var(--w-bold);
+  font-size: var(--t-caption);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+}
+
+/* ---------- PAGE TITLE — the Lumon "document header" pattern ---------- */
+.page-title {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  font-size: var(--t-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-1);
+  margin: 0 0 8px;
+  padding: 0;
+}
+/* The signature striped-rule beneath the page title */
+.page-title + #Main::before,
+.page-title ~ #Main::before {
+  content: '';
+  display: block;
+  height: 9px;
+  width: 96px;
+  margin: 18px 0 32px;
+  background: repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 3px);
+}
+
+/* ---------- BODY TYPOGRAPHY (inside #react-viewer) ---------- */
+#react-viewer { font-family: var(--font-text); color: var(--fg-1); }
+
+#react-viewer h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold) !important;
+  font-size: var(--t-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: 0;
+  color: var(--fg-1);
+  margin: 56px 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+  text-transform: uppercase;
+  letter-spacing: var(--track-signage);
+}
+#react-viewer h1.font-extrabold { font-weight: var(--w-black) !important; }
+
+#react-viewer h2 {
+  font-family: var(--font-display);
+  font-weight: var(--w-bold);
+  font-size: var(--t-h3);
+  line-height: 1.2;
+  color: var(--fg-1);
+  margin: 40px 0 10px;
+}
+
+#react-viewer h3 {
+  font-family: var(--font-text);
+  font-weight: var(--w-bold);
+  font-size: var(--t-h4);
+  color: var(--fg-1);
+  margin: 32px 0 8px;
+}
+
+#react-viewer p {
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  margin: 14px 0;
+  color: var(--fg-1);
+}
+
+#react-viewer a {
+  color: var(--lumon-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+#react-viewer a:hover { color: var(--lumon-blue-deep); }
+
+#react-viewer strong { font-weight: var(--w-bold); color: var(--fg-1); }
+#react-viewer em { font-style: italic; }
+#react-viewer u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+#react-viewer sub {
+  font-size: 0.85em;
+  vertical-align: baseline;
+  color: var(--fg-2);
+  display: block;
+  margin: 4px 0;
+}
+#react-viewer sup {
+  font-size: 0.85em;
+  vertical-align: baseline;
+  color: var(--fg-2);
+}
+
+/* Horizontal rules — Lumon striped-rule device */
+#react-viewer hr {
+  border: none !important;
+  height: 7px;
+  margin: 28px 0;
+  background: repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 3px);
+  opacity: 0.85;
+}
+/* Two consecutive hrs collapse into one heavier separator */
+#react-viewer hr + hr { margin-top: -28px; opacity: 1; }
+
+/* Lists — Lumon dash bullets, not dots */
+#react-viewer ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 14px 0 !important;
+}
+#react-viewer ul > li {
+  position: relative;
+  padding-left: 22px;
+  margin: 8px 0;
+}
+#react-viewer ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 10px;
+  height: 1px;
+  background: var(--fg-1);
+}
+#react-viewer ul > li > p:first-child { margin-top: 0; }
+
+/* ---------- BLOCKQUOTES ---------- */
+#react-viewer blockquote {
+  background: var(--paper) !important;
+  border: none !important;
+  border-left: 3px solid var(--ink) !important;
+  border-radius: 0 !important;
+  padding: 20px 24px !important;
+  margin: 24px 0 !important;
+  color: var(--fg-1);
+  box-shadow: var(--shadow-flat);
+}
+#react-viewer blockquote h2,
+#react-viewer blockquote h3 {
+  margin-top: 0;
+  border: none;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ---------- PANELS (info / warning / note) ---------- */
+#react-viewer .panel {
+  border-radius: 0 !important;
+  padding: 22px 24px 18px !important;
+  margin: 36px 0 !important;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--paper);
+  color: var(--fg-1) !important;
+}
+#react-viewer .panel .panel-icon {
+  flex-shrink: 0;
+  margin: 2px 0 0 -4px !important;
+}
+#react-viewer .panel .panel-content { flex: 1; }
+#react-viewer .panel .panel-content > p:first-child { margin-top: 0; }
+#react-viewer .panel svg { color: var(--fg-1) !important; }
+
+/* Eyebrow stamp common to all panels */
+#react-viewer .panel::before {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  font-family: var(--font-text);
+  font-weight: var(--w-bold);
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--track-eyebrow);
+  padding: 2px 10px;
+  background: var(--wall);
+  color: var(--fg-1);
+  border: 1px solid var(--ink);
+}
+
+/* INFO — a Lumon procedural reminder, on Pantone 298 sky */
+#react-viewer [data-panel-type="info"] {
+  background: var(--pantone-298) !important;
+  color: var(--ink) !important;
+}
+#react-viewer [data-panel-type="info"]::before {
+  content: 'PROCEDURAL REMINDER';
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+#react-viewer [data-panel-type="info"] svg { color: var(--ink) !important; }
+
+/* WARNING — a cross-reference, on bone */
+#react-viewer [data-panel-type="warning"] {
+  background: var(--bone) !important;
+  border-left: 3px solid var(--steel-dark) !important;
+}
+#react-viewer [data-panel-type="warning"]::before {
+  content: 'SEE ALSO';
+  background: var(--wall);
+  color: var(--fg-2);
+  border-color: var(--steel-dark);
+}
+#react-viewer [data-panel-type="warning"] svg { color: var(--slate) !important; }
+
+/* NOTE — Concerned Citizen handwritten insertion */
+#react-viewer [data-panel-type="note"] {
+  background: var(--pantone-700) !important;   /* rose paper */
+  color: var(--ink) !important;
+  font-family: 'Caveat', 'Bradley Hand', cursive !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  transform: rotate(-0.4deg);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.10),
+    0 16px 32px -18px rgba(0,0,0,0.28);
+  padding: 26px 28px 22px !important;
+  margin: 44px 0 !important;
+  border-top: 1px dashed rgba(26,29,34,0.18) !important;
+  border-bottom: 1px dashed rgba(26,29,34,0.18) !important;
+}
+#react-viewer [data-panel-type="note"]::before {
+  content: 'UNAUTHORIZED INSERTION';
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  font-family: var(--font-text);
+  transform: rotate(0.4deg); /* cancel the parent rotation so the stamp sits straight */
+}
+#react-viewer [data-panel-type="note"] .panel-icon { display: none; }
+#react-viewer [data-panel-type="note"] em {
+  font-style: normal !important;   /* the handwriting font is informal enough */
+  font-family: inherit !important;
+}
+#react-viewer [data-panel-type="note"] strong {
+  font-weight: 700;
+  font-family: inherit;
+}
+#react-viewer [data-panel-type="note"] a {
+  color: var(--lumon-blue-deep);
+  text-decoration-style: wavy;
+}
+
+/* ---------- IMAGES ---------- */
+#react-viewer figure { margin: 32px 0; }
+#react-viewer figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  box-shadow: var(--shadow-card);
+  border-radius: 0;
+}
+
+/* ---------- BACK LINKS (top of every page) ---------- */
+#react-viewer > p:first-child {
+  font-family: var(--font-text);
+  font-size: var(--t-small);
+  color: var(--fg-2);
+  margin-bottom: 8px;
+}
+#react-viewer > p:first-child a {
+  color: var(--fg-2);
+}
+
+/* ---------- LegendKeeper TOC extension block — hide placeholder ---------- */
+[data-extension-key="block-toc"] { display: none; }
