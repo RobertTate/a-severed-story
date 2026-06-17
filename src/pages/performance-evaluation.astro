@@ -1,53 +1,17 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Performance Evaluation
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Performance Evaluation</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Performance Evaluation" headVoice="publisher">
         <div data-voice="publisher">
+        <BinderHoles />
+        <Backlink />
           <blockquote>
             <p><span>Every employee grows. Over a career on the severed floor, your employee
                 earns the recognition of Lumon and climbs a ladder of standing, responsibility, and trust. In </span><a
-                href="a-severed-story.html">A Severed Story</a><span>, that ladder is measured in
+                href="/a-severed-story">A Severed Story</a><span>, that ladder is measured in
               </span><strong><span>Kier Points</span></strong><span>, and this chapter shows you how to climb it.</span>
             </p>
           </blockquote>
@@ -105,7 +69,7 @@
               <p><strong><u><span>Why row placement matters</span></u></strong></p>
               <p><span>Points placed in a row are added to that row&#x27;s Core Principle Rolls
                   — see </span><strong><span>The Roll</span></strong><span> in </span><a
-                  href="procedural-guidelines.html">Procedural Guidelines</a><span>. Row placement turns
+                  href="/procedural-guidelines">Procedural Guidelines</a><span>. Row placement turns
                   your roleplay choices into mechanical specialization: the shape of an employee&#x27;s career becomes
                   the
                   shape of their character sheet.</span></p>
@@ -253,7 +217,7 @@
           <hr />
           <p><strong><span>Demerits</span></strong><span> are tracked separately from Kier
               Points. They accumulate toward </span><strong><span>Termination</span></strong><span> (see
-            </span><strong><span>Burnout</span></strong><span> in </span><a href="procedural-guidelines.html">Procedural
+            </span><strong><span>Burnout</span></strong><span> in </span><a href="/procedural-guidelines">Procedural
               Guidelines</a><span>).</span></p>
           <p><span>A Demerit is most often issued as a consequence of Burnout. The GM may also
               issue one at any time should an employee do something Lumon judges unforgivable, even absent
@@ -263,7 +227,7 @@
           <hr />
           <h1><span>On Advancement and &quot;Winning&quot;</span></h1>
           <hr />
-          <p><span>Reaching Department Chief is not &quot;winning.&quot; </span><a href="a-severed-story.html">A Severed
+          <p><span>Reaching Department Chief is not &quot;winning.&quot; </span><a href="/a-severed-story">A Severed
               Story</a><span> has no win condition and no finish
               line. The Tiers exist to </span><em><span>equip</span></em><span> your employee; the story your GM builds,
               and the choices you make within it, are the game itself. Advancement is a tool, never a trophy.</span></p>
@@ -546,16 +510,11 @@
             <div>
               <p><em><span>That is my ladder. Walk it carefully, and trust slowly. If you want to
                     know how Lumon hunts the people who walk it, the GM keeps a set of pages they call
-                  </span></em><a href="classified.html"><em><span>Classified</span></em></a><em><span> —
+                  </span></em><a href="/classified"><em><span>Classified</span></em></a><em><span> —
                     that is where I have hidden the most.</span></em></p>
               <p><em><strong><span>— Concerned Citizen</span></strong></em></p>
             </div>
           </div>
         </div>
         <p></p>
-      </div>
-    </div>
-    <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>

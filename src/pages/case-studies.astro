@@ -1,54 +1,18 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Case Studies
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Case Studies</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Case Studies" headVoice="publisher">
         <div data-voice="publisher">
+        <BinderHoles />
+        <Backlink />
           <h2><span>(Worked Examples of Play)</span></h2>
           <blockquote>
-            <p><span>The surest way to learn </span><a href="a-severed-story.html">A Severed Story</a><span> is to watch a workday unfold. What follows are a few worked
+            <p><span>The surest way to learn </span><a href="/a-severed-story">A Severed Story</a><span> is to watch a workday unfold. What follows are a few worked
                 examples — scenes narrated as they might happen at your table, with every Roll laid bare. Read them with
-              </span><a href="procedural-guidelines.html">Procedural Guidelines</a><span> close at
+              </span><a href="/procedural-guidelines">Procedural Guidelines</a><span> close at
                 hand.</span></p>
           </blockquote>
           <hr />
@@ -136,7 +100,7 @@
             </span><em><span>resolved
                 through play</span></em><span> first.</span></p>
           <p><span>One natural 1 has turned a small slight into a thread the GM can pull for
-              workdays to come. That is the engine of </span><a href="a-severed-story.html">A Severed
+              workdays to come. That is the engine of </span><a href="/a-severed-story">A Severed
               Story</a><span> doing its work.</span></p>
           <div data-panel-type="note">
             <div><svg
@@ -174,15 +138,10 @@
           </div>
           <hr />
           <hr />
-          <p><span>That is play in </span><a href="a-severed-story.html">A
+          <p><span>That is play in </span><a href="/a-severed-story">A
               Severed Story</a><span>. The rest is the story you and your
               players tell with it.</span></p>
           <p><span>Enjoy your time within these hallowed halls!</span></p>
           <p></p>
         </div>
-      </div>
-    </div>
-  <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>

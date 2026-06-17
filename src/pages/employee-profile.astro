@@ -1,52 +1,14 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Employee Profile
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Employee Profile</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Employee Profile">
         <div>
           <div></div>
         </div>
         <div data-voice="orientation">
+        <Backlink />
         <p><span>Lumon Industries prides itself on hiring practices that are designed to
             accommodate all who seek to walk through our halls.</span></p>
         <p><span>To ensure we succeed in that endeavor, our </span><strong><span>Human Resources
@@ -241,7 +203,7 @@
               (LIEP)</span></strong></h1>
         <figure><img width="2000" height="2000"
             alt="embedded image" draggable="false"
-            src="liep.png" title="Attachment" /></figure>
+            src="/assets/liep.png" title="Attachment" /></figure>
         <p><span>All new hires are required to complete their
           </span><strong><span>LIEP</span></strong><span> during their first week of employment on a severed floor.
           </span></p>
@@ -275,7 +237,7 @@
         <h3><span>Assessment of Corporate Persona</span></h3>
         <p><span>Please use this space to designate the </span><strong><span>Corporate
               Persona</span></strong><span> determined by our HRPE’s. More information on this evaluation can be found
-            in the next section of this orientation guide, entitled &quot;</span><a href="corporate-personas.html">Corporate Personas</a><span>&quot;.</span></p>
+            in the next section of this orientation guide, entitled &quot;</span><a href="/corporate-personas">Corporate Personas</a><span>&quot;.</span></p>
         <hr />
         <h3><span>Temper Analysis Chart</span></h3>
         <p><span>The </span><strong><span>Temper Analysis Chart</span></strong><span> lies just
@@ -309,7 +271,7 @@
             </svg> </div>
           <div>
             <p><strong><u><span>Confidence Vs. Hesitance</span></u></strong></p>
-            <p><span>The Confidence / Hesitance System in </span><a href="a-severed-story.html">A Severed Story</a><span> sets up a boom or bust approach to certain rolls. Should you
+            <p><span>The Confidence / Hesitance System in </span><a href="/a-severed-story">A Severed Story</a><span> sets up a boom or bust approach to certain rolls. Should you
                 make a roll with </span><strong><span>Confidence</span></strong><span>, you roll using two d20&#x27;s,
                 and use the higher of the two dice as the base result for your roll.</span></p>
             <p><span>Conversely, rolling with </span><strong><span>Hesitance
@@ -425,15 +387,10 @@
         <hr />
         <hr />
         <p><span>Thank you for taking the time to read through this chapter thoroughly. Next we
-            will dive into the Lumon </span><a href="corporate-personas.html">Corporate
+            will dive into the Lumon </span><a href="/corporate-personas">Corporate
             Personas</a><span>, which will unveil much meaningful context into your life on our severed floor.</span>
         </p>
         </div>
         <h1></h1>
         <p></p>
-      </div>
-    </div>
-  <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>

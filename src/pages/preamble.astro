@@ -1,49 +1,13 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Preamble
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Preamble</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Preamble" headVoice="publisher">
         <div data-voice="publisher">
+        <BinderHoles />
+        <Backlink />
         <hr />
         <hr />
         <p><span>In recent months, controversy has sparked across </span><a
@@ -71,7 +35,7 @@
             development, </span><a
             href="https://severance.wiki/lumon_industries"><span>Lumon</span></a><span>&#x27;s Public Relations
             department has come up with delightful solution that utilizes the power of play and imagination.</span></p>
-        <p><span>Welcome to </span><a href="a-severed-story.html">A Severed
+        <p><span>Welcome to </span><a href="/a-severed-story">A Severed
             Story</a><span> - a light-hearted role-playing game system for describing the wonders of &quot;innie&quot;
             life within the walls of </span><a
             href="https://severance.wiki/lumon_industries"><span>Lumon</span></a><span>! In this document you will find
@@ -96,7 +60,7 @@
                   even torturous.</span></em></p>
             <p><em><span>As you continue reading this &quot;rules document&quot;, please look
                   for the notes I&#x27;ve left behind within the pages. I&#x27;ve risked my safety to desecrate as many
-                  copies of </span></em><a href="a-severed-story.html">A Severed Story</a><em><span>
+                  copies of </span></em><a href="/a-severed-story">A Severed Story</a><em><span>
                   that I could get my hands on. My goal is to essentially augment the rules of this so-called
                   &quot;game&quot; so as to reveal what life at Lumon is truly like.</span></em></p>
             <p><em><span>Don&#x27;t be fooled by this propaganda. Look for my notes.</span></em>
@@ -107,9 +71,4 @@
         </div>
         </div>
         <p></p>
-      </div>
-    </div>
-  <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>

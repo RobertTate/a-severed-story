@@ -1,51 +1,15 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Procedural Guidelines
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Procedural Guidelines</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Procedural Guidelines" headVoice="publisher">
         <div data-voice="publisher">
+        <BinderHoles />
+        <Backlink />
         <blockquote>
-          <p><span>Welcome to the heart of </span><a href="a-severed-story.html">A Severed Story</a><span>. The chapters before this one introduced you to Lumon, and
+          <p><span>Welcome to the heart of </span><a href="/a-severed-story">A Severed Story</a><span>. The chapters before this one introduced you to Lumon, and
               future chapters
               will help you build your employee. <strong>Here, we explain how the game is actually played</strong> — the actions an
               employee may attempt, the consequences they invite, and the qualities of your character that tip the
@@ -61,7 +25,7 @@
             </svg> </div>
           <div>
             <p><span>Character creation will be handled in the </span><a
-                href="employee-profile.html">Employee Profile</a><span> section.</span></p>
+                href="/employee-profile">Employee Profile</a><span> section.</span></p>
           </div>
         </div>
         <div data-panel-type="warning">
@@ -74,7 +38,7 @@
             </svg> </div>
           <div>
             <p><span>Character advancement will be handled in the </span><a
-                href="performance-evaluation.html">Performance Evaluation</a><span> section.</span></p>
+                href="/performance-evaluation">Performance Evaluation</a><span> section.</span></p>
           </div>
         </div>
         <div data-panel-type="warning">
@@ -87,18 +51,18 @@
             </svg> </div>
           <div>
             <p><span>Story Advancement will be handled in the </span><a
-                href="day-to-day-operations.html">Day To Day Operations</a><span> section.</span></p>
+                href="/day-to-day-operations">Day To Day Operations</a><span> section.</span></p>
           </div>
         </div>
         <p><span>With those pointers in hand, let us turn to the mechanics of play.</span></p>
         <hr />
         <h1><span>The Roll</span></h1>
         <hr />
-        <p><span>Most of your time in </span><a href="a-severed-story.html">A
+        <p><span>Most of your time in </span><a href="/a-severed-story">A
             Severed Story</a><span> is spent simply living the life of an innie. Now and then,
             though, your employee attempts something whose outcome is genuinely uncertain — and where the stakes
             matter. When that moment comes, your GM calls for a </span><strong><span>Roll</span></strong><span>. The
-            Roll is the core of play in </span><a href="a-severed-story.html">A Severed
+            Roll is the core of play in </span><a href="/a-severed-story">A Severed
             Story</a><span>, and we have kept it simple. Every Roll follows the same four steps:</span></p>
         <ul>
           <li>
@@ -114,7 +78,7 @@
           <li>
             <p><span>The employee adds all applicable </span><strong><span>Modifiers
                 </span></strong><span>from the row of their LIEP (see </span><a
-                href="employee-profile.html">Employee Profile</a><span>) corresponding to that Principle&#x27;s <strong>Parent
+                href="/employee-profile">Employee Profile</a><span>) corresponding to that Principle&#x27;s <strong>Parent
                 Temper</strong>.</span></p>
           </li>
           <li>
@@ -137,7 +101,7 @@
             <p><span>Confidence and Hesitance modify the </span><em><span>d20 result
                   only</span></em><span> — Modifiers are added after the die is read. See
               </span><strong><span>Confidence
-                  Vs. Hesitance</span></strong><span> in the </span><a href="employee-profile.html">Employee Profile</a><span> for the full Confidence and Hesitance rules.</span></p>
+                  Vs. Hesitance</span></strong><span> in the </span><a href="/employee-profile">Employee Profile</a><span> for the full Confidence and Hesitance rules.</span></p>
           </div>
         </div>
         <h2><span>Identifying the Core Principle</span></h2>
@@ -274,7 +238,7 @@
             their discretion, and may use a Critical Failure as a natural moment to introduce a
           </span><strong><span>Problem</span></strong><span> or </span><strong><span>Serious
               Problem</span></strong><span>
-            (see </span><a href="employee-profile.html">Employee Profile</a><span>).</span></p>
+            (see </span><a href="/employee-profile">Employee Profile</a><span>).</span></p>
         <hr />
         <h1><span>When to Roll</span></h1>
         <hr />
@@ -325,7 +289,7 @@
             <p><span>Certain </span><strong><span>Special Attributes</span></strong><span> are
                 gated by Stress Range — for example, the Closer&#x27;s </span><em><span>Inappropriate
                   Outburst</span></em><span> requires </span><strong><span>Poor</span></strong><span> or
-              </span><strong><span>Terrible</span></strong><span> (see </span><a href="corporate-personas.html">Corporate Personas</a><span>).</span></p>
+              </span><strong><span>Terrible</span></strong><span> (see </span><a href="/corporate-personas">Corporate Personas</a><span>).</span></p>
           </li>
           <li>
             <p><span>The GM may impose </span><strong><span>Hesitance</span></strong><span> on
@@ -342,7 +306,7 @@
         <p><span>For daily stress recovery, </span><strong><span>Problems</span></strong><span>,
             and </span><strong><span>Serious Problems</span></strong><span>, see the </span><strong><span>Assessment of
               Current Stress Levels</span></strong><span> and </span><strong><span>Stress Related
-              Circumstances</span></strong><span> sections of the </span><a href="employee-profile.html">Employee Profile</a><span>.</span></p>
+              Circumstances</span></strong><span> sections of the </span><a href="/employee-profile">Employee Profile</a><span>.</span></p>
         <hr />
         <h1><span>Burnout</span></h1>
         <hr />
@@ -405,14 +369,9 @@
         </div>
         <hr />
         <hr />
-        <p><span>That is the core of play in </span><a href="a-severed-story.html">A Severed Story</a><span>. From here, turn to </span><a href="day-to-day-operations.html">Day to Day Operations</a><span> for guidance on running the workday, or </span><a
-            href="performance-evaluation.html">Performance Evaluation</a><span> to see how an employee
+        <p><span>That is the core of play in </span><a href="/a-severed-story">A Severed Story</a><span>. From here, turn to </span><a href="/day-to-day-operations">Day to Day Operations</a><span> for guidance on running the workday, or </span><a
+            href="/performance-evaluation">Performance Evaluation</a><span> to see how an employee
             grows over a career on the severed floor.</span></p>
         </div>
         <p></p>
-      </div>
-    </div>
-  <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>

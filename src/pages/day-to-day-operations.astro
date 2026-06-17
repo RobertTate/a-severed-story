@@ -1,49 +1,13 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Day To Day Operations
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Day To Day Operations</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Day to Day Operations" headVoice="publisher">
         <div data-voice="publisher">
+        <BinderHoles />
+        <Backlink />
         <h2><span>(Running the Workday)</span></h2>
         <blockquote>
           <p><span>This chapter is for the GM. It lays out the shape of a typical workday on
@@ -264,7 +228,7 @@
                 narrative beat</span></strong><span>. An employee who delivers an impeccable quarter — meeting quota
             each workday, never missing a beat — has earned the recognition of management. In such a moment, a Floor
             Manager may elevate the routine into a story beat and award a </span><strong><span>Kier
-              Point</span></strong><span>, in line with the </span><a href="performance-evaluation.html">Earning Kier Points</a><span> rules.</span></p>
+              Point</span></strong><span>, in line with the </span><a href="/performance-evaluation">Earning Kier Points</a><span> rules.</span></p>
         <p><span>Points are awarded at the GM&#x27;s discretion, in the moment.</span></p>
         <hr />
         <h1><span>Stress During the Workday</span></h1>
@@ -272,7 +236,7 @@
         <p><span>Stress is </span><strong><span>GM discretion</span></strong><span>. The events
             on these tables do not impose stress automatically. Add (or relieve) stress when the moment calls for it —
             see the </span><strong><span>Stress</span></strong><span> and </span><strong><span>Outcomes</span></strong><span>
-            sections of </span><a href="procedural-guidelines.html">Procedural Guidelines</a><span>.</span></p>
+            sections of </span><a href="/procedural-guidelines">Procedural Guidelines</a><span>.</span></p>
         <p><span>A long string of interruptions may justify a stress increase. A graceful
             navigation of a Management Visit may justify a reduction. You are the judge.</span></p>
         </div>
@@ -361,16 +325,11 @@
           <div>
             <p><em><span>That is the floor as it is, not as they present it. If you want to know
                   what hunts the ones who start to notice, the GM keeps a set of pages they call
-                </span></em><a href="classified.html"><em><span>Classified</span></em></a><em><span> —
+                </span></em><a href="/classified"><em><span>Classified</span></em></a><em><span> —
                   that is where I have hidden the rest.</span></em></p>
             <p><em><strong><span>— Concerned Citizen</span></strong></em></p>
           </div>
         </div>
         </div>
         <p></p>
-      </div>
-    </div>
-  <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>

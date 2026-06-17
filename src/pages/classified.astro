@@ -1,59 +1,23 @@
-<!DOCTYPE html>
-<html>
+---
+import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
+import Backlink from '../components/Backlink.astro';
+---
 
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Classified
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="lumon.css" />
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html">
-      <img src="lumon-globe-black.png" alt="Lumon Industries" />
-      <span>A Severed Story</span>
-    </a>
-    <details>
-      <summary>Chapters</summary>
-      <ul>
-        <li><a href="a-severed-story.html">Table of Contents</a></li>
-        <li><a href="preamble.html">Preamble</a></li>
-        <li><a href="company-overview.html">Company Overview</a></li>
-        <li><a href="procedural-guidelines.html">Procedural Guidelines</a></li>
-        <li><a href="employee-profile.html">Employee Profile</a></li>
-        <li><a href="corporate-personas.html">Corporate Personas</a></li>
-        <li><a href="suggested-motivational-quotes.html">Suggested Motivational Quotes</a></li>
-        <li><a href="performance-evaluation.html">Performance Evaluation</a></li>
-        <li><a href="day-to-day-operations.html">Day to Day Operations</a></li>
-        <li><a href="classified.html">Classified</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="reference-index.html">Reference Index</a></li>
-        <li><a href="closing-remarks.html">Closing Remarks</a></li>
-      </ul>
-    </details>
-  </nav>
-  <div>
-    <h1>Classified</h1>
-    <div id='Main'>
-
-      <div id="react-viewer">
-        <p><span>&lt;-- Back to </span><a href="a-severed-story.html">A
-            Severed Story</a><span> Table of Contents</span></p>
+<ChapterLayout title="Classified" headVoice="publisher">
         <div data-voice="publisher">
+        <BinderHoles />
+        <Backlink />
           <h2><span>(Running the Game as the GM)</span></h2>
           <blockquote>
             <p><span>This chapter is for the GM. The rest of </span><a
-                href="a-severed-story.html">A Severed Story</a><span> belongs to everyone at the
+                href="/a-severed-story">A Severed Story</a><span> belongs to everyone at the
                 table; these pages are yours
                 alone. Here is the toolkit for running a severed floor — the levers of standing and reward, the people
                 and places that fill the world, and the events you can stage to bring a workday to life.</span></p>
             <p><strong><span>Players: this is the one chapter to skip.</span></strong><span>
                 Half of
-                the delight of </span><a href="a-severed-story.html">A Severed Story</a><span> is not
+                the delight of </span><a href="/a-severed-story">A Severed Story</a><span> is not
                 knowing what your GM knows. Let them keep it.</span></p>
           </blockquote>
           <div data-panel-type="note">
@@ -138,6 +102,7 @@
           </div>
         </div>
         <div data-voice="publisher">
+        <BinderHoles />
           <h1><span>Departmental Standing</span></h1>
           <p><span>A department is judged by the individual, <strong>and</strong> as a whole. As
               such, Lumon measures a team&#x27;s collective reputation as its </span><strong><span>Departmental
@@ -307,6 +272,7 @@
           </div>
         </div>
         <div data-voice="publisher">
+        <BinderHoles />
           <h1><span>The People of the Floor</span></h1>
           <p><span>A severed floor is full of figures of authority, each devoted to the company
               and to the employees in their care. The system is light on numbers; rather than statblocks, here is how to
@@ -578,6 +544,7 @@
               shift toward a truth Lumon would rather keep buried.</span></p>
         </div>
         <div data-voice="publisher">
+        <BinderHoles />
           <h1><span>Spaces of the Severed Floor</span></h1>
           <p><span>A severed floor is a bright and pleasant place to spend a working day. Below
               are the spaces you may build into your floor, each with a note on its use at the table. Develop more of
@@ -643,6 +610,7 @@
           </ul>
         </div>
         <div data-voice="publisher">
+        <BinderHoles />
           <hr />
           <h1><span>Corporate Events</span></h1>
           <hr />
@@ -716,13 +684,8 @@
           <hr />
           <p><span>That is the toolkit. The rest is yours — run it well. Remember that the employees in your care are people, even the ones
               who live only eight hours a day.</span></p>
-          <p><span>For worked examples of play, see </span><a href="case-studies.html">Case Studies</a><span>. For definitions of terms, see the </span><a
-              href="reference-index.html">Reference Index</a><span>.</span></p>
+          <p><span>For worked examples of play, see </span><a href="/case-studies">Case Studies</a><span>. For definitions of terms, see the </span><a
+              href="/reference-index">Reference Index</a><span>.</span></p>
         </div>
         <p></p>
-      </div>
-    </div>
-  <script src="lumon.js"></script>
-</body>
-
-</html>
+</ChapterLayout>
