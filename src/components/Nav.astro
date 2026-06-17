@@ -1,0 +1,37 @@
+---
+// The shared handbook header: Lumon globe + wordmark on the left, the current
+// chapter name and the Chapters dropdown grouped on the right.
+//
+// The `.nav-right` grouping (page name beside the dropdown) used to be assembled
+// at runtime by lumon.js' pageNameInNav(); it is now authored directly here.
+import { chapters } from '../data/chapters';
+
+interface Props {
+  /** Title of the page currently being viewed, shown beside the dropdown. */
+  pageTitle?: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<nav>
+  <a href="/">
+    <img src="/assets/lumon-globe-black.png" alt="Lumon Industries" />
+    <span>A Severed Story</span>
+  </a>
+  <div class="nav-right">
+    {pageTitle && <span class="nav-page">{pageTitle}</span>}
+    <details>
+      <summary>Chapters</summary>
+      <ul>
+        {
+          chapters.map((c) => (
+            <li>
+              <a href={`/${c.slug}`}>{c.navTitle ?? c.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </details>
+  </div>
+</nav>
