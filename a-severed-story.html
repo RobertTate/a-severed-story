@@ -3,21 +3,71 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="styles.css" />
-  <link rel="stylesheet" type="text/css" href="lumon.css" />
   <title>
     A Severed Story
   </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="lumon.css" />
+  <style>
+    /* The Table of Contents page speaks in the PUBLISHER voice (the blue
+       title-card identity). Below: TOC-specific tuning so the chapter index
+       reads as a clean list on the blue field rather than a heavy rules panel. */
+    [data-voice="publisher"].toc>h1::before {
+      content: none;
+    }
+
+    /* no § counter on the contents title */
+    [data-voice="publisher"].toc>blockquote {
+      margin: var(--space-6) 0 var(--space-7);
+      padding: 0;
+      background: none;
+      border: none;
+      border-left: none;
+    }
+
+    [data-voice="publisher"].toc>blockquote h2 {
+      margin: 0;
+      padding: var(--space-5) 0 4px;
+      border-top: 1px solid rgba(244, 243, 238, 0.22);
+      font-family: var(--font-display);
+      font-weight: var(--w-light);
+      font-size: clamp(21px, 2.4vw, 29px);
+      letter-spacing: -0.01em;
+      color: var(--paper);
+    }
+
+    [data-voice="publisher"].toc>blockquote h2 a {
+      color: var(--paper);
+      font-weight: var(--w-light);
+      text-decoration: none;
+      transition: opacity 140ms ease;
+    }
+
+    [data-voice="publisher"].toc>blockquote h2 a:hover {
+      opacity: 0.58;
+    }
+
+    [data-voice="publisher"].toc>blockquote>p {
+      margin: 0 0 var(--space-4);
+    }
+
+    [data-voice="publisher"].toc>blockquote sup {
+      font-size: 14px;
+      font-style: italic;
+      letter-spacing: 0;
+      color: rgba(244, 243, 238, 0.64);
+    }
+  </style>
 </head>
 
 <body>
 
-  <nav class="site-nav">
-    <a class="site-nav__brand" href="index.html">
-      <img src="lumon-design-system/assets/lumon-globe-black.png" alt="Lumon Industries" />
+  <nav>
+    <a href="index.html">
+      <img src="lumon-globe-black.png" alt="Lumon Industries" />
       <span>A Severed Story</span>
     </a>
-    <details class="site-nav__menu">
+    <details>
       <summary>Chapters</summary>
       <ul>
         <li><a href="a-severed-story.html">Table of Contents</a></li>
@@ -36,56 +86,53 @@
       </ul>
     </details>
   </nav>
-  <div class='page-container'>
-    <h1 class='page-title'>A Severed Story</h1>
-    <div class='mt-6' id='Main'>
-
-      <div id="react-viewer" class="ProseMirror whitespace-pre-wrap">
-        <p class="mt-4 first:mt-0"><span>Welcome to </span><a href="a-severed-story.html" class="underline">A Severed
-            Story</a><span> - a TTRPG system set in the world laid out by </span><a
-            class="underline cursor-pointer hover:underline text-blue-500"
-            href="https://severance.wiki/severance_tv_show"><span>Severance</span></a><span>, the Television
-            Series.</span></p>
-        <p class="mt-4 first:mt-0"><em><sup><span>The following passion project was created by Robert
-                Tate.</span></sup></em></p>
-        <h1 class="font-extrabold mt-5 first:mt-0"><span>Table of Contents</span></h1>
-        <blockquote class="bg-muted border-l-4 border-t-0 py-4 pl-4 mt-4 first:mt-0 flex flex-col rounded-lg">
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="preamble.html" class="underline">Preamble</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>A preparatory statement.</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="company-overview.html" class="underline">Company Overview</a>
-          </h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>An overview of Lumon Industries</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="procedural-guidelines.html" class="underline">Procedural
-              Guidelines</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>Rules and procedures for working on a Severed
-                  Floor.</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="employee-profile.html" class="underline">Employee Profile</a>
-          </h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>A document required for all new hires!</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="corporate-personas.html" class="underline">Corporate
-              Personas</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>The Lumon Industries personality exam!</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="performance-evaluation.html" class="underline">Performance
-              Evaluation</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>Career Advancement while at Lumon.</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="day-to-day-operations.html" class="underline">Day To Day
-              Operations</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>What to expect during your time at Lumon.</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="classified.html" class="underline">Classified</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>For GM (General Manager) eyes only. Do not read.</span></sup></em>
-          </p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="case-studies.html" class="underline">Case Studies</a></h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>Cautionary tales from other departments.</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="reference-index.html" class="underline">Reference Index</a>
-          </h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>A glossary of important terms and concepts.</span></sup></em></p>
-          <h2 class="font-bold  mt-5 first:mt-0"><a href="closing-remarks.html" class="underline">Closing Remarks</a>
-          </h2>
-          <p class="mt-4 first:mt-0"><em><sup><span>Closing Remarks.</span></sup></em></p>
-        </blockquote>
-        <p class="mt-4 first:mt-0"></p>
+  <div>
+    <h1>A Severed Story</h1>
+    <div id='Main'>
+      <div id="react-viewer">
+        <div data-voice="publisher" class="toc">
+          <p><em><sup>The TTRPG that explores the lives of our happiest employees: <strong>Severed
+                  Workers.</strong></sup></em></p>
+          <h1><span>Table of Contents</span></h1>
+          <blockquote>
+            <h2><a href="preamble.html">Preamble</a></h2>
+            <p><em><sup><span>A preparatory statement.</span></sup></em></p>
+            <h2><a href="company-overview.html">Company Overview</a>
+            </h2>
+            <p><em><sup><span>An overview of Lumon Industries</span></sup></em></p>
+            <h2><a href="procedural-guidelines.html">Procedural
+                Guidelines</a></h2>
+            <p><em><sup><span>Rules and procedures for working on a Severed
+                    Floor.</span></sup></em></p>
+            <h2><a href="employee-profile.html">Employee Profile</a>
+            </h2>
+            <p><em><sup><span>A document required for all new hires!</span></sup></em></p>
+            <h2><a href="corporate-personas.html">Corporate
+                Personas</a></h2>
+            <p><em><sup><span>The Lumon Industries personality exam!</span></sup></em></p>
+            <h2><a href="performance-evaluation.html">Performance
+                Evaluation</a></h2>
+            <p><em><sup><span>Career Advancement while at Lumon.</span></sup></em></p>
+            <h2><a href="day-to-day-operations.html">Day To Day
+                Operations</a></h2>
+            <p><em><sup><span>What to expect during your time at Lumon.</span></sup></em></p>
+            <h2><a href="classified.html">Classified</a></h2>
+            <p><em><sup><span>For GM (General Manager) eyes only. Do not read.</span></sup></em>
+            </p>
+            <h2><a href="case-studies.html">Case Studies</a></h2>
+            <p><em><sup><span>Cautionary tales from other departments.</span></sup></em></p>
+            <h2><a href="reference-index.html">Reference Index</a>
+            </h2>
+            <p><em><sup><span>A glossary of important terms and concepts.</span></sup></em></p>
+            <h2><a href="closing-remarks.html">Closing Remarks</a>
+            </h2>
+            <p><em><sup><span>Closing Remarks.</span></sup></em></p>
+          </blockquote>
+          <p></p>
+        </div>
       </div>
     </div>
+    <script src="lumon.js"></script>
 </body>
 
 </html>

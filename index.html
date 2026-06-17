@@ -3,215 +3,380 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A Severed Story · Lumon Industries</title>
-  <link rel="stylesheet" type="text/css" href="lumon-design-system/colors_and_type.css" />
+  <link rel="stylesheet" href="lumon.css" />
   <style>
-    html, body {
+    /* ========================================================================
+       COVER — reinvented from scratch against the Lumon design system.
+       The official Publisher artifact: a glossy corporate-blue title card,
+       a page pulled from a Lumon binder — with the saboteur's first
+       intrusion already taped to the corner.
+       ======================================================================== */
+    html,
+    body {
       margin: 0;
       padding: 0;
-      background: var(--ink);
-      color: var(--paper);
-      font-family: var(--font-text);
       min-height: 100vh;
+      background: var(--lumon-blue-deep);
     }
 
-    .cover {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      padding: 64px 48px;
-      box-sizing: border-box;
+    .cv {
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 40px clamp(28px, 6vw, 96px);
+      padding-left: clamp(56px, 8vw, 128px);
+      /* room for the binder margin */
+      background: var(--lumon-blue);
+      color: var(--paper);
+      font-family: var(--font-text);
     }
 
-    /* a soft fluorescent overhead light — the only "depth" allowed */
-    .cover::before {
+    /* flooded-blue title-card duotone: soft overhead light, darker corners */
+    .cv::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(
-        ellipse at 50% -10%,
-        rgba(255,255,255,0.06) 0%,
-        rgba(255,255,255,0) 60%
-      );
+      pointer-events: none;
+      background:
+        radial-gradient(120% 80% at 30% -10%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 46%),
+        radial-gradient(120% 120% at 100% 120%, rgba(11, 32, 64, 0.55), rgba(11, 32, 64, 0) 50%);
+    }
+
+    /* engraved keyline, like the border printed on a real Lumon page */
+    .cv::after {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      pointer-events: none;
+      border: 1px solid rgba(244, 243, 238, 0.16);
+    }
+
+    .cv>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ---- the punched binder margin ---- */
+    .cv__holes {
+      position: absolute;
+      z-index: 3;
+      left: clamp(20px, 3.4vw, 46px);
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(60px, 13vh, 120px);
       pointer-events: none;
     }
 
-    .cover__top {
+    .cv__holes i {
+      width: clamp(14px, 1.5vw, 20px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--lumon-blue-deep);
+      box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.55), inset 0 -1px 0 rgba(255, 255, 255, 0.10);
+    }
+
+    /* ---- header ---- */
+    .cv__head {
       display: flex;
       align-items: center;
-      gap: 12px;
-      width: 100%;
-      max-width: 960px;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-    .cover__top img { height: 32px; }
-    .cover__top span {
-      font-family: var(--font-text);
+
+    .cv__brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .cv__brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .cv__brand span {
       font-weight: var(--w-bold);
-      font-size: var(--t-eyebrow);
+      font-size: 12px;
       letter-spacing: var(--track-eyebrow);
       text-transform: uppercase;
       color: var(--paper);
     }
 
-    .cover__main {
-      text-align: center;
-      max-width: 720px;
-    }
-
-    .cover__eyebrow {
-      font-family: var(--font-text);
+    .cv__stamp {
       font-weight: var(--w-bold);
-      font-size: var(--t-eyebrow);
+      font-size: 11px;
       letter-spacing: var(--track-eyebrow);
       text-transform: uppercase;
-      color: var(--steel);
-      margin-bottom: 32px;
+      color: rgba(244, 243, 238, 0.62);
+      text-align: right;
     }
 
-    .cover__title {
-      font-family: var(--font-display);
+    /* ---- title block (editorial, hard-left) ---- */
+    .cv__main {
+      align-self: center;
+      max-width: none;
+      padding: 24px 0;
+    }
+
+    .cv__eyebrow {
       font-weight: var(--w-bold);
-      font-size: clamp(56px, 9vw, 104px);
-      line-height: 1.0;
-      letter-spacing: -0.015em;
+      font-size: clamp(11px, 1.1vw, 13px);
+      letter-spacing: var(--track-eyebrow);
+      text-transform: uppercase;
+      color: rgba(244, 243, 238, 0.72);
+      margin-bottom: clamp(22px, 3vh, 34px);
+    }
+
+    .cv__title {
+      font-family: var(--font-display-pub);
+      font-weight: var(--w-regular);
+      font-size: clamp(30px, min(7vw, 11vh), 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
       color: var(--paper);
-      margin: 0 0 28px;
+      margin: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
 
-    .cover__striped {
-      height: 9px;
-      width: 96px;
-      margin: 0 auto 28px;
-      background: repeating-linear-gradient(
-        to bottom,
-        var(--paper) 0 1px,
-        transparent 1px 3px
-      );
+    .cv__title b {
+      font-weight: var(--w-regular);
+      display: block;
     }
 
-    .cover__subtitle {
+    .cv__rule {
+      height: 10px;
+      width: 120px;
+      margin: clamp(26px, 4vh, 40px) 0 clamp(22px, 3vh, 30px);
+      background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
+    }
+
+    .cv__sub {
       font-family: var(--font-display);
       font-weight: var(--w-light);
       font-style: italic;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.35;
-      color: var(--bone);
-      margin: 0 0 48px;
+      font-size: clamp(17px, 1.7vw, 22px);
+      line-height: 1.4;
+      color: rgba(244, 243, 238, 0.92);
+      margin: 0;
+      max-width: 26ch;
     }
 
-    .cover__edition {
-      font-family: var(--font-text);
+    /* ---- footer ---- */
+    .cv__foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cv__property {
+      max-width: 42ch;
+    }
+
+    .cv__property .line1 {
       font-weight: var(--w-bold);
-      font-size: var(--t-eyebrow);
+      font-size: 11px;
       letter-spacing: var(--track-eyebrow);
       text-transform: uppercase;
-      color: var(--steel);
-      margin-bottom: 24px;
+      color: rgba(244, 243, 238, 0.62);
+      margin-bottom: 6px;
     }
 
-    .cover__cta {
+    .cv__property .line2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: var(--w-light);
+      font-size: 14px;
+      color: rgba(244, 243, 238, 0.62);
+    }
+
+    .cv__cta {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
+      gap: 14px;
+      padding: 15px 30px;
       background: var(--paper);
       color: var(--ink);
       text-decoration: none;
-      font-family: var(--font-text);
       font-weight: var(--w-bold);
-      font-size: var(--t-eyebrow);
+      font-size: 12px;
       letter-spacing: var(--track-eyebrow);
       text-transform: uppercase;
-      border: none;
-      border-radius: 0;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 12px 32px -16px rgba(255,255,255,0.05);
-      transition: background-color 200ms ease;
+      white-space: nowrap;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+      transition: transform 200ms ease, background-color 200ms ease;
     }
-    .cover__cta:hover { background: var(--wall); }
-    .cover__cta::after {
-      content: '';
-      width: 24px;
+
+    /* trailing arrow: a shaft (the line) + a chevron head pushed along by it */
+    .cv__cta-line {
+      width: 26px;
       height: 1px;
       background: var(--ink);
+      transition: width 200ms ease;
     }
 
-    .cover__footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      max-width: 960px;
-      text-align: center;
-    }
-    .cover__footer .property {
-      font-family: var(--font-text);
-      font-weight: var(--w-bold);
-      font-size: var(--t-caption);
-      letter-spacing: var(--track-eyebrow);
-      text-transform: uppercase;
-      color: var(--steel);
-    }
-    .cover__footer .attribution {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: var(--w-light);
-      font-size: var(--t-small);
-      color: var(--steel-dark);
+    .cv__cta::after {
+      content: '';
+      width: 7px;
+      height: 7px;
+      margin-left: -13px;
+      border-top: 1.5px solid var(--ink);
+      border-right: 1.5px solid var(--ink);
+      transform: rotate(45deg);
     }
 
-    /* ---- Mobile (portrait phones / narrow tablets) ---- */
-    @media (max-width: 720px) {
-      .cover {
-        justify-content: center;
-        gap: 72px;
-        padding: 48px 24px;
+    .cv__cta:hover {
+      background: var(--pure-white);
+    }
+
+    .cv__cta:hover .cv__cta-line {
+      width: 38px;
+    }
+
+    /* ---- the first intrusion: a C.C. ballpoint scrap, taped to the corner ---- */
+    .cv__scrap {
+      position: absolute;
+      z-index: 4;
+      right: clamp(24px, 5vw, 88px);
+      top: clamp(150px, 34vh, 320px);
+      width: clamp(200px, 20vw, 264px);
+      padding: 22px 22px 18px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.015), rgba(0, 0, 0, 0.06)), var(--manila);
+      color: var(--cc-ink);
+      transform: rotate(-3.5deg);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.18), 0 26px 44px -22px rgba(0, 0, 0, 0.7);
+      transition: transform 240ms cubic-bezier(.2, .7, .3, 1), box-shadow 240ms ease;
+    }
+
+    .cv__scrap:hover {
+      transform: rotate(-1.4deg) translateY(-4px);
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 34px 56px -24px rgba(0, 0, 0, 0.75);
+    }
+
+    .cv__scrap::before,
+    .cv__scrap::after {
+      content: '';
+      position: absolute;
+      top: -13px;
+      width: 86px;
+      height: 27px;
+      background: var(--tape);
+      border-left: 1px solid rgba(255, 255, 255, 0.4);
+      border-right: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
+    }
+
+    .cv__scrap::before {
+      left: 18px;
+      transform: rotate(-5deg);
+    }
+
+    .cv__scrap::after {
+      right: 18px;
+      transform: rotate(4deg);
+    }
+
+    .cv__scrap p {
+      font-family: var(--hand);
+      font-size: 19px;
+      line-height: 1.42;
+      margin: 0 0 0.5em;
+      color: var(--cc-ink);
+    }
+
+    .cv__scrap .sig {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    @media (max-width:720px) {
+      .cv {
+        grid-template-rows: auto 1fr auto;
+        padding: 28px 22px 28px 52px;
+        gap: 24px;
       }
-      .cover__title {
-        font-size: clamp(56px, 14vw, 88px);
-        line-height: 0.98;
+
+      .cv::after {
+        inset: 11px;
       }
-      .cover__subtitle {
-        font-size: 17px;
-        margin-bottom: 40px;
+
+      .cv__holes {
+        left: 16px;
+        gap: 64px;
       }
-      .cover__eyebrow {
-        margin-bottom: 24px;
+
+      .cv__brand span {
+        display: none;
       }
-      .cover__main {
-        width: 100%;
+
+      .cv__title {
+        font-size: clamp(30px, 11vw, 52px);
+      }
+
+      .cv__scrap {
+        position: static;
+        width: auto;
+        max-width: 300px;
+        margin: 14px 0 0;
+        transform: rotate(-2deg);
+      }
+
+      .cv__foot {
+        gap: 18px;
+      }
+    }
+
+    @media (max-height:560px) {
+      .cv__scrap {
+        display: none;
+      }
+
+      .cv__main {
+        padding: 8px 0;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="cover">
-    <div class="cover__top">
-      <img src="lumon-design-system/assets/lumon-globe-white.png" alt="Lumon Industries" />
-      <span>Lumon Industries</span>
-    </div>
+  <main class="cv">
+    <div class="cv__holes" aria-hidden="true"><i></i><i></i><i></i></div>
 
-    <div class="cover__main">
-      <div class="cover__eyebrow">An Orientation Guide</div>
-      <h1 class="cover__title">A Severed Story</h1>
-      <div class="cover__striped"></div>
-      <p class="cover__subtitle">
-        A Tabletop Roleplaying Handbook<br />
-        for Severed Floor Employees
-      </p>
-      <a class="cover__cta" href="a-severed-story.html">Begin Orientation</a>
-    </div>
+    <header class="cv__head">
+      <div class="cv__brand">
+        <img src="lumon-globe-white.png" alt="Lumon Industries" />
+        <span>Lumon Industries</span>
+      </div>
+      <div class="cv__stamp">Refined for Innie Enrichment<br />Severed Series &middot; Edition I</div>
+    </header>
 
-    <div class="cover__footer">
-      <div class="property">Property of Lumon Industries</div>
-      <div class="attribution">A passion project by Robert Tate. Praise Kier.</div>
-    </div>
+    <section class="cv__main">
+      <div class="cv__eyebrow">Orientation Guide</div>
+      <h1 class="cv__title">A Severed<b>Story</b></h1>
+      <div class="cv__rule" aria-hidden="true"></div>
+      <p class="cv__sub">A tabletop roleplaying game exploring the lives of Lumon's happiest team members.</p>
+    </section>
+
+    <footer class="cv__foot">
+      <div class="cv__property">
+        <div class="line1">Property of Lumon Industries</div>
+        <div class="line2">A passion project by Robert Tate. Not intended for Commercial Use. Praise Kier.</div>
+      </div>
+      <a class="cv__cta" href="a-severed-story.html"><span>Begin Orientation</span><i class="cv__cta-line"
+          aria-hidden="true"></i></a>
+    </footer>
   </main>
 </body>
 
