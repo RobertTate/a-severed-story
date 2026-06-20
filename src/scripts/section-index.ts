@@ -22,12 +22,6 @@ interface Entry {
   voice?: Voice;
 }
 
-const VOICE_NAME: Record<string, string> = {
-  publisher: 'THE PUBLISHER',
-  orientation: 'ORIENTATION',
-  citizen: 'CONCERNED CITIZEN',
-};
-
 function slugify(s: string, used: Record<string, boolean>): string {
   const base =
     (s || '')
@@ -45,7 +39,19 @@ function slugify(s: string, used: Record<string, boolean>): string {
   return id;
 }
 
+// Cleanup hook for the previous build. `window` survives view-transition
+// navigations, so without this each navigation would stack another scroll
+// listener bound to a now-detached directory.
+let detachScroll: (() => void) | null = null;
+
 function buildSectionIndex(): void {
+  // tear down the previous page's directory + scroll-spy before rebuilding
+  if (detachScroll) {
+    detachScroll();
+    detachScroll = null;
+  }
+  document.querySelector('.page-index')?.remove();
+
   const viewer = document.getElementById('react-viewer');
   const chapter = document.querySelector<HTMLElement>('body > nav ~ div > h1');
   if (!viewer) return;
@@ -60,8 +66,9 @@ function buildSectionIndex(): void {
     entries.push({ el: chapter, level: 1, text: (chapter.textContent || '').trim() });
   }
 
-  // section headings inside the content (skip TOC lists & cross-page links)
-  const heads = viewer.querySelectorAll<HTMLElement>('h1, h2, h3');
+  // section headings inside the content (skip TOC lists & cross-page links).
+  // Content begins at <h2> now (the page's only <h1> is the title card above).
+  const heads = viewer.querySelectorAll<HTMLElement>('h2, h3, h4');
   heads.forEach((h) => {
     if (h.closest('blockquote')) return; // pull-quotes / TOC list
     const txt = (h.textContent || '').trim();
@@ -76,8 +83,11 @@ function buildSectionIndex(): void {
 
   if (entries.length < 3) return; // not worth an index
 
-  // normalise levels to 1..3 for indentation
-  const minLvl = Math.min(...entries.map((e) => e.level));
+  // normalise levels to 1..3 for indentation. The indentation baseline comes
+  // from the in-content headings only — the chapter title is always the top
+  // level — so top sections stay flush even though content begins at <h2>.
+  const contentLvls = entries.filter((e) => e.el !== chapter).map((e) => e.level);
+  const minLvl = contentLvls.length ? Math.min(...contentLvls) : 1;
 
   const aside = document.createElement('aside');
   aside.className = 'page-index';
@@ -85,7 +95,7 @@ function buildSectionIndex(): void {
 
   const head = document.createElement('div');
   head.className = 'page-index__head';
-  head.textContent = 'Floor Directory';
+  head.textContent = 'Directory';
   aside.appendChild(head);
 
   const list = document.createElement('nav');
@@ -95,7 +105,7 @@ function buildSectionIndex(): void {
   entries.forEach((e) => {
     const a = document.createElement('a');
     a.href = '#' + e.el.id;
-    a.setAttribute('data-level', String(Math.min(3, e.level - minLvl + 1)));
+    a.setAttribute('data-level', String(e.el === chapter ? 1 : Math.min(3, e.level - minLvl + 1)));
     a.textContent = e.text;
     list.appendChild(a);
     e.link = a;
@@ -119,7 +129,6 @@ function buildSectionIndex(): void {
   // mark whether the page mixes voices at all — drives the transition styling
   const multiVoice = entries.some((e) => e.voice !== entries[0].voice);
   aside.setAttribute('data-active-voice', entries[0].voice!);
-  head.setAttribute('data-voice-name', VOICE_NAME[entries[0].voice!] || '');
   if (multiVoice) aside.setAttribute('data-multi-voice', '');
 
   document.body.appendChild(aside);
@@ -144,7 +153,6 @@ function buildSectionIndex(): void {
     const v = entries[found].voice!;
     if (v !== curVoice) {
       aside.setAttribute('data-active-voice', v);
-      head.setAttribute('data-voice-name', VOICE_NAME[v] || '');
       curVoice = v;
     }
     // keep the active row visible inside a scrolling index
@@ -159,23 +167,19 @@ function buildSectionIndex(): void {
     }
   }
   let ticking = false;
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        onScroll();
-        ticking = false;
-      });
-    },
-    { passive: true }
-  );
+  const onScrollThrottled = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
+    });
+  };
+  window.addEventListener('scroll', onScrollThrottled, { passive: true });
+  detachScroll = () => window.removeEventListener('scroll', onScrollThrottled);
   onScroll();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', buildSectionIndex);
-} else {
-  buildSectionIndex();
-}
+// `astro:page-load` fires after the initial load AND after every view-transition
+// navigation, so the directory is rebuilt for each chapter the reader lands on.
+document.addEventListener('astro:page-load', buildSectionIndex);

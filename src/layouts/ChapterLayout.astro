@@ -9,6 +9,7 @@
 //
 // `headVoice` is the voice of the region that opens the chapter; it tints the
 // title card. It used to be derived at runtime — now it's an explicit prop.
+import { ClientRouter, fade } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import '../styles/lumon.css';
 
@@ -31,10 +32,11 @@ const tab = tabTitle ?? `${title} · A Severed Story`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{tab}</title>
+    <ClientRouter />
   </head>
   <body>
     <Nav pageTitle={title} />
-    <div data-head-voice={headVoice}>
+    <div data-head-voice={headVoice} transition:animate={fade({ duration: '0.25s' })}>
       <h1>{title}</h1>
       <div id="Main">
         <div id="react-viewer">

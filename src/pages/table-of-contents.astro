@@ -1,28 +1,24 @@
 ---
-// Table of Contents — the Publisher-voice chapter index, built from the
-// shared chapters list so it can never drift from the nav. The title card
-// reads "A Severed Story"; the in-page heading is "Table of Contents".
 import ChapterLayout from '../layouts/ChapterLayout.astro';
+import BinderHoles from '../components/BinderHoles.astro';
 import { chapters } from '../data/chapters';
 
 const tocEntries = chapters.filter((c) => !c.hideFromToc);
 ---
 
-<ChapterLayout title="A Severed Story" tabTitle="A Severed Story" headVoice="publisher">
+<ChapterLayout title="Table of Contents" headVoice="publisher">
   <div data-voice="publisher" class="toc">
-    <p><em><sup>The TTRPG that explores the lives of our happiest employees: <strong>Severed Workers.</strong></sup></em></p>
-    <h1><span>Table of Contents</span></h1>
+    <BinderHoles />
     <blockquote>
       {
         tocEntries.map((c) => (
           <Fragment>
-            <h2><a href={`/${c.slug}`}>{c.title}</a></h2>
+            <h3><a href={`/${c.slug}`}>{c.title}</a></h3>
             <p><em><sup><span>{c.blurb}</span></sup></em></p>
           </Fragment>
         ))
       }
     </blockquote>
-    <p></p>
   </div>
 </ChapterLayout>
 
@@ -30,20 +26,20 @@ const tocEntries = chapters.filter((c) => !c.hideFromToc);
   /* The Table of Contents page speaks in the PUBLISHER voice (the blue
      title-card identity). Below: TOC-specific tuning so the chapter index
      reads as a clean list on the blue field rather than a heavy rules panel. */
-  [data-voice="publisher"].toc > h1::before {
+  [data-voice="publisher"].toc > h2::before {
     content: none;
   }
-
+ 
   /* no § counter on the contents title */
   [data-voice="publisher"].toc > blockquote {
-    margin: var(--space-6) 0 var(--space-7);
+    margin: var(--space-4) 0 var(--space-7);
     padding: 0;
     background: none;
     border: none;
     border-left: none;
   }
 
-  [data-voice="publisher"].toc > blockquote h2 {
+  [data-voice="publisher"].toc > blockquote h3 {
     margin: 0;
     padding: var(--space-5) 0 4px;
     border-top: 1px solid rgba(244, 243, 238, 0.22);
@@ -54,14 +50,18 @@ const tocEntries = chapters.filter((c) => !c.hideFromToc);
     color: var(--paper);
   }
 
-  [data-voice="publisher"].toc > blockquote h2 a {
+  [data-voice="publisher"].toc > blockquote h3:first-child {
+    border-top: none;
+  }
+
+  [data-voice="publisher"].toc > blockquote h3 a {
     color: var(--paper);
     font-weight: var(--w-light);
     text-decoration: none;
     transition: opacity 140ms ease;
   }
 
-  [data-voice="publisher"].toc > blockquote h2 a:hover {
+  [data-voice="publisher"].toc > blockquote h3 a:hover {
     opacity: 0.58;
   }
 

@@ -1,335 +1,1406 @@
 ---
-import ChapterLayout from '../layouts/ChapterLayout.astro';
-import BinderHoles from '../components/BinderHoles.astro';
-import Backlink from '../components/Backlink.astro';
+import ChapterLayout from "../layouts/ChapterLayout.astro";
+import BinderHoles from "../components/BinderHoles.astro";
+import Backlink from "../components/Backlink.astro";
 ---
 
 <ChapterLayout title="Day to Day Operations" headVoice="publisher">
-        <div data-voice="publisher">
-        <BinderHoles />
-        <Backlink />
-        <h2><span>(Running the Workday)</span></h2>
-        <blockquote>
-          <p><span>This chapter is for the GM. It lays out the shape of a typical workday on
-              the severed floor, then offers tables of small events to drop into one — for texture, or to seed a
-              deliberate beat. Use as much or as little as your story needs.</span></p>
-        </blockquote>
-        <hr />
-        <h1><span>Session vs. Workday</span></h1>
-        <hr />
-        <p><span>One note on terminology first, as the two are easy to confuse.</span></p>
-        <p><span>A </span><strong><span>session</span></strong><span> is a real-world meeting
-            between you and your players — one sitting at the table. A </span><strong><span>workday</span></strong><span>
-            is one in-game day on the severed floor, beginning with the elevator descent and ending with the elevator
-            ascent.</span></p>
-        <p><span>One session may hold one workday, several workdays, or part of a single longer
-            one. You decide how many workdays a session spans, in step with the pace of the story.</span></p>
-        <hr />
-        <h1><span>The Shape of a Workday</span></h1>
-        <hr />
-        <p><span>A typical workday at Lumon follows a rhythm of arrival, briefing, work, break,
-            work, evaluation, and departure. Formalize whichever beats suit your campaign — run each in turn, or skip
-            ahead to the moments that matter.</span></p>
-        <ul>
-          <li>
-            <p><strong><span>The Descent</span></strong><span> — the elevator door closes
-                upstairs and opens downstairs. The innie wakes. A ritual moment, when it serves the story.</span></p>
-          </li>
-          <li>
-            <p><strong><span>Morning Briefing</span></strong><span> — the team gathers. The
-                Floor Manager (or their proxy) speaks. The day&#x27;s quotas, expectations, or announcements are
-                delivered.</span></p>
-          </li>
-          <li>
-            <p><strong><span>Morning Work Block</span></strong><span> — the bulk of the
-                day&#x27;s productive work.</span></p>
-          </li>
-          <li>
-            <p><strong><span>Mid-Day Break</span></strong><span> — the food bar opens.
-                Employees gather, eat, and converse. A natural moment for inter-team beats.</span></p>
-          </li>
-          <li>
-            <p><strong><span>Afternoon Work Block</span></strong><span> — a continuation of
-                the day&#x27;s work, or a new task introduced.</span></p>
-          </li>
-          <li>
-            <p><strong><span>End-of-Day Evaluation</span></strong><span> — quotas are checked.
-                Praise or concern is offered. The Floor Manager reviews the day.</span></p>
-          </li>
-          <li>
-            <p><strong><span>The Ascent</span></strong><span> — the elevator returns. The
-                innie sleeps.</span></p>
-          </li>
-        </ul>
-        <div data-panel-type="note">
-          <div><svg
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-              <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-            </svg> </div>
-          <div>
-            <p><em><span>The rhythm is not for your comfort. It is how they keep you
-                  compliant.</span></em></p>
-            <p><em><strong><span>— C.C.</span></strong></em></p>
-          </div>
-        </div>
-        <hr />
-        <hr />
-        <h1><span>The Event Tables</span></h1>
-        <hr />
-        <p><span>Below are Lumon&#x27;s sanctioned workday-event tables — five
-          </span><strong><span>d20</span></strong><span> tables of the small, pleasant occurrences that make a
-            severed-floor day feel real. Roll a d20 for any table as needed, or simply pick the entry the moment calls
-            for. They are arranged roughly in the order they fit the rhythm of a workday.</span></p>
-        <hr />
-        <h2><span>Table I — Morning Arrivals</span></h2>
-        <p><em><span>What is pleasantly different about today, before work begins.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> A new motivational poster has appeared overnight on a previously bare wall.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> A potted plant has been added to brighten the corner of the room.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> The stress balls have been replaced with a firmer, more satisfying model.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> A small vase of fresh flowers sits on the Department Chief&#x27;s desk.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> The hallway carpet has been replaced; it smells of newness.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> A fresh file folder waits on an employee&#x27;s desk, neatly labeled with their name.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> A welcome banner congratulates the department on a productive quarter.</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> The overhead lighting has been tuned to a warmer, more pleasant tone.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A bowl of individually wrapped mints has appeared near the entrance.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> A fresh stack of notepads waits at each workstation.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> The thermostat has been set one degree more comfortable.</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A new Kier quotation has joined the screensaver rotation.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> A new, ergonomically approved chair replaces an older one.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> The department&#x27;s productivity chart has been updated and proudly displayed.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> A memo announces an expanded selection in the vending machine today.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> A freshly printed floor map has been posted by the elevator.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> The water cooler has been restocked with a crisper supply.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A &quot;Department of the Week&quot; certificate now hangs by the door.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> An employee&#x27;s usual route is closed for cleaning; a tidy, signed detour is provided.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> Nothing is different. </span><em><strong><span>Praise Kier.</span></strong></em></p></li>
-          </ul>
-        </blockquote>
-        <hr />
-        <h2><span>Table II — Routine Interruptions</span></h2>
-        <p><em><span>Lumon-sanctioned events that pleasantly pause the workday.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> A department-wide announcement invites everyone to a ninety-second gratitude reflection.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> A Wellness Counselor offers brief, optional check-ins to anyone who would like one.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> A scheduled fire drill: file out, return, resume.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> A representative from Optics &amp; Design arrives to refresh the artwork.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> A courteous maintenance crew replaces a loose ceiling tile.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> A team-building exercise: each employee names something they admire about a coworker.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> A surprise pop quiz on the Nine Core Principles, with a small prize for the winner.</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> A motivational reading from </span><em><a href="https://www.severance.wiki/compliance_handbook"><span>The Compliance Handbook</span></a></em><span> plays for ten minutes.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A surprise gift card is awarded to a randomly selected employee.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> A brief stretching session, led cheerfully over the PA.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> A travelling coffee cart visits — a rare and cherished event.</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A tidy equipment audit; a courteous Security associate counts supplies.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> A short slideshow of the department&#x27;s recent achievements.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> A request for one volunteer to assist another team for one hour.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> New badges or uniform pieces are distributed.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> A friendly reminder to complete the daily stress self-assessment.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> A celebratory chime marks the floor reaching a productivity milestone.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A representative from Wellness arranges upcoming sessions.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> A small tour group passes through; employees are asked to smile and wave.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> Nothing is different. </span><em><strong><span>Praise Kier.</span></strong></em></p></li>
-          </ul>
-        </blockquote>
-        <hr />
-        <h2><span>Table III — Coworker Beats</span></h2>
-        <p><em><span>What an NPC coworker is doing today. PC coworkers act on their own.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> A coworker compliments your work, warmly and sincerely.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> A coworker offers you an item from their lunch.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> A coworker gratefully asks for help with a task.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> A coworker is humming a cheerful tune.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> A coworker shares a sanctioned, gentle joke.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> A coworker has organized their desk with evident pride.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> A coworker proposes a friendly productivity wager.</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> A coworker invites you to sit with them for lunch.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A coworker practices the Kier Anthem under their breath.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> A coworker thanks you sincerely for something small.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> A coworker offers to cover a task so you can rest a moment.</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A coworker proudly shows off a new productivity related prize.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> A coworker asks your opinion on a work matter.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> A coworker is unusually cheerful and wants to share why.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> A coworker tends a tidy collection of their finger-traps.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> A coworker quietly admits how much they admire the Department Chief.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> A coworker suggests a team gathering to celebrate the quarter.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A coworker compliments the department&#x27;s recent numbers.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> A coworker offers an encouraging word before a review.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> A coworker simply works, content and focused. <em><strong><span>Praise Kier.</span></strong></em></span></p></li>
-          </ul>
-        </blockquote>
-        <hr />
-        <h2><span>Table IV — Management Visits</span></h2>
-        <p><em><span>The visit of a higher authority.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> The Floor Manager observes the team briefly, then offers an encouraging nod.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> A representative from another department arrives to compare best practices.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> The Floor Manager calls a single employee aside for a word of praise.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> A senior figure delivers a brief, stirring speech about Kier.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> An auditor requests production figures, which are, of course, excellent.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> A visiting manager administers a brief temperament evaluation.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> The Floor Manager distributes individually wrapped congratulatory items.</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> A pleasant inspection of all employee LIEPs.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A senior figure invites an employee to recite the Nine Core Principles, and rewards success.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> A photographer from Optics &amp; Design arrives for a team portrait. Smiles, please.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> A team-mixing exercise: one employee visits another department for the day.</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A representative from Wellness arranges sessions for the team.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> The Floor Manager asks who would like to stay late, with overtime perks offered.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> A celebratory quarterly review of a deserving employee, conducted with applause.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> A senior figure tours the floor with distinguished guests.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> A visiting manager praises one employee specifically, by name.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> The Department Chief is provided good news to share about the department&#x27;s standing.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A manager arrives bearing promotion congratulations.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> The Floor Manager awards a coveted privilege to a top performer.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> An Eagan visits in person. All present are asked to applaud upon arrival. <em><strong><span>Praise Kier.</span></strong></em></span></p></li>
-          </ul>
-        </blockquote>
-        <hr />
-        <h2><span>Table V — End-of-Day Send-Offs</span></h2>
-        <p><em><span>How a productive day comes to its pleasant close.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> The elevator arrives promptly; a pleasant chime sees the team off.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> A small farewell treat is handed out as the team departs.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> A memo wishes everyone a restful evening.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> The Floor Manager thanks the team personally for the day&#x27;s work.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> A cheerful &quot;see you tomorrow&quot; sign has been added by the elevator.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> An employee is congratulated on the way out for meeting quota.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> A wrapped gift is handed to each employee to &quot;open tomorrow.&quot;</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> The hallway lights dim warmly as the team walks out.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A reminder of tomorrow&#x27;s exciting schedule is posted.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> The team is invited to a brief, cheerful end-of-day huddle.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> A kindly-scheduled Wellness Session awaits one employee tomorrow morning.</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A final snack is offered to all department employees before the ascent.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> A commendation is read aloud before departure.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> The Floor Manager shares the day&#x27;s productivity total, with pride.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> A new privilege is announced for the highest performer.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> The elevator music is especially pleasant today.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> An employee earns a coveted early departure.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A senior figure rides the elevator up and offers warm words.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> The team is thanked with a round of applause from management.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> The day ends exactly as it should. </span><em><strong><span>Praise Kier.</span></strong></em></p></li>
-          </ul>
-        </blockquote>
-        <hr />
-        <hr />
-        <h1><span>On Routine, and the Earning of Points</span></h1>
-        <hr />
-        <p><strong><span>Kier Points</span></strong><span> are not earned from routine. The
-            day-to-day flow of the workday should be played as the rhythm of life on the severed floor — not as a
-            series of point-earning opportunities.</span></p>
-        <p><span>That said, </span><strong><span>sustained routine excellence is its own
-                narrative beat</span></strong><span>. An employee who delivers an impeccable quarter — meeting quota
-            each workday, never missing a beat — has earned the recognition of management. In such a moment, a Floor
-            Manager may elevate the routine into a story beat and award a </span><strong><span>Kier
-              Point</span></strong><span>, in line with the </span><a href="/performance-evaluation">Earning Kier Points</a><span> rules.</span></p>
-        <p><span>Points are awarded at the GM&#x27;s discretion, in the moment.</span></p>
-        <hr />
-        <h1><span>Stress During the Workday</span></h1>
-        <hr />
-        <p><span>Stress is </span><strong><span>GM discretion</span></strong><span>. The events
-            on these tables do not impose stress automatically. Add (or relieve) stress when the moment calls for it —
-            see the </span><strong><span>Stress</span></strong><span> and </span><strong><span>Outcomes</span></strong><span>
-            sections of </span><a href="/procedural-guidelines">Procedural Guidelines</a><span>.</span></p>
-        <p><span>A long string of interruptions may justify a stress increase. A graceful
-            navigation of a Management Visit may justify a reduction. You are the judge.</span></p>
-        </div>
-        <div data-voice="citizen">
-        <div data-panel-type="note">
-          <div><svg
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-              <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-            </svg> </div>
-          <div>
-            <p><em><strong><span>Dear reader,</span></strong></em></p>
-            <p><em><span>Lumon presents you with pleasant tables. Posters, mints, gift cards. I have written down what their tables leave out.</span></em></p>
-            <p><em><span>Roll on mine when you want the players to feel the truth bleeding
-                  through the routine — or simply read them, and decide how much of it your table is ready
-                  for.</span></em></p>
-            <p><em><strong><span>— Concerned Citizen</span></strong></em></p>
-          </div>
-        </div>
-        <hr />
-        <h1><span>Table VI — What Actually Happens</span></h1>
-        <hr />
-        <p><em><span>The same workday. The parts they would never print.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> A coworker&#x27;s chair is occupied by a stranger no one recognizes — and no one asks.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> Two regular coworkers are absent. No announcement is made. By afternoon, no one recalls them.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> A coworker is humming a song they could not possibly have learned here.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> A coworker begins crying at their desk and cannot say why.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> A coworker has bandaged their hand and does not remember when or how.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> The room smells of burnt coffee, though there is none on the floor.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> A workstation has moved three feet overnight. Everyone works as if it always sat there.</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> The PA chimes. No announcement follows. An hour later, it chimes again.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A coworker leaves the room and returns forty minutes later, calm, with no account of where they went.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> A coworker greets you by a name that is not yours, then corrects themselves too quickly.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> A coworker confides a dream — though dreams should not be possible here.</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A coworker stares at the elevator doors for ten minutes.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> A coworker reports another for something small. The reported coworker is not seen tomorrow.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> The bathroom is closed &quot;for fumigation.&quot; It does not reopen.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> A coworker is led out and returns smiling faintly, and is not quite themselves after.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> The wall clock runs six minutes fast. By morning, the hallway clock has caught up to it.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> The elevator stops on a floor between known floors. The doors do not open. Something breathes on the other side.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A Wellness &quot;gift basket&quot; is given to a coworker, who afterward will not speak of it.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> A coworker asks for help with something they cannot describe, and weeps when you cannot.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> A coworker has gone missing. No one else has noticed. Their desk is already reassigned.</span></p></li>
-          </ul>
-        </blockquote>
-        <hr />
-        <h1><span>Table VII — Discoveries</span></h1>
-        <hr />
-        <p><em><span>The things we have hidden in the seams of the floor, and the things they
-              forgot to hide. Use one when an employee searches, snoops, or asks — or leave one where a curious innie
-              is sure to find it.</span></em></p>
-        <blockquote>
-          <ul>
-            <li><p><strong><span>1.</span></strong><span> A handwritten note, signed only with initials.</span></p></li>
-            <li><p><strong><span>2.</span></strong><span> A coworker&#x27;s name written on the back of a memo, followed by a question mark.</span></p></li>
-            <li><p><strong><span>3.</span></strong><span> A photograph of a stranger, expression unreadable.</span></p></li>
-            <li><p><strong><span>4.</span></strong><span> A child&#x27;s drawing of a place that resembles the severed floor.</span></p></li>
-            <li><p><strong><span>5.</span></strong><span> A handwritten page torn from </span><em><span>The You You Are</span></em><span>.</span></p></li>
-            <li><p><strong><span>6.</span></strong><span> A keycard that does not belong.</span></p></li>
-            <li><p><strong><span>7.</span></strong><span> A grainy security-camera printout showing an unfamiliar corridor is left on the printer.</span></p></li>
-            <li><p><strong><span>8.</span></strong><span> A scrap of fabric — soft, scented faintly of soap. Stained.</span></p></li>
-            <li><p><strong><span>9.</span></strong><span> A list of employee codes, half of which are crossed out.</span></p></li>
-            <li><p><strong><span>10.</span></strong><span> A schedule that does not match the floor&#x27;s published one.</span></p></li>
-            <li><p><strong><span>11.</span></strong><span> A wrapped piece of hard candy, store-bought. (Impossible here.)</span></p></li>
-            <li><p><strong><span>12.</span></strong><span> A coworker&#x27;s stress ball, hidden in an unusual place.</span></p></li>
-            <li><p><strong><span>13.</span></strong><span> A cassette tape labeled with a single word: </span><strong><span>REMEMBER</span></strong><span>.</span></p></li>
-            <li><p><strong><span>14.</span></strong><span> An incomplete, hand-annotated blueprint of the floor.</span></p></li>
-            <li><p><strong><span>15.</span></strong><span> A new entry in your diary, written in someone else&#x27;s handwriting.</span></p></li>
-            <li><p><strong><span>16.</span></strong><span> A coworker&#x27;s LIEP, its stress checkboxes filled to Burnout.</span></p></li>
-            <li><p><strong><span>17.</span></strong><span> A small mirror, palm-sized, edges worn.</span></p></li>
-            <li><p><strong><span>18.</span></strong><span> A copy of the Compliance Handbook with passages circled and underlined.</span></p></li>
-            <li><p><strong><span>19.</span></strong><span> A folded note bearing the employee&#x27;s outie&#x27;s name — in their own handwriting — that they cannot remember writing.</span></p></li>
-            <li><p><strong><span>20.</span></strong><span> A door key. No door is known to require it.</span></p></li>
-          </ul>
-        </blockquote>
-        <div data-panel-type="note">
-          <div><svg
-              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-              <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-            </svg> </div>
-          <div>
-            <p><em><span>That is the floor as it is, not as they present it. If you want to know
-                  what hunts the ones who start to notice, the GM keeps a set of pages they call
-                </span></em><a href="/classified"><em><span>Classified</span></em></a><em><span> —
-                  that is where I have hidden the rest.</span></em></p>
-            <p><em><strong><span>— Concerned Citizen</span></strong></em></p>
-          </div>
-        </div>
-        </div>
-        <p></p>
+  <div data-voice="publisher">
+    <BinderHoles />
+    <Backlink />
+    <p class="eyebrow"><span>(Running the Workday)</span></p>
+    <blockquote>
+      <p>
+        <span
+          >This chapter is for the GM. It lays out the shape of a typical
+          workday on the severed floor, then offers tables of small events to
+          drop into one — for texture, or to seed a deliberate beat. Use as much
+          or as little as your story needs.</span
+        >
+      </p>
+    </blockquote>
+    <hr />
+    <h2><span>Session vs. Workday</span></h2>
+    <hr />
+    <p>
+      <span>One note on terminology first, as the two are easy to confuse.</span
+      >
+    </p>
+    <p>
+      <span>A </span><strong><span>session</span></strong><span>
+        is a real-world meeting between you and your players — one sitting at
+        the table. A
+      </span><strong><span>workday</span></strong><span>
+        is one in-game day on the severed floor, beginning with the elevator
+        descent and ending with the elevator ascent.</span
+      >
+    </p>
+    <p>
+      <span
+        >One session may hold one workday, several workdays, or part of a single
+        longer one. You decide how many workdays a session spans, in step with
+        the pace of the story.</span
+      >
+    </p>
+    <hr />
+    <h2><span>The Shape of a Workday</span></h2>
+    <hr />
+    <p>
+      <span
+        >A typical workday at Lumon follows a rhythm of arrival, briefing, work,
+        break, work, evaluation, and departure. Formalize whichever beats suit
+        your campaign — run each in turn, or skip ahead to the moments that
+        matter.</span
+      >
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong><span>The Descent</span></strong><span>
+            — the elevator door closes upstairs and opens downstairs. The innie
+            wakes. A ritual moment, when it serves the story.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>Morning Briefing</span></strong><span>
+            — the team gathers. The Floor Manager (or their proxy) speaks. The
+            day&#x27;s quotas, expectations, or announcements are delivered.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>Morning Work Block</span></strong><span>
+            — the bulk of the day&#x27;s productive work.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>Mid-Day Break</span></strong><span>
+            — the food bar opens. Employees gather, eat, and converse. A natural
+            moment for inter-team beats.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>Afternoon Work Block</span></strong><span>
+            — a continuation of the day&#x27;s work, or a new task introduced.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>End-of-Day Evaluation</span></strong><span>
+            — quotas are checked. Praise or concern is offered. The Floor
+            Manager reviews the day.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>The Ascent</span></strong><span>
+            — the elevator returns. The innie sleeps.</span
+          >
+        </p>
+      </li>
+    </ul>
+    <div data-panel-type="note">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+          ></path>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+        </svg>
+      </div>
+      <div>
+        <p>
+          <em
+            ><span
+              >The rhythm is not for your comfort. It is how they keep you
+              compliant.</span
+            ></em
+          >
+        </p>
+        <p><em><strong><span>— C.C.</span></strong></em></p>
+      </div>
+    </div>
+    <hr />
+    <hr />
+    <h2><span>The Event Tables</span></h2>
+    <hr />
+    <p>
+      <span
+        >Below are Lumon&#x27;s sanctioned workday-event tables — five
+      </span><strong><span>d20</span></strong><span>
+        tables of the small, pleasant occurrences that make a severed-floor day
+        feel real. Roll a d20 for any table as needed, or simply pick the entry
+        the moment calls for. They are arranged roughly in the order they fit
+        the rhythm of a workday.</span
+      >
+    </p>
+    <hr />
+    <h3><span>Table I — Morning Arrivals</span></h3>
+    <p>
+      <em
+        ><span
+          >What is pleasantly different about today, before work begins.</span
+        ></em
+      >
+    </p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              A new motivational poster has appeared overnight on a previously
+              bare wall.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              A potted plant has been added to brighten the corner of the room.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              The stress balls have been replaced with a firmer, more satisfying
+              model.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              A small vase of fresh flowers sits on the Department Chief&#x27;s
+              desk.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              The hallway carpet has been replaced; it smells of newness.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              A fresh file folder waits on an employee&#x27;s desk, neatly
+              labeled with their name.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              A welcome banner congratulates the department on a productive
+              quarter.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              The overhead lighting has been tuned to a warmer, more pleasant
+              tone.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A bowl of individually wrapped mints has appeared near the
+              entrance.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              A fresh stack of notepads waits at each workstation.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              The thermostat has been set one degree more comfortable.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A new Kier quotation has joined the screensaver rotation.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              A new, ergonomically approved chair replaces an older one.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              The department&#x27;s productivity chart has been updated and
+              proudly displayed.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              A memo announces an expanded selection in the vending machine
+              today.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              A freshly printed floor map has been posted by the elevator.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              The water cooler has been restocked with a crisper supply.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A &quot;Department of the Week&quot; certificate now hangs by the
+              door.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              An employee&#x27;s usual route is closed for cleaning; a tidy,
+              signed detour is provided.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              Nothing is different.
+            </span><em><strong><span>Praise Kier.</span></strong></em>
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <hr />
+    <h3><span>Table II — Routine Interruptions</span></h3>
+    <p>
+      <em
+        ><span>Lumon-sanctioned events that pleasantly pause the workday.</span
+        ></em
+      >
+    </p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              A department-wide announcement invites everyone to a ninety-second
+              gratitude reflection.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              A Wellness Counselor offers brief, optional check-ins to anyone
+              who would like one.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              A scheduled fire drill: file out, return, resume.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              A representative from Optics &amp; Design arrives to refresh the
+              artwork.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              A courteous maintenance crew replaces a loose ceiling tile.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              A team-building exercise: each employee names something they
+              admire about a coworker.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              A surprise pop quiz on the Nine Core Principles, with a small
+              prize for the winner.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              A motivational reading from
+            </span><em
+              ><a href="https://www.severance.wiki/compliance_handbook"
+                ><span>The Compliance Handbook</span></a
+              ></em
+            ><span> plays for ten minutes.</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A surprise gift card is awarded to a randomly selected employee.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              A brief stretching session, led cheerfully over the PA.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              A travelling coffee cart visits — a rare and cherished event.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A tidy equipment audit; a courteous Security associate counts
+              supplies.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              A short slideshow of the department&#x27;s recent achievements.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              A request for one volunteer to assist another team for one hour.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              New badges or uniform pieces are distributed.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              A friendly reminder to complete the daily stress self-assessment.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              A celebratory chime marks the floor reaching a productivity
+              milestone.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A representative from Wellness arranges upcoming sessions.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              A small tour group passes through; employees are asked to smile
+              and wave.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              Nothing is different.
+            </span><em><strong><span>Praise Kier.</span></strong></em>
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <hr />
+    <h3><span>Table III — Coworker Beats</span></h3>
+    <p>
+      <em
+        ><span
+          >What an NPC coworker is doing today. PC coworkers act on their own.</span
+        ></em
+      >
+    </p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              A coworker compliments your work, warmly and sincerely.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              A coworker offers you an item from their lunch.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              A coworker gratefully asks for help with a task.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              A coworker is humming a cheerful tune.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              A coworker shares a sanctioned, gentle joke.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              A coworker has organized their desk with evident pride.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              A coworker proposes a friendly productivity wager.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              A coworker invites you to sit with them for lunch.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A coworker practices the Kier Anthem under their breath.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              A coworker thanks you sincerely for something small.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              A coworker offers to cover a task so you can rest a moment.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A coworker proudly shows off a new productivity related prize.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              A coworker asks your opinion on a work matter.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              A coworker is unusually cheerful and wants to share why.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              A coworker tends a tidy collection of their finger-traps.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              A coworker quietly admits how much they admire the Department
+              Chief.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              A coworker suggests a team gathering to celebrate the quarter.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A coworker compliments the department&#x27;s recent numbers.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              A coworker offers an encouraging word before a review.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              A coworker simply works, content and focused. <em
+                ><strong><span>Praise Kier.</span></strong></em
+              ></span
+            >
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <hr />
+    <h3><span>Table IV — Management Visits</span></h3>
+    <p><em><span>The visit of a higher authority.</span></em></p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              The Floor Manager observes the team briefly, then offers an
+              encouraging nod.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              A representative from another department arrives to compare best
+              practices.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              The Floor Manager calls a single employee aside for a word of
+              praise.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              A senior figure delivers a brief, stirring speech about Kier.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              An auditor requests production figures, which are, of course,
+              excellent.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              A visiting manager administers a brief temperament evaluation.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              The Floor Manager distributes individually wrapped congratulatory
+              items.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              A pleasant inspection of all employee LIEPs.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A senior figure invites an employee to recite the Nine Core
+              Principles, and rewards success.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              A photographer from Optics &amp; Design arrives for a team
+              portrait. Smiles, please.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              A team-mixing exercise: one employee visits another department for
+              the day.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A representative from Wellness arranges sessions for the team.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              The Floor Manager asks who would like to stay late, with overtime
+              perks offered.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              A celebratory quarterly review of a deserving employee, conducted
+              with applause.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              A senior figure tours the floor with distinguished guests.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              A visiting manager praises one employee specifically, by name.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              The Department Chief is provided good news to share about the
+              department&#x27;s standing.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A manager arrives bearing promotion congratulations.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              The Floor Manager awards a coveted privilege to a top performer.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              An Eagan visits in person. All present are asked to applaud upon
+              arrival. <em><strong><span>Praise Kier.</span></strong></em></span
+            >
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <hr />
+    <h3><span>Table V — End-of-Day Send-Offs</span></h3>
+    <p>
+      <em><span>How a productive day comes to its pleasant close.</span></em>
+    </p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              The elevator arrives promptly; a pleasant chime sees the team off.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              A small farewell treat is handed out as the team departs.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              A memo wishes everyone a restful evening.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              The Floor Manager thanks the team personally for the day&#x27;s
+              work.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              A cheerful &quot;see you tomorrow&quot; sign has been added by the
+              elevator.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              An employee is congratulated on the way out for meeting quota.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              A wrapped gift is handed to each employee to &quot;open
+              tomorrow.&quot;</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              The hallway lights dim warmly as the team walks out.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A reminder of tomorrow&#x27;s exciting schedule is posted.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              The team is invited to a brief, cheerful end-of-day huddle.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              A kindly-scheduled Wellness Session awaits one employee tomorrow
+              morning.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A final snack is offered to all department employees before the
+              ascent.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              A commendation is read aloud before departure.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              The Floor Manager shares the day&#x27;s productivity total, with
+              pride.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              A new privilege is announced for the highest performer.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              The elevator music is especially pleasant today.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              An employee earns a coveted early departure.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A senior figure rides the elevator up and offers warm words.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              The team is thanked with a round of applause from management.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              The day ends exactly as it should.
+            </span><em><strong><span>Praise Kier.</span></strong></em>
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <hr />
+    <hr />
+    <h2><span>On Routine, and the Earning of Points</span></h2>
+    <hr />
+    <p>
+      <strong><span>Kier Points</span></strong><span>
+        are not earned from routine. The day-to-day flow of the workday should
+        be played as the rhythm of life on the severed floor — not as a series
+        of point-earning opportunities.</span
+      >
+    </p>
+    <p>
+      <span>That said, </span><strong
+        ><span>sustained routine excellence is its own narrative beat</span
+        ></strong
+      ><span
+        >. An employee who delivers an impeccable quarter — meeting quota each
+        workday, never missing a beat — has earned the recognition of
+        management. In such a moment, a Floor Manager may elevate the routine
+        into a story beat and award a
+      </span><strong><span>Kier Point</span></strong><span
+        >, in line with the
+      </span><a href="/performance-evaluation">Earning Kier Points</a><span>
+        rules.</span
+      >
+    </p>
+    <p>
+      <span>Points are awarded at the GM&#x27;s discretion, in the moment.</span
+      >
+    </p>
+    <hr />
+    <h2><span>Stress During the Workday</span></h2>
+    <hr />
+    <p>
+      <span>Stress is </span><strong><span>GM discretion</span></strong><span
+        >. The events on these tables do not impose stress automatically. Add
+        (or relieve) stress when the moment calls for it — see the
+      </span><strong><span>Stress</span></strong><span> and </span><strong
+        ><span>Outcomes</span></strong
+      ><span> sections of </span><a href="/procedural-guidelines"
+        >Procedural Guidelines</a
+      ><span>.</span>
+    </p>
+    <p>
+      <span
+        >A long string of interruptions may justify a stress increase. A
+        graceful navigation of a Management Visit may justify a reduction. You
+        are the judge.</span
+      >
+    </p>
+  </div>
+  <div data-voice="citizen">
+    <h2><span>Table VI — What Actually Happens</span></h2>
+    <div data-panel-type="note">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+          ></path>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+        </svg>
+      </div>
+      <div>
+        <p><em><strong><span>Dear reader,</span></strong></em></p>
+        <p>
+          <em
+            ><span
+              >Lumon presents you with pleasant tables. Posters, mints, gift
+              cards. I have written down what their tables leave out.</span
+            ></em>
+        </p>
+        <p>
+          <em
+            ><span
+              >Roll on mine when you want the players to feel the truth bleeding
+              through the routine — or simply read them, and decide how much of
+              it your table is ready for.</span
+            ></em>
+        </p>
+        <p><em><strong><span>— Concerned Citizen</span></strong></em></p>
+      </div>
+    </div>
+    <hr />
+    <p>
+      <em><span>The same workday. The parts they would never print.</span></em>
+    </p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              A coworker&#x27;s chair is occupied by a stranger no one
+              recognizes — and no one asks.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              Two regular coworkers are absent. No announcement is made. By
+              afternoon, no one recalls them.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              A coworker is humming a song they could not possibly have learned
+              here.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              A coworker begins crying at their desk and cannot say why.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              A coworker has bandaged their hand and does not remember when or
+              how.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              The room smells of burnt coffee, though there is none on the
+              floor.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              A workstation has moved three feet overnight. Everyone works as if
+              it always sat there.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              The PA chimes. No announcement follows. An hour later, it chimes
+              again.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A coworker leaves the room and returns forty minutes later, calm,
+              with no account of where they went.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              A coworker greets you by a name that is not yours, then corrects
+              themselves too quickly.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              A coworker confides a dream — though dreams should not be possible
+              here.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A coworker stares at the elevator doors for ten minutes.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              A coworker reports another for something small. The reported
+              coworker is not seen tomorrow.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              The bathroom is closed &quot;for fumigation.&quot; It does not
+              reopen.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              A coworker is led out and returns smiling faintly, and is not
+              quite themselves after.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              The wall clock runs six minutes fast. By morning, the hallway
+              clock has caught up to it.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              The elevator stops on a floor between known floors. The doors do
+              not open. Something breathes on the other side.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A Wellness &quot;gift basket&quot; is given to a coworker, who
+              afterward will not speak of it.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              A coworker asks for help with something they cannot describe, and
+              weeps when you cannot.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              A coworker has gone missing. No one else has noticed. Their desk
+              is already reassigned.</span
+            >
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <hr />
+    <h2><span>Table VII — Discoveries</span></h2>
+    <hr />
+    <p>
+      <em
+        ><span
+          >The things we have hidden in the seams of the floor, and the things
+          they forgot to hide. Use one when an employee searches, snoops, or
+          asks — or leave one where a curious innie is sure to find it.</span
+        ></em
+      >
+    </p>
+    <blockquote>
+      <ul>
+        <li>
+          <p>
+            <strong><span>1.</span></strong><span>
+              A handwritten note, signed only with initials.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>2.</span></strong><span>
+              A coworker&#x27;s name written on the back of a memo, followed by
+              a question mark.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>3.</span></strong><span>
+              A photograph of a stranger, expression unreadable.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>4.</span></strong><span>
+              A child&#x27;s drawing of a place that resembles the severed
+              floor.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>5.</span></strong><span>
+              A handwritten page torn from
+            </span><em><span>The You You Are</span></em><span>.</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>6.</span></strong><span>
+              A keycard that does not belong.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>7.</span></strong><span>
+              A grainy security-camera printout showing an unfamiliar corridor
+              is left on the printer.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>8.</span></strong><span>
+              A scrap of fabric — soft, scented faintly of soap. Stained.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>9.</span></strong><span>
+              A list of employee codes, half of which are crossed out.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>10.</span></strong><span>
+              A schedule that does not match the floor&#x27;s published one.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>11.</span></strong><span>
+              A wrapped piece of hard candy, store-bought. (Impossible here.)</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>12.</span></strong><span>
+              A coworker&#x27;s stress ball, hidden in an unusual place.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>13.</span></strong><span>
+              A cassette tape labeled with a single word:
+            </span><strong><span>REMEMBER</span></strong><span>.</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>14.</span></strong><span>
+              An incomplete, hand-annotated blueprint of the floor.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>15.</span></strong><span>
+              A new entry in your diary, written in someone else&#x27;s
+              handwriting.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>16.</span></strong><span>
+              A coworker&#x27;s LIEP, its stress checkboxes filled to Burnout.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>17.</span></strong><span>
+              A small mirror, palm-sized, edges worn.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>18.</span></strong><span>
+              A copy of the Compliance Handbook with passages circled and
+              underlined.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>19.</span></strong><span>
+              A folded note bearing the employee&#x27;s outie&#x27;s name — in
+              their own handwriting — that they cannot remember writing.</span
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong><span>20.</span></strong><span>
+              A door key. No door is known to require it.</span
+            >
+          </p>
+        </li>
+      </ul>
+    </blockquote>
+    <div data-panel-type="note">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+          ></path>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+        </svg>
+      </div>
+      <div>
+        <p>
+          <em
+            ><span
+              >That is the floor as it is, not as they present it. If you want
+              to know what hunts the ones who start to notice, the GM keeps a
+              set of pages they call
+            </span></em
+          ><a href="/classified"><em><span>Classified</span></em></a><em
+            ><span> — that is where I have hidden the rest.</span></em
+          >
+        </p>
+        <p><em><strong><span>— Concerned Citizen</span></strong></em></p>
+      </div>
+    </div>
+  </div>
 </ChapterLayout>

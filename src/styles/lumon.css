@@ -109,6 +109,22 @@
   /* heading hang into the structured left margin */
   --ohang: clamp(40px, 10vw, 150px);
   /* Orientation left page margin */
+
+  /* ---- HEADING TYPE SCALE ----------------------------------------------------
+     ONE scale, shared across all three voices, keyed to SEMANTIC level. The
+     layout title card is the page's only <h1>; in-content sections begin at
+     <h2>. Each voice keeps its own face / weight / treatment, but the SIZES
+     line up level-to-level so hierarchy reads consistently everywhere.
+     Tweak the numbers here to retune every page at once.
+       h2  section opener   ·  h3  subsection  ·  h4  sub-sub  ·  h5  minor label
+     Publisher display headings (h2/h3) use Michroma — a very wide face — so they
+     take the reduced "-pub" sizes to occupy the same visual width.            */
+  --h2-size: clamp(26px, 2.9vw, 38px);
+  --h3-size: clamp(20px, 1.7vw, 24px);
+  --h4-size: 22px;
+  --h5-size: 14px;
+  --h2-size-pub: clamp(26px, 2.9vw, 38px);
+  --h3-size-pub: clamp(22px, 2.5vw, 30px);
 }
 
 :root {
@@ -129,6 +145,7 @@ html {
 }
 
 body {
+  height: 100vh;
   margin: 0;
   background: var(--wall);
   color: var(--ink);
@@ -175,18 +192,6 @@ body>nav {
   background: var(--ink);
   color: var(--paper);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
-}
-
-/* striped-rule band beneath the header — the Lumon signature divider */
-body>nav::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -5px;
-  height: 4px;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 2px);
-  opacity: 0.9;
 }
 
 body>nav>a {
@@ -331,7 +336,7 @@ body>nav~div>h1 {
 }
 
 body>nav~div>h1::before {
-  content: "A Severed Story · Edition 1";
+  content: "A Severed Story · Edition Alpha";
   display: block;
   margin-bottom: clamp(18px, 3vh, 30px);
   font-family: var(--font-text);
@@ -355,10 +360,11 @@ body>nav~div>h1::after {
   color: var(--paper);
   background-color: var(--lumon-blue);
   background-image:
-    radial-gradient(120% 80% at 26% -10%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 46%),
-    radial-gradient(130% 130% at 104% 122%, rgba(11, 32, 64, 0.55), rgba(11, 32, 64, 0) 52%);
+    radial-gradient(411% 269% at 190% -11%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 46%),
+    radial-gradient(299% 262% at 104% 122%, rgba(11, 32, 64, 0.55), rgba(11, 32, 64, 0) 52%);
   font-weight: var(--w-light);
   font-size: clamp(40px, 7vw, 100px);
+  z-index: 3;
 }
 
 [data-head-voice="publisher"]>h1::before {
@@ -369,7 +375,6 @@ body>nav~div>h1::after {
   background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
 }
 
-/* ORIENTATION / handbook-led chapter → warm white stock, heavy black title */
 [data-head-voice="orientation"]>h1 {
   padding-left: var(--ohang);
   color: var(--ink);
@@ -459,6 +464,7 @@ body>nav~div>h1::after {
 #react-viewer>h1:empty,
 #react-viewer>p:empty,
 [data-voice]>h1:empty,
+[data-voice]> :is(h2, h3, h4):empty,
 [data-voice]>p:empty,
 #react-viewer>div:empty {
   display: none;
@@ -508,16 +514,25 @@ strong {
   background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
 }
 
+/* Default (un-voiced) handbook environment — used by pages not yet wrapped in a
+   [data-voice] region (e.g. corporate-personas). Keyed to the shared scale so
+   levels line up with the voiced pages. */
 #react-viewer>h2 {
   font-family: var(--font-display);
   font-weight: var(--w-bold);
-  font-size: 22px;
+  font-size: var(--h2-size);
   margin: var(--space-6) 0 var(--space-2);
 }
 
 #react-viewer>h3 {
   font-weight: var(--w-bold);
-  font-size: 17px;
+  font-size: var(--h3-size);
+  margin: var(--space-5) 0 var(--space-2);
+}
+
+#react-viewer>h4 {
+  font-weight: var(--w-bold);
+  font-size: var(--h4-size);
   margin: var(--space-5) 0 var(--space-2);
 }
 
@@ -572,6 +587,13 @@ strong {
   margin: 0 0 var(--space-4);
 }
 
+/* Adjacent direct-child blockquotes (e.g. the motivational-quotes list) sit
+   apart without empty <p> spacers. Only matches when quotes stack directly —
+   the single-blockquote TOC is unaffected. */
+#react-viewer>blockquote+blockquote {
+  margin-top: calc(var(--space-7) + var(--space-6));
+}
+
 #react-viewer>blockquote sup {
   font-size: 14.5px;
   font-style: italic;
@@ -596,7 +618,7 @@ strong {
 [data-voice="orientation"] {
   background: var(--handbook);
   color: var(--ink);
-  padding: var(--space-9) clamp(28px, 6vw, 80px) var(--space-9) var(--ohang);
+  padding: var(--space-4) clamp(28px, 6vw, 80px) var(--space-9) var(--ohang);
 }
 
 /* a left-aligned reading column sitting against a generous left page margin;
@@ -616,17 +638,17 @@ strong {
 }
 
 /* SECTION TITLES — big, bold, black; the stacked striped rule beneath */
-[data-voice="orientation"]>h1 {
+[data-voice="orientation"]>h2 {
   font-family: var(--font-display);
   font-weight: var(--w-black);
-  font-size: clamp(30px, 3.8vw, 46px);
+  font-size: var(--h2-size);
   line-height: 1.02;
   letter-spacing: -0.022em;
-  margin: var(--space-9) 0 var(--space-4);
+  margin: var(--space-7) 0 var(--space-4);
   color: var(--ink);
 }
 
-[data-voice="orientation"]>h1::after {
+[data-voice="orientation"]>h2::after {
   content: "";
   display: block;
   margin-top: var(--space-4);
@@ -634,10 +656,10 @@ strong {
   background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
 }
 
-[data-voice="orientation"] h2 {
+[data-voice="orientation"] h3 {
   font-family: var(--font-display);
   font-weight: var(--w-bold);
-  font-size: clamp(20px, 2.1vw, 25px);
+  font-size: var(--h3-size);
   line-height: 1.15;
   letter-spacing: -0.005em;
   margin: var(--space-7) 0 var(--space-3);
@@ -645,7 +667,7 @@ strong {
 }
 
 /* the FROLIC / VISION caps headers get a filled black marker hung in the margin */
-[data-voice="orientation"] h2::before {
+[data-voice="orientation"] h3::before {
   content: "";
   position: absolute;
   left: -1.5rem;
@@ -655,14 +677,14 @@ strong {
   background: var(--ink);
 }
 
-[data-voice="orientation"] h2 u {
+[data-voice="orientation"] h3 u {
   letter-spacing: 0.02em;
 }
 
-[data-voice="orientation"] h3 {
+[data-voice="orientation"] h4 {
   font-family: var(--font-text);
   font-weight: var(--w-bold);
-  font-size: 17px;
+  font-size: var(--h4-size);
   letter-spacing: 0.005em;
   margin: var(--space-6) 0 var(--space-2);
   color: var(--ink);
@@ -688,7 +710,7 @@ strong {
 [data-voice="orientation"] blockquote {
   margin: var(--space-6) 0;
   padding: var(--space-5) var(--space-6);
-  background: transparent;
+  background: var(--paper);
   border: 1px solid var(--ink);
 }
 
@@ -701,7 +723,7 @@ strong {
 }
 
 [data-voice="orientation"] blockquote sub {
-  display: block;
+  display: inline;
   font-size: 14.5px;
   line-height: 1.55;
   color: #4a4f55;
@@ -743,21 +765,16 @@ strong {
 
 [data-voice="orientation"] hr {
   margin: var(--space-6) 0;
-  border-top: 1px solid rgba(26, 29, 34, 0.22);
-}
-
-[data-voice="orientation"] hr+hr {
-  margin-top: calc(-1 * var(--space-6) + 8px);
   border-top: none;
-  height: 11px;
   background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
+  height: 11px;
 }
 
 /* Reproduced document plate (e.g. the LIEP form) — left-aligned in EVERY voice.
    Voiced figures sit flush in the voice's own padded column (padding:0);
    default figures keep the base space-6 inset so they line up with body text. */
 [data-voice] figure {
-  margin: var(--space-7) 0;
+  margin: var(--space-5) 0;
   padding: 0;
   max-width: 46rem;
 }
@@ -771,17 +788,16 @@ strong {
 #react-viewer figure img {
   width: 100%;
   background: var(--pure-white);
-  border: 1px solid var(--hairline-strong);
   box-shadow: var(--shadow-card);
-  padding: 18px;
 }
 
 [data-voice] figure::after,
 #react-viewer figure::after {
   content: "REPRODUCED FOR ORIENTATION · FORM LIEP-23 · PROPERTY OF LUMON INDUSTRIES";
   display: block;
-  margin-top: var(--space-3);
-  font-size: 10.5px;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-6);
+  font-size: 9px;
   font-weight: var(--w-bold);
   letter-spacing: var(--track-eyebrow);
   text-align: left;
@@ -835,9 +851,10 @@ strong {
   text-wrap: pretty;
 }
 
-/* the "(Running the Game as the GM)" subtitle h2 that opens a publisher run */
-[data-voice="publisher"]>h2:first-of-type,
-[data-voice="publisher"]>h2:first-child {
+/* the "(Running the Game as the GM)" kicker that opens a publisher run — a
+   decorative label, authored as <p class="eyebrow"> so it stays OUT of the
+   heading outline (the page's only <h1> is the title card). */
+[data-voice="publisher"] .eyebrow {
   font-family: var(--font-text);
   font-weight: var(--w-bold);
   font-size: 12px;
@@ -850,10 +867,10 @@ strong {
 }
 
 /* section openers — the cover's title-card treatment, in miniature */
-[data-voice="publisher"] h1 {
+[data-voice="publisher"] h2 {
   font-family: var(--font-display);
   font-weight: var(--w-light);
-  font-size: clamp(32px, 4.4vw, 58px);
+  font-size: var(--h2-size);
   line-height: 0.98;
   letter-spacing: -0.02em;
   margin: var(--space-6) 0 var(--space-4);
@@ -861,7 +878,7 @@ strong {
   counter-increment: pubsec;
 }
 
-[data-voice="publisher"] h1::before {
+[data-voice="publisher"] h2::before {
   content: "§ " counter(pubsec, decimal-leading-zero);
   display: block;
   margin-bottom: 14px;
@@ -872,7 +889,7 @@ strong {
   color: rgba(244, 243, 238, 0.58);
 }
 
-[data-voice="publisher"] h1::after {
+[data-voice="publisher"] h2::after {
   content: "";
   display: block;
   margin-top: var(--space-5);
@@ -881,19 +898,19 @@ strong {
   background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
 }
 
-[data-voice="publisher"] h2 {
+[data-voice="publisher"] h3 {
   font-family: var(--font-display);
   font-weight: var(--w-light);
-  font-size: clamp(23px, 2.3vw, 31px);
+  font-size: var(--h3-size);
   letter-spacing: -0.01em;
   margin: var(--space-7) 0 var(--space-2);
   color: var(--paper);
 }
 
-[data-voice="publisher"] h3 {
+[data-voice="publisher"] h4 {
   font-family: var(--font-text);
   font-weight: var(--w-bold);
-  font-size: 17px;
+  font-size: var(--h4-size);
   letter-spacing: 0.01em;
   margin: var(--space-5) 0 var(--space-2);
   padding-bottom: 6px;
@@ -955,7 +972,6 @@ strong {
 
 [data-voice="publisher"] hr {
   margin: var(--space-6) 0;
-  border-top: 1px solid rgba(244, 243, 238, 0.22);
 }
 
 [data-voice="publisher"] hr+hr {
@@ -975,8 +991,8 @@ strong {
    ROLLBACK: delete this whole block + the --font-display-pub var + "&family=Michroma"
    from the @import at the top of this file. (Cover title is in index.html.)
    =============================================================================== */
-[data-voice="publisher"] h1,
 [data-voice="publisher"] h2,
+[data-voice="publisher"] h3,
 [data-head-voice="publisher"]>h1 {
   font-family: var(--font-display-pub);
   font-weight: var(--w-regular);
@@ -984,13 +1000,13 @@ strong {
   overflow-wrap: break-word;
 }
 
-[data-voice="publisher"] h1 {
-  font-size: clamp(24px, 3.2vw, 42px);
+[data-voice="publisher"] h2 {
+  font-size: var(--h2-size-pub);
   line-height: 1.08;
 }
 
-[data-voice="publisher"] h2 {
-  font-size: clamp(17px, 1.8vw, 23px);
+[data-voice="publisher"] h3 {
+  font-size: var(--h3-size-pub);
   line-height: 1.14;
 }
 
@@ -1004,6 +1020,7 @@ strong {
       Photocopied typewriter manuscript on dirty off-white. Samizdat.
    ============================================================================ */
 [data-voice="citizen"] {
+  z-index: 3;
   background: var(--photocopy);
   color: var(--photocopy-ink);
   padding: var(--space-8) var(--space-6) var(--space-9);
@@ -1051,10 +1068,10 @@ strong {
   text-wrap: pretty;
 }
 
-[data-voice="citizen"] h1 {
+[data-voice="citizen"] h2 {
   font-family: var(--stamp);
   font-weight: 400;
-  font-size: clamp(26px, 3vw, 34px);
+  font-size: var(--h2-size);
   line-height: 1.1;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -1062,27 +1079,27 @@ strong {
   color: #0d0d0d;
 }
 
-[data-voice="citizen"] h1::after {
+[data-voice="citizen"] h2::after {
   content: "";
   display: block;
   margin-top: var(--space-3);
   border-bottom: 2px solid var(--photocopy-ink);
 }
 
-[data-voice="citizen"] h2 {
+[data-voice="citizen"] h3 {
   font-family: var(--stamp);
   font-weight: 400;
-  font-size: 20px;
+  font-size: var(--h3-size);
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin: var(--space-6) 0 var(--space-2);
   color: #0d0d0d;
 }
 
-[data-voice="citizen"] h3 {
+[data-voice="citizen"] h4 {
   font-family: var(--typewriter);
   font-weight: 700;
-  font-size: 16px;
+  font-size: var(--h4-size);
   margin: var(--space-5) 0 var(--space-2);
 }
 
@@ -1134,8 +1151,8 @@ strong {
   display: none;
 }
 
-/* a Citizen page leads with an inserted-page stamp */
-[data-voice="citizen"]>h1:first-of-type::before {
+/* a Citizen region leads with an inserted-page stamp on its first section */
+[data-voice="citizen"]>h2:first-of-type::before {
   content: "UNAUTHORIZED INSERTION";
   display: inline-block;
   margin-bottom: 12px;
@@ -1149,7 +1166,7 @@ strong {
   opacity: 0.78;
 }
 
-[data-voice="citizen"]>h1:first-of-type {
+[data-voice="citizen"]>h2:first-of-type {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1443,8 +1460,8 @@ strong {
 /* on the blue PUBLISHER field: the white info-box and manila note pop as-is,
    but the quiet warning cross-reference must switch to paper ink to stay legible */
 [data-voice="publisher"] [data-panel-type="warning"] {
-  border-top-color: rgba(244, 243, 238, 0.28);
-  border-bottom-color: rgba(244, 243, 238, 0.28);
+  border-top-color: rgba(244, 243, 238, 0.18);
+  border-bottom-color: rgba(244, 243, 238, 0.18);
 }
 
 [data-voice="publisher"] [data-panel-type="warning"] p {
@@ -1466,25 +1483,24 @@ strong {
        Same recessed-blue treatment as the index cover (no flat black dots).
    ============================================================================ */
 .binder {
-  --hole-d: clamp(13px, 1.5vw, 19px);
-  /* hole diameter */
-  --hole-gap: clamp(44px, 8vh, 82px);
-  /* vertical gap between hole centers */
-  z-index: 4;
+  --hole-d: clamp(13px, 1.5vw, 21px);
+  --hole-gap: clamp(44px, 9vh, 82px);
+  z-index: 2;
   pointer-events: none;
-  position: sticky;
-  /* stick so the MIDDLE hole sits on the vertical centerline of the viewport */
-  top: calc(50vh - var(--hole-gap) - var(--hole-d) / 2);
-  height: 0;
+  position: fixed;
+  top: calc(54vh - var(--hole-gap) - var(--hole-d) / 2);
+  --binder-h: calc(2 * var(--hole-gap) + var(--hole-d));
+  height: var(--binder-h);
   width: 0;
   max-width: none;
-  margin: 0 0 0 calc(-1 * var(--pad-l, 0px));
+  margin-left: calc(-1 * var(--pad-l, 0px));
 }
 
 .binder i {
   position: absolute;
-  left: clamp(20px, 3vw, 46px);
+  left: clamp(20px, 4vw, 46px);
   width: var(--hole-d);
+  min-width: 21px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--lumon-blue-deep);
@@ -1507,9 +1523,9 @@ strong {
         by lumon.js so it flows with that region's design instead of sitting in
         a grey band) ---- */
 [data-voice] [data-backlink] {
-  margin: 0 0 var(--space-6);
   max-width: none;
   padding-left: 0;
+  margin-bottom: var(--space-6);
   position: relative;
   z-index: 1;
   font-size: 12px;
@@ -1586,7 +1602,7 @@ strong {
     position: fixed;
     left: var(--space-3);
     right: var(--space-3);
-    top: 50px;
+    top: 51px;
     min-width: 0;
     width: auto;
     max-height: calc(100vh - 64px);
@@ -1636,7 +1652,7 @@ strong {
     padding-left: var(--space-6);
   }
 
-  [data-voice="orientation"] h2::before {
+  [data-voice="orientation"] h3::before {
     left: -16px;
   }
 
@@ -1654,12 +1670,6 @@ strong {
 
   #react-viewer>p:first-child {
     padding-inline: var(--space-6);
-  }
-
-  /* reproduced form/diagram plates: trim the white mat so the image reads larger */
-  [data-voice] figure img,
-  #react-viewer figure img {
-    padding: 8px;
   }
 }
 
@@ -1731,7 +1741,7 @@ body>nav .nav-page::before {
 
 /* land headings just below the fixed header on hash jumps (the root already
    carries scroll-padding-top:80px; a hair of scroll-margin keeps a clean gap) */
-#react-viewer :is(h1, h2, h3) {
+#react-viewer :is(h1, h2, h3, h4) {
   scroll-margin-top: 8px;
 }
 
@@ -1750,6 +1760,31 @@ body>nav .nav-page::before {
   border: 1px solid var(--hairline-strong);
   box-shadow: var(--shadow-card);
   padding: 16px 16px 12px;
+  /* the directory is built by JS after the page settles; a soft fade + slide
+     from the right margin makes its late arrival read as intentional. The
+     `both` fill mode + delay holds it fully transparent for a beat first, so
+     it eases in deliberately instead of popping in the instant JS finishes. */
+  animation: page-index-in 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.25s;
+}
+
+/* keep the translateY(-50%) centering through the whole animation */
+@keyframes page-index-in {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-index {
+    animation: none;
+  }
 }
 
 /* show this index only where the right margin is genuinely free */

@@ -2,6 +2,7 @@
 // The cover — a bespoke Publisher title card. Stands apart from ChapterLayout:
 // it has no nav and its own full-bleed layout. It still pulls in lumon.css for
 // the shared design tokens (--lumon-blue, --paper, fonts, …) that its styles use.
+import { ClientRouter } from 'astro:transitions';
 import '../styles/lumon.css';
 ---
 
@@ -11,6 +12,7 @@ import '../styles/lumon.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A Severed Story &middot; Lumon Industries</title>
+    <ClientRouter />
   </head>
   <body>
     <main class="cv">
@@ -19,14 +21,13 @@ import '../styles/lumon.css';
       <header class="cv__head">
         <div class="cv__brand">
           <img src="/assets/lumon-globe-white.png" alt="Lumon Industries" />
-          <span>Lumon Industries</span>
+          <span>Lumon Industries Presents</span>
         </div>
-        <div class="cv__stamp">Refined for Innie Enrichment<br />Severed Series &middot; Edition I</div>
+        <div class="cv__stamp">Produced in Kier, PE<br />Edition - Alpha</div>
       </header>
 
       <section class="cv__main">
-        <div class="cv__eyebrow">Orientation Guide</div>
-        <h1 class="cv__title">A Severed<b>Story</b></h1>
+        <h1 class="cv__title">A Severed Story</h1>
         <div class="cv__rule" aria-hidden="true"></div>
         <p class="cv__sub">A tabletop roleplaying game exploring the lives of Lumon's happiest team members.</p>
       </section>
@@ -36,7 +37,7 @@ import '../styles/lumon.css';
           <div class="line1">Property of Lumon Industries</div>
           <div class="line2">A passion project by Robert Tate. Not intended for Commercial Use. Praise Kier.</div>
         </div>
-        <a class="cv__cta" href="/a-severed-story"><span>Begin Orientation</span><i class="cv__cta-line" aria-hidden="true"></i></a>
+        <a class="cv__cta" href="/table-of-contents"><span>Begin Orientation</span><i class="cv__cta-line" aria-hidden="true"></i></a>
       </footer>
     </main>
   </body>
@@ -113,6 +114,7 @@ import '../styles/lumon.css';
 
   .cv__holes i {
     width: clamp(14px, 1.5vw, 20px);
+    min-width: 21px;
     aspect-ratio: 1;
     border-radius: 50%;
     background: var(--lumon-blue-deep);
@@ -161,15 +163,6 @@ import '../styles/lumon.css';
     align-self: center;
     max-width: none;
     padding: 24px 0;
-  }
-
-  .cv__eyebrow {
-    font-weight: var(--w-bold);
-    font-size: clamp(11px, 1.1vw, 13px);
-    letter-spacing: var(--track-eyebrow);
-    text-transform: uppercase;
-    color: rgba(244, 243, 238, 0.72);
-    margin-bottom: clamp(22px, 3vh, 34px);
   }
 
   .cv__title {
@@ -257,18 +250,18 @@ import '../styles/lumon.css';
   /* trailing arrow: a shaft (the line) + a chevron head pushed along by it */
   .cv__cta-line {
     width: 26px;
-    height: 1px;
+    height: 2px;
     background: var(--ink);
     transition: width 200ms ease;
   }
 
   .cv__cta::after {
     content: '';
-    width: 7px;
-    height: 7px;
-    margin-left: -13px;
-    border-top: 1.5px solid var(--ink);
-    border-right: 1.5px solid var(--ink);
+    width: 8px;
+    height: 8px;
+    margin-left: -23px;
+    border-top: 2.5px solid var(--ink);
+    border-right: 2.5px solid var(--ink);
     transform: rotate(45deg);
   }
 
@@ -349,8 +342,7 @@ import '../styles/lumon.css';
     }
 
     .cv__holes {
-      left: 16px;
-      gap: 64px;
+      display: none;
     }
 
     .cv__brand span {

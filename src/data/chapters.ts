@@ -18,7 +18,7 @@ export interface Chapter {
 
 export const chapters: Chapter[] = [
   {
-    slug: 'a-severed-story',
+    slug: 'table-of-contents',
     title: 'Table of Contents',
     navTitle: 'Table of Contents',
     blurb: 'A chapter index.',
@@ -74,7 +74,7 @@ export const chapters: Chapter[] = [
   {
     slug: 'case-studies',
     title: 'Case Studies',
-    blurb: 'Cautionary tales from other departments.',
+    blurb: 'Tales of corporate life from other departments.',
   },
   {
     slug: 'reference-index',
