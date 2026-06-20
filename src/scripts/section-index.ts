@@ -12,7 +12,7 @@
    re-skins the directory to match the voice of the section you're reading.
    ============================================================================ */
 
-type Voice = 'publisher' | 'orientation' | 'citizen';
+type Voice = "publisher" | "orientation" | "citizen";
 
 interface Entry {
   el: HTMLElement;
@@ -22,32 +22,38 @@ interface Entry {
   voice?: Voice;
 }
 
-const VOICE_NAME: Record<string, string> = {
-  publisher: 'THE PUBLISHER',
-  orientation: 'ORIENTATION',
-  citizen: 'CONCERNED CITIZEN',
-};
-
 function slugify(s: string, used: Record<string, boolean>): string {
   const base =
-    (s || '')
+    (s || "")
       .toLowerCase()
-      .replace(/[‘’“”]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '') || 'section';
+      .replace(/[‘’“”]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "section";
   let id = base;
   let n = 2;
   while (used[id]) {
-    id = base + '-' + n;
+    id = base + "-" + n;
     n++;
   }
   used[id] = true;
   return id;
 }
 
+// Cleanup hook for the previous build. `window` survives view-transition
+// navigations, so without this each navigation would stack another scroll
+// listener bound to a now-detached directory.
+let detachScroll: (() => void) | null = null;
+
 function buildSectionIndex(): void {
-  const viewer = document.getElementById('react-viewer');
-  const chapter = document.querySelector<HTMLElement>('body > nav ~ div > h1');
+  // tear down the previous page's directory + scroll-spy before rebuilding
+  if (detachScroll) {
+    detachScroll();
+    detachScroll = null;
+  }
+  document.querySelector(".page-index")?.remove();
+
+  const viewer = document.getElementById("react-viewer");
+  const chapter = document.querySelector<HTMLElement>("body > nav ~ div > h1");
   if (!viewer) return;
 
   const used: Record<string, boolean> = {};
@@ -55,20 +61,26 @@ function buildSectionIndex(): void {
 
   // chapter title first — a "return to top" anchor
   if (chapter) {
-    if (!chapter.id) chapter.id = slugify(chapter.textContent || 'top', used);
+    if (!chapter.id) chapter.id = slugify(chapter.textContent || "top", used);
     else used[chapter.id] = true;
-    entries.push({ el: chapter, level: 1, text: (chapter.textContent || '').trim() });
+    entries.push({
+      el: chapter,
+      level: 1,
+      text: (chapter.textContent || "").trim(),
+    });
   }
 
-  // section headings inside the content (skip TOC lists & cross-page links)
-  const heads = viewer.querySelectorAll<HTMLElement>('h1, h2, h3');
+  // section headings inside the content (skip TOC lists & cross-page links).
+  // Content begins at <h2> now (the page's only <h1> is the title card above).
+  const heads = viewer.querySelectorAll<HTMLElement>("h2, h3, h4");
   heads.forEach((h) => {
-    if (h.closest('blockquote')) return; // pull-quotes / TOC list
-    const txt = (h.textContent || '').trim();
+    if (h.closest("blockquote")) return; // pull-quotes / TOC list
+    const txt = (h.textContent || "").trim();
     if (!txt) return;
-    const link = h.querySelector('a[href]');
-    if (link && /\.html(\#|$)/i.test(link.getAttribute('href') || '')) return; // TOC entry
-    if (link && /^\/[a-z0-9-]+(\#|$)/i.test(link.getAttribute('href') || '')) return; // Astro route TOC entry
+    const link = h.querySelector("a[href]");
+    if (link && /\.html(\#|$)/i.test(link.getAttribute("href") || "")) return; // TOC entry
+    if (link && /^\/[a-z0-9-]+(\#|$)/i.test(link.getAttribute("href") || ""))
+      return; // Astro route TOC entry
     if (!h.id) h.id = slugify(txt, used);
     else used[h.id] = true;
     entries.push({ el: h, level: +h.tagName.charAt(1), text: txt });
@@ -76,51 +88,60 @@ function buildSectionIndex(): void {
 
   if (entries.length < 3) return; // not worth an index
 
-  // normalise levels to 1..3 for indentation
-  const minLvl = Math.min(...entries.map((e) => e.level));
+  // normalise levels to 1..3 for indentation. The indentation baseline comes
+  // from the in-content headings only — the chapter title is always the top
+  // level — so top sections stay flush even though content begins at <h2>.
+  const contentLvls = entries
+    .filter((e) => e.el !== chapter)
+    .map((e) => e.level);
+  const minLvl = contentLvls.length ? Math.min(...contentLvls) : 1;
 
-  const aside = document.createElement('aside');
-  aside.className = 'page-index';
-  aside.setAttribute('aria-label', 'Sections on this page');
+  const aside = document.createElement("aside");
+  aside.className = "page-index";
+  aside.setAttribute("aria-label", "Sections on this page");
 
-  const head = document.createElement('div');
-  head.className = 'page-index__head';
-  head.textContent = 'Floor Directory';
+  const head = document.createElement("div");
+  head.className = "page-index__head";
+  head.textContent = "Directory";
   aside.appendChild(head);
 
-  const list = document.createElement('nav');
-  list.className = 'page-index__list';
+  const list = document.createElement("nav");
+  list.className = "page-index__list";
   aside.appendChild(list);
 
   entries.forEach((e) => {
-    const a = document.createElement('a');
-    a.href = '#' + e.el.id;
-    a.setAttribute('data-level', String(Math.min(3, e.level - minLvl + 1)));
+    const a = document.createElement("a");
+    a.href = "#" + e.el.id;
+    a.setAttribute(
+      "data-level",
+      String(e.el === chapter ? 1 : Math.min(3, e.level - minLvl + 1)),
+    );
     a.textContent = e.text;
     list.appendChild(a);
     e.link = a;
   });
 
-  aside.setAttribute('data-toc-style', 'card');
+  aside.setAttribute("data-toc-style", "card");
 
   // ---- voice awareness: which [data-voice] region does each heading live in? --
   // The directory re-skins itself to match the voice of the section you are
   // reading, and crossfades between skins on pages that switch voices.
   function voiceOf(el: HTMLElement): Voice {
-    const r = el.closest('[data-voice]');
-    if (r) return (r.getAttribute('data-voice') as Voice) || 'orientation';
+    const r = el.closest("[data-voice]");
+    if (r) return (r.getAttribute("data-voice") as Voice) || "orientation";
     // headings outside any region (the chapter title) follow the head voice
-    const hv = document.querySelector('body > nav ~ div[data-head-voice]');
-    return ((hv && (hv.getAttribute('data-head-voice') as Voice)) || 'orientation');
+    const hv = document.querySelector("body > nav ~ div[data-head-voice]");
+    return (
+      (hv && (hv.getAttribute("data-head-voice") as Voice)) || "orientation"
+    );
   }
   entries.forEach((e) => {
     e.voice = voiceOf(e.el);
   });
   // mark whether the page mixes voices at all — drives the transition styling
   const multiVoice = entries.some((e) => e.voice !== entries[0].voice);
-  aside.setAttribute('data-active-voice', entries[0].voice!);
-  head.setAttribute('data-voice-name', VOICE_NAME[entries[0].voice!] || '');
-  if (multiVoice) aside.setAttribute('data-multi-voice', '');
+  aside.setAttribute("data-active-voice", entries[0].voice!);
+  if (multiVoice) aside.setAttribute("data-multi-voice", "");
 
   document.body.appendChild(aside);
 
@@ -137,14 +158,13 @@ function buildSectionIndex(): void {
       else break;
     }
     if (found === active) return;
-    if (active >= 0) links[active].classList.remove('is-active');
-    links[found].classList.add('is-active');
+    if (active >= 0) links[active].classList.remove("is-active");
+    links[found].classList.add("is-active");
     active = found;
     // re-skin the directory to the voice of the section now in view
     const v = entries[found].voice!;
     if (v !== curVoice) {
-      aside.setAttribute('data-active-voice', v);
-      head.setAttribute('data-voice-name', VOICE_NAME[v] || '');
+      aside.setAttribute("data-active-voice", v);
       curVoice = v;
     }
     // keep the active row visible inside a scrolling index
@@ -159,23 +179,19 @@ function buildSectionIndex(): void {
     }
   }
   let ticking = false;
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        onScroll();
-        ticking = false;
-      });
-    },
-    { passive: true }
-  );
+  const onScrollThrottled = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
+    });
+  };
+  window.addEventListener("scroll", onScrollThrottled, { passive: true });
+  detachScroll = () => window.removeEventListener("scroll", onScrollThrottled);
   onScroll();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', buildSectionIndex);
-} else {
-  buildSectionIndex();
-}
+// `astro:page-load` fires after the initial load AND after every view-transition
+// navigation, so the directory is rebuilt for each chapter the reader lands on.
+document.addEventListener("astro:page-load", buildSectionIndex);

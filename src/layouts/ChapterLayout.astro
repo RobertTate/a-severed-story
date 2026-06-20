@@ -9,32 +9,37 @@
 //
 // `headVoice` is the voice of the region that opens the chapter; it tints the
 // title card. It used to be derived at runtime — now it's an explicit prop.
-import Nav from '../components/Nav.astro';
-import '../styles/lumon.css';
+import { ClientRouter, fade } from "astro:transitions";
+import Nav from "../components/Nav.astro";
+import "../styles/lumon.css";
 
 interface Props {
   /** Chapter title shown on the title card and in the nav. */
   title: string;
   /** Voice of the opening region; tints the title card. Default: orientation. */
-  headVoice?: 'publisher' | 'orientation' | 'citizen';
+  headVoice?: "publisher" | "orientation" | "citizen";
   /** Override the <title> tag. Defaults to `${title} · A Severed Story`. */
   tabTitle?: string;
 }
 
-const { title, headVoice = 'orientation', tabTitle } = Astro.props;
+const { title, headVoice = "orientation", tabTitle } = Astro.props;
 const tab = tabTitle ?? `${title} · A Severed Story`;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{tab}</title>
+    <ClientRouter />
   </head>
   <body>
     <Nav pageTitle={title} />
-    <div data-head-voice={headVoice}>
+    <div
+      data-head-voice={headVoice}
+      transition:animate={fade({ duration: "0.25s" })}
+    >
       <h1>{title}</h1>
       <div id="Main">
         <div id="react-viewer">
@@ -43,7 +48,7 @@ const tab = tabTitle ?? `${title} · A Severed Story`;
       </div>
     </div>
     <script>
-      import '../scripts/section-index.ts';
+      import "../scripts/section-index.ts";
     </script>
   </body>
 </html>

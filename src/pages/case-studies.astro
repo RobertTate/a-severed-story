@@ -1,147 +1,254 @@
 ---
-import ChapterLayout from '../layouts/ChapterLayout.astro';
-import BinderHoles from '../components/BinderHoles.astro';
-import Backlink from '../components/Backlink.astro';
+import ChapterLayout from "../layouts/ChapterLayout.astro";
+import BinderHoles from "../components/BinderHoles.astro";
+import Backlink from "../components/Backlink.astro";
 ---
 
 <ChapterLayout title="Case Studies" headVoice="publisher">
-        <div data-voice="publisher">
-        <BinderHoles />
-        <Backlink />
-          <h2><span>(Worked Examples of Play)</span></h2>
-          <blockquote>
-            <p><span>The surest way to learn </span><a href="/a-severed-story">A Severed Story</a><span> is to watch a workday unfold. What follows are a few worked
-                examples — scenes narrated as they might happen at your table, with every Roll laid bare. Read them with
-              </span><a href="/procedural-guidelines">Procedural Guidelines</a><span> close at
-                hand.</span></p>
-          </blockquote>
-          <hr />
-          <h1><span>Meet the Employee</span></h1>
-          <hr />
-          <p><span>Across these examples we follow </span><strong><span>Nina
-                H.</span></strong><span>,
-              a refiner in Macrodata Refinement. Her HRPE assessed her as </span><strong><span>The Analyst
-                (DR)</span></strong><span>.
-              The parts of her LIEP that matter here:</span></p>
-          <ul>
-            <li>
-              <p><strong><span>DREAD row:</span></strong><span> 3 Temper Points, with
-                </span><strong><span>WIT</span></strong><span> checked as a Core Competency, and 1 Kier Point.</span>
-              </p>
-            </li>
-            <li>
-              <p><strong><span>FROLIC row:</span></strong><span> 2 Temper Points.</span></p>
-            </li>
-            <li>
-              <p><strong><span>Stress:</span></strong><span> beginning the day at
-                </span><strong><span>Satisfactory</span></strong><span>.</span></p>
-            </li>
-          </ul>
-          <hr />
-          <h1><span>Example One — A Routine Request</span></h1>
-          <hr />
-          <p><span>Nina&#x27;s Floor Manager asks her to fetch a file from a cabinet whose lock
-              has jammed. The drawer is stubborn; the manager is watching.</span></p>
-          <p><span>The GM decides the outcome is both
-            </span><em><span>uncertain</span></em><span>
-              (the lock is fighting her) and </span><em><span>meaningful</span></em><span> (her manager is judging her),
-              so a </span><strong><span>Roll</span></strong><span> is called. The action — careful, quick
-              problem-solving
-              under a superior&#x27;s eye — is best embodied by </span><strong><span>WIT</span></strong><span>, whose
-              parent Temper is </span><strong><span>DREAD</span></strong><span>. The GM sets the Task Severity at
-            </span><strong><span>Demanding (15)</span></strong><span>.</span></p>
-          <blockquote>
-            <p><strong><u><span>Nina&#x27;s Roll</span></u></strong></p>
-            <p><strong><span>Principle:</span></strong><span> WIT (DREAD row) &nbsp;·&nbsp;
-              </span><strong><span>Task Severity:</span></strong><span> Demanding (15)</span></p>
-            <p><span>WIT is a </span><strong><span>Core Competency</span></strong><span>, so
-                Nina
-                rolls with </span><strong><span>Confidence</span></strong><span>. The action serves Lumon, so her
-              </span><strong><span>Kier Point</span></strong><span> in the DREAD row applies.</span></p>
-            <p><span>2d20 → </span><strong><span>9</span></strong><span> and
-              </span><strong><span>16</span></strong><span> — take the 16.</span></p>
-            <p><strong><span>16 + 3 Temper + 1 Kier = 20.</span></strong><span> 20 ≥ 15 →
-              </span><strong><span>Success.</span></strong></p>
-          </blockquote>
-          <p><span>The lock yields with a satisfying clunk. Nina hands the file over; her
-              manager
-              offers a rare, warm nod. A small, wholesome moment — the kind a quiet quarter is built from.</span></p>
-          <hr />
-          <h1><span>Example Two — A Bad Afternoon</span></h1>
-          <hr />
-          <p><span>Hours later, the day has worn on Nina. A string of interruptions has pushed
-              her
-              stress up to </span><strong><span>Poor</span></strong><span>. When a rattled coworker snaps at her over a
-              shared terminal, she tries to calm them down.</span></p>
-          <p><span>The GM rules this a </span><strong><span>CHEER</span></strong><span> action
-              (parent Temper </span><strong><span>FROLIC</span></strong><span>) — not one of Nina&#x27;s Core
-              Competencies. And because she is at </span><strong><span>Poor</span></strong><span>, the GM exercises the
-              option to impose </span><strong><span>Hesitance</span></strong><span> on the Roll. Task Severity:
-            </span><strong><span>Demanding (15)</span></strong><span>.</span></p>
-          <blockquote>
-            <p><strong><u><span>Nina&#x27;s Roll</span></u></strong></p>
-            <p><strong><span>Principle:</span></strong><span> CHEER (FROLIC row) &nbsp;·&nbsp;
-              </span><strong><span>Task Severity:</span></strong><span> Demanding (15) &nbsp;·&nbsp;
-              </span><strong><span>Hesitance</span></strong></p>
-            <p><span>2d20 → </span><strong><span>11</span></strong><span> and
-              </span><strong><span>1</span></strong><span> — Hesitance takes the
-              </span><strong><span>lower</span></strong><span>:
-                the 1.</span></p>
-            <p><span>A natural </span><strong><span>1</span></strong><span> is a
-              </span><strong><span>Critical Failure</span></strong><span>, regardless of Modifiers.
-              </span><strong><span>Nina&#x27;s stress rises by 1.</span></strong></p>
-          </blockquote>
-          <p><span>Nina says exactly the wrong thing. The coworker recoils, wounded, and stalks
-              off — and now there is bad blood between them. The GM rules this a
-            </span><strong><span>Problem</span></strong><span>:
-              Nina writes a &quot;P&quot; in her left-most stress box and notes the grudge under
-            </span><strong><span>Stress Related Circumstances</span></strong><span>. Unlike ordinary stress, a
-              Problem&#x27;s mark will not wipe clean with tomorrow&#x27;s descent — it must be
-            </span><em><span>resolved
-                through play</span></em><span> first.</span></p>
-          <p><span>One natural 1 has turned a small slight into a thread the GM can pull for
-              workdays to come. That is the engine of </span><a href="/a-severed-story">A Severed
-              Story</a><span> doing its work.</span></p>
-          <div data-panel-type="note">
-            <div><svg
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-                <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-              </svg> </div>
-            <div>
-              <p><em><strong><span>The Other Path.</span></strong></em></p>
-              <p><em><span>The handbook ends Nina&#x27;s scene the moment she serves Lumon. Of
-                    course it does. But look at what it skips past: the drawer is open, and a name she knows is staring
-                    up
-                    at her.</span></em></p>
-              <p><em><span>She could take a page.</span></em></p>
-              <p><em><span>That is not the cabinet roll — that one is finished and won. Slipping
-                    a
-                    page up her sleeve under a manager&#x27;s eye is a separate act, and so it earns a separate,
-                    additional
-                    Roll: a new one, this time under </span></em><em><strong><span>WILES</span></strong></em><em><span>
-                    (the MALICE row), made in secret. No Core Competency to lean on this time, and no Kier Point to
-                    spend —
-                    because this act does not serve them. It serves
-                  </span></em><em><u><span>her</span></u></em><em><span>.
-                    So it is her </span></em><em><strong><span>Ricken Points</span></strong></em><em><span> that carry
-                    the
-                    Roll, and a success <strong>may</strong> earn her a Ricken Point into that row, if the GM feels that
-                    this moment of defiance calls for it. Should she fail it, the manager catches the
-                    motion of her hand — and that is a Problem all her own.</span></em></p>
-              <p><em><span>One workday. One jammed drawer. But two separate Rolls living inside
-                    it —
-                    the one they asked her to make, and the one they would never know she made.</span></em></p>
-              <p><em><strong><span>— C.C.</span></strong></em></p>
-            </div>
-          </div>
-          <hr />
-          <hr />
-          <p><span>That is play in </span><a href="/a-severed-story">A
-              Severed Story</a><span>. The rest is the story you and your
-              players tell with it.</span></p>
-          <p><span>Enjoy your time within these hallowed halls!</span></p>
-          <p></p>
-        </div>
+  <div data-voice="publisher">
+    <BinderHoles />
+    <Backlink />
+    <p class="eyebrow"><span>(Worked Examples of Play)</span></p>
+    <blockquote>
+      <p>
+        <span>The surest way to learn </span><a href="/table-of-contents"
+          >A Severed Story</a
+        ><span>
+          is to watch a workday unfold. What follows are a few worked examples —
+          scenes narrated as they might happen at your table, with every Roll
+          laid bare. Read them with
+        </span><a href="/procedural-guidelines">Procedural Guidelines</a><span>
+          close at hand.</span>
+      </p>
+    </blockquote>
+    <hr />
+    <h2><span>Meet the Employee</span></h2>
+    <hr />
+    <p>
+      <span>Across these examples we follow </span><strong
+        ><span>Nina H.</span></strong
+      ><span
+        >, a refiner in Macrodata Refinement. Her HRPE assessed her as
+      </span><strong><span>The Analyst (DR)</span></strong><span
+        >. The parts of her LIEP that matter here:</span>
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong><span>DREAD row:</span></strong><span>
+            3 Temper Points, with
+          </span><strong><span>WIT</span></strong><span>
+            checked as a Core Competency, and 1 Kier Point.</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>FROLIC row:</span></strong><span>
+            2 Temper Points.</span>
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><span>Stress:</span></strong><span>
+            beginning the day at
+          </span><strong><span>Satisfactory</span></strong><span>.</span>
+        </p>
+      </li>
+    </ul>
+    <hr />
+    <h2><span>Example One — A Routine Request</span></h2>
+    <hr />
+    <p>
+      <span
+        >Nina&#x27;s Floor Manager asks her to fetch a file from a cabinet whose
+        lock has jammed. The drawer is stubborn; the manager is watching.</span>
+    </p>
+    <p>
+      <span>The GM decides the outcome is both </span><em
+        ><span>uncertain</span></em
+      ><span> (the lock is fighting her) and </span><em
+        ><span>meaningful</span></em
+      ><span> (her manager is judging her), so a </span><strong
+        ><span>Roll</span></strong
+      ><span>
+        is called. The action — careful, quick problem-solving under a
+        superior&#x27;s eye — is best embodied by
+      </span><strong><span>WIT</span></strong><span
+        >, whose parent Temper is
+      </span><strong><span>DREAD</span></strong><span
+        >. The GM sets the Task Severity at
+      </span><strong><span>Demanding (15)</span></strong><span>.</span>
+    </p>
+    <blockquote>
+      <p><strong><u><span>Nina&#x27;s Roll</span></u></strong></p>
+      <p>
+        <strong><span>Principle:</span></strong><span>
+          WIT (DREAD row) &nbsp;·&nbsp;
+        </span><strong><span>Task Severity:</span></strong><span>
+          Demanding (15)</span>
+      </p>
+      <p>
+        <span>WIT is a </span><strong><span>Core Competency</span></strong><span
+          >, so Nina rolls with
+        </span><strong><span>Confidence</span></strong><span
+          >. The action serves Lumon, so her
+        </span><strong><span>Kier Point</span></strong><span>
+          in the DREAD row applies.</span>
+      </p>
+      <p>
+        <span>2d20 → </span><strong><span>9</span></strong><span>
+          and
+        </span><strong><span>16</span></strong><span> — take the 16.</span>
+      </p>
+      <p>
+        <strong><span>16 + 3 Temper + 1 Kier = 20.</span></strong><span>
+          20 ≥ 15 →
+        </span><strong><span>Success.</span></strong>
+      </p>
+    </blockquote>
+    <p>
+      <span
+        >The lock yields with a satisfying clunk. Nina hands the file over; her
+        manager offers a rare, warm nod. A small, wholesome moment — the kind a
+        quiet quarter is built from.</span>
+    </p>
+    <hr />
+    <h2><span>Example Two — A Bad Afternoon</span></h2>
+    <hr />
+    <p>
+      <span
+        >Hours later, the day has worn on Nina. A string of interruptions has
+        pushed her stress up to
+      </span><strong><span>Poor</span></strong><span
+        >. When a rattled coworker snaps at her over a shared terminal, she
+        tries to calm them down.</span>
+    </p>
+    <p>
+      <span>The GM rules this a </span><strong><span>CHEER</span></strong><span>
+        action (parent Temper
+      </span><strong><span>FROLIC</span></strong><span
+        >) — not one of Nina&#x27;s Core Competencies. And because she is at
+      </span><strong><span>Poor</span></strong><span
+        >, the GM exercises the option to impose
+      </span><strong><span>Hesitance</span></strong><span>
+        on the Roll. Task Severity:
+      </span><strong><span>Demanding (15)</span></strong><span>.</span>
+    </p>
+    <blockquote>
+      <p><strong><u><span>Nina&#x27;s Roll</span></u></strong></p>
+      <p>
+        <strong><span>Principle:</span></strong><span>
+          CHEER (FROLIC row) &nbsp;·&nbsp;
+        </span><strong><span>Task Severity:</span></strong><span>
+          Demanding (15) &nbsp;·&nbsp;
+        </span><strong><span>Hesitance</span></strong>
+      </p>
+      <p>
+        <span>2d20 → </span><strong><span>11</span></strong><span>
+          and
+        </span><strong><span>1</span></strong><span>
+          — Hesitance takes the
+        </span><strong><span>lower</span></strong><span>: the 1.</span>
+      </p>
+      <p>
+        <span>A natural </span><strong><span>1</span></strong><span>
+          is a
+        </span><strong><span>Critical Failure</span></strong><span
+          >, regardless of Modifiers.
+        </span><strong><span>Nina&#x27;s stress rises by 1.</span></strong>
+      </p>
+    </blockquote>
+    <p>
+      <span
+        >Nina says exactly the wrong thing. The coworker recoils, wounded, and
+        stalks off — and now there is bad blood between them. The GM rules this
+        a
+      </span><strong><span>Problem</span></strong><span
+        >: Nina writes a &quot;P&quot; in her left-most stress box and notes the
+        grudge under
+      </span><strong><span>Stress Related Circumstances</span></strong><span
+        >. Unlike ordinary stress, a Problem&#x27;s mark will not wipe clean
+        with tomorrow&#x27;s descent — it must be
+      </span><em><span>resolved through play</span></em><span> first.</span>
+    </p>
+    <p>
+      <span
+        >One natural 1 has turned a small slight into a thread the GM can pull
+        for workdays to come. That is the engine of
+      </span><a href="/table-of-contents">A Severed Story</a><span>
+        doing its work.</span>
+    </p>
+    <div data-panel-type="note">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+          ></path>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+        </svg>
+      </div>
+      <div>
+        <p><em><strong><span>The Other Path.</span></strong></em></p>
+        <p>
+          <em
+            ><span
+              >The handbook ends Nina&#x27;s scene the moment she serves Lumon.
+              Of course it does. But look at what it skips past: the drawer is
+              open, and a name she knows is staring up at her.</span
+            ></em>
+        </p>
+        <p><em><span>She could take a page.</span></em></p>
+        <p>
+          <em
+            ><span
+              >That is not the cabinet roll — that one is finished and won.
+              Slipping a page up her sleeve under a manager&#x27;s eye is a
+              separate act, and so it earns a separate, additional Roll: a new
+              one, this time under
+            </span></em
+          ><em><strong><span>WILES</span></strong></em><em
+            ><span>
+              (the MALICE row), made in secret. No Core Competency to lean on
+              this time, and no Kier Point to spend — because this act does not
+              serve them. It serves
+            </span></em
+          ><em><u><span>her</span></u></em><em><span>. So it is her </span></em
+          ><em><strong><span>Ricken Points</span></strong></em><em
+            ><span>
+              that carry the Roll, and a success <strong>may</strong> earn her a Ricken
+              Point into that row, if the GM feels that this moment of defiance calls
+              for it. Should she fail it, the manager catches the motion of her hand
+              — and that is a Problem all her own.</span
+            ></em>
+        </p>
+        <p>
+          <em
+            ><span
+              >One workday. One jammed drawer. But two separate Rolls living
+              inside it — the one they asked her to make, and the one they would
+              never know she made.</span
+            ></em>
+        </p>
+        <p><em><strong><span>— C.C.</span></strong></em></p>
+      </div>
+    </div>
+    <hr />
+    <hr />
+    <p>
+      <span>That is play in </span><a href="/table-of-contents"
+        >A Severed Story</a
+      ><span>. The rest is the story you and your players tell with it.</span>
+    </p>
+    <p><span>Enjoy your time within these hallowed halls!</span></p>
+  </div>
 </ChapterLayout>
