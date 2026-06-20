@@ -1,7 +1,7 @@
 ---
-import ChapterLayout from '../layouts/ChapterLayout.astro';
-import BinderHoles from '../components/BinderHoles.astro';
-import { chapters } from '../data/chapters';
+import ChapterLayout from "../layouts/ChapterLayout.astro";
+import BinderHoles from "../components/BinderHoles.astro";
+import { chapters } from "../data/chapters";
 
 const tocEntries = chapters.filter((c) => !c.hideFromToc);
 ---
@@ -13,8 +13,16 @@ const tocEntries = chapters.filter((c) => !c.hideFromToc);
       {
         tocEntries.map((c) => (
           <Fragment>
-            <h3><a href={`/${c.slug}`}>{c.title}</a></h3>
-            <p><em><sup><span>{c.blurb}</span></sup></em></p>
+            <h3>
+              <a href={`/${c.slug}`}>{c.title}</a>
+            </h3>
+            <p>
+              <em>
+                <sup>
+                  <span>{c.blurb}</span>
+                </sup>
+              </em>
+            </p>
           </Fragment>
         ))
       }
@@ -29,7 +37,7 @@ const tocEntries = chapters.filter((c) => !c.hideFromToc);
   [data-voice="publisher"].toc > h2::before {
     content: none;
   }
- 
+
   /* no § counter on the contents title */
   [data-voice="publisher"].toc > blockquote {
     margin: var(--space-4) 0 var(--space-7);

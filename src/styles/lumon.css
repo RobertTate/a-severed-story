@@ -8,33 +8,33 @@
    CONCERNED C.  — the saboteur.               Ballpoint scraps + photocopied pages.
    ============================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Spline+Sans+Mono:wght@400;500;600&family=Kalam:wght@300;400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Michroma&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Spline+Sans+Mono:wght@400;500;600&family=Kalam:wght@300;400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Michroma&display=swap");
 
 /* ----------------------------------------------------------------------------
    TOKENS — Lumon design system (colors_and_type.css) + book-specific additions
 ---------------------------------------------------------------------------- */
 :root {
-  --pantone-700: #F8AAB6;
-  --pantone-704: #A25056;
-  --pantone-7487: #8BE076;
-  --pantone-334: #00957E;
-  --pantone-298: #4CB4E7;
-  --pantone-293: #235BA8;
-  --lumon-blue: #235BA8;
-  --lumon-blue-flag: #2C5FA6;
-  --lumon-blue-deep: #1B4A8C;
+  --pantone-700: #f8aab6;
+  --pantone-704: #a25056;
+  --pantone-7487: #8be076;
+  --pantone-334: #00957e;
+  --pantone-298: #4cb4e7;
+  --pantone-293: #235ba8;
+  --lumon-blue: #235ba8;
+  --lumon-blue-flag: #2c5fa6;
+  --lumon-blue-deep: #1b4a8c;
 
-  --paper: #F4F3EE;
-  --wall: #EDECE6;
-  --wall-cool: #E7E9E8;
-  --bone: #DEDCD3;
-  --concrete: #C4C5C0;
-  --steel: #9A9E9D;
-  --steel-dark: #6E7374;
-  --slate: #3C4248;
-  --ink: #1A1D22;
-  --ink-blue: #14181F;
-  --pure-white: #FFFFFF;
+  --paper: #f4f3ee;
+  --wall: #edece6;
+  --wall-cool: #e7e9e8;
+  --bone: #dedcd3;
+  --concrete: #c4c5c0;
+  --steel: #9a9e9d;
+  --steel-dark: #6e7374;
+  --slate: #3c4248;
+  --ink: #1a1d22;
+  --ink-blue: #14181f;
+  --pure-white: #ffffff;
 
   --bg: var(--wall);
   --bg-raised: var(--paper);
@@ -48,13 +48,15 @@
   --hairline: rgba(26, 29, 34, 0.16);
   --hairline-strong: rgba(26, 29, 34, 0.42);
 
-  --font-display: 'Hanken Grotesk', 'Forma DJR Display', 'Helvetica Neue', Arial, sans-serif;
-  --font-text: 'Hanken Grotesk', 'Forma DJR Text', 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'Spline Sans Mono', ui-monospace, Menlo, monospace;
+  --font-display:
+    "Hanken Grotesk", "Forma DJR Display", "Helvetica Neue", Arial, sans-serif;
+  --font-text:
+    "Hanken Grotesk", "Forma DJR Text", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Spline Sans Mono", ui-monospace, Menlo, monospace;
   /* Publisher title-card display face — Manifold Extended CF stand-in.
      ROLLBACK: set this back to var(--font-display) to restore the original
      light Hanken title cards (and remove the PUBLISHER MICHROMA block below). */
-  --font-display-pub: 'Michroma', 'Helvetica Neue', Arial, sans-serif;
+  --font-display-pub: "Michroma", "Helvetica Neue", Arial, sans-serif;
 
   --w-light: 300;
   --w-regular: 400;
@@ -79,28 +81,30 @@
   --radius-md: 4px;
   --radius-pill: 999px;
 
-  --shadow-card: 0 1px 2px rgba(26, 29, 34, 0.10), 0 8px 24px -12px rgba(26, 29, 34, 0.22);
-  --shadow-raised: 0 2px 4px rgba(26, 29, 34, 0.12), 0 18px 40px -20px rgba(26, 29, 34, 0.30);
+  --shadow-card:
+    0 1px 2px rgba(26, 29, 34, 0.1), 0 8px 24px -12px rgba(26, 29, 34, 0.22);
+  --shadow-raised:
+    0 2px 4px rgba(26, 29, 34, 0.12), 0 18px 40px -20px rgba(26, 29, 34, 0.3);
 
   /* book-specific */
-  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', cursive;
+  --hand: "Kalam", "Segoe Print", "Bradley Hand", cursive;
   /* the C.C. ballpoint hand */
-  --typewriter: 'Courier Prime', 'Courier New', monospace;
+  --typewriter: "Courier Prime", "Courier New", monospace;
   /* samizdat manuscript */
-  --stamp: 'Special Elite', 'Courier Prime', monospace;
+  --stamp: "Special Elite", "Courier Prime", monospace;
   /* photocopied stamps */
   --cc-ink: #29324f;
   /* dark ballpoint blue-black */
   --cc-ink-soft: #4a5269;
   /* lighter ballpoint */
-  --manila: #F0E8D2;
+  --manila: #f0e8d2;
   /* taped-in scrap paper */
-  --manila-edge: #E4D9BC;
-  --tape: rgba(206, 193, 156, 0.50);
-  --photocopy: #E9E5DA;
+  --manila-edge: #e4d9bc;
+  --tape: rgba(206, 193, 156, 0.5);
+  --photocopy: #e9e5da;
   /* dirty off-white reproduction stock */
   --photocopy-ink: #161616;
-  --handbook: #FBFBF8;
+  --handbook: #fbfbf8;
   /* clean white handbook stock (Orientation) */
 
   --measure: 42rem;
@@ -179,7 +183,7 @@ sup {
 /* ============================================================================
    1. THE BOOK FRAME — official Lumon chrome (Publisher voice)
    ============================================================================ */
-body>nav {
+body > nav {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 200;
@@ -194,7 +198,7 @@ body>nav {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
 }
 
-body>nav>a {
+body > nav > a {
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -202,14 +206,14 @@ body>nav>a {
   color: var(--paper);
 }
 
-body>nav>a img {
+body > nav > a img {
   height: 32px;
   width: auto;
   filter: invert(1) brightness(1.85) contrast(1.05);
   /* black globe → white on dark bar */
 }
 
-body>nav>a span {
+body > nav > a span {
   font-weight: var(--w-bold);
   font-size: 12px;
   letter-spacing: var(--track-eyebrow);
@@ -217,11 +221,11 @@ body>nav>a span {
 }
 
 /* Chapters dropdown (the <details>/<summary>) */
-body>nav details {
+body > nav details {
   position: relative;
 }
 
-body>nav summary {
+body > nav summary {
   list-style: none;
   cursor: pointer;
   user-select: none;
@@ -235,36 +239,38 @@ body>nav summary {
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
   color: var(--paper);
-  transition: background-color 160ms ease, border-color 160ms ease;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 
-body>nav summary::-webkit-details-marker {
+body > nav summary::-webkit-details-marker {
   display: none;
 }
 
-body>nav summary::after {
+body > nav summary::after {
   content: "▾";
   font-size: 10px;
   letter-spacing: 0;
   opacity: 0.7;
 }
 
-body>nav summary:hover {
+body > nav summary:hover {
   background: rgba(244, 243, 238, 0.08);
   border-color: rgba(244, 243, 238, 0.5);
 }
 
-body>nav details[open] summary {
+body > nav details[open] summary {
   background: var(--paper);
   color: var(--ink);
   border-color: var(--paper);
 }
 
-body>nav details[open] summary::after {
+body > nav details[open] summary::after {
   transform: rotate(180deg);
 }
 
-body>nav details ul {
+body > nav details ul {
   position: absolute;
   right: 0;
   top: calc(100% + 14px);
@@ -280,7 +286,7 @@ body>nav details ul {
   box-shadow: var(--shadow-raised);
 }
 
-body>nav details ul::before {
+body > nav details ul::before {
   content: "CHAPTERS";
   display: block;
   padding: 10px 12px 8px;
@@ -291,7 +297,7 @@ body>nav details ul::before {
   border-bottom: 1px solid var(--hairline);
 }
 
-body>nav details li a {
+body > nav details li a {
   display: block;
   padding: 9px 12px;
   text-decoration: none;
@@ -301,20 +307,20 @@ body>nav details li a {
   border-bottom: 1px solid rgba(26, 29, 34, 0.05);
 }
 
-body>nav details li:last-child a {
+body > nav details li:last-child a {
   border-bottom: none;
 }
 
-body>nav details li a:hover {
+body > nav details li a:hover {
   background: var(--wall);
 }
 
-body>nav details li:first-child a {
+body > nav details li:first-child a {
   font-weight: var(--w-bold);
 }
 
 /* ---- The page wrapper (everything below nav) ---- */
-body>nav~div {
+body > nav ~ div {
   position: relative;
   padding-top: 58px;
   min-height: 100vh;
@@ -326,7 +332,7 @@ body>nav~div {
         data-head-voice on the wrapper). A handbook chapter opens on warm white
         stock; a publisher chapter opens on the blue field — no jarring blue
         banner over a white page, and no binder holes on the card. ---- */
-body>nav~div>h1 {
+body > nav ~ div > h1 {
   position: relative;
   margin: 0;
   padding: clamp(56px, 9vh, 104px) clamp(28px, 6vw, 80px) clamp(36px, 5vh, 54px);
@@ -335,7 +341,7 @@ body>nav~div>h1 {
   letter-spacing: -0.022em;
 }
 
-body>nav~div>h1::before {
+body > nav ~ div > h1::before {
   content: "A Severed Story · Edition Alpha";
   display: block;
   margin-bottom: clamp(18px, 3vh, 30px);
@@ -346,7 +352,7 @@ body>nav~div>h1::before {
   text-transform: uppercase;
 }
 
-body>nav~div>h1::after {
+body > nav ~ div > h1::after {
   content: "";
   display: block;
   margin-top: clamp(22px, 4vh, 34px);
@@ -355,27 +361,39 @@ body>nav~div>h1::after {
 }
 
 /* PUBLISHER-led chapter → the flooded corporate-blue title card */
-[data-head-voice="publisher"]>h1 {
+[data-head-voice="publisher"] > h1 {
   padding-left: var(--ohang);
   color: var(--paper);
   background-color: var(--lumon-blue);
   background-image:
-    radial-gradient(411% 269% at 190% -11%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 46%),
-    radial-gradient(299% 262% at 104% 122%, rgba(11, 32, 64, 0.55), rgba(11, 32, 64, 0) 52%);
+    radial-gradient(
+      411% 269% at 190% -11%,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0) 46%
+    ),
+    radial-gradient(
+      299% 262% at 104% 122%,
+      rgba(11, 32, 64, 0.55),
+      rgba(11, 32, 64, 0) 52%
+    );
   font-weight: var(--w-light);
   font-size: clamp(40px, 7vw, 100px);
   z-index: 3;
 }
 
-[data-head-voice="publisher"]>h1::before {
+[data-head-voice="publisher"] > h1::before {
   color: rgba(244, 243, 238, 0.72);
 }
 
-[data-head-voice="publisher"]>h1::after {
-  background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
+[data-head-voice="publisher"] > h1::after {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--paper) 0 1px,
+    transparent 1px 3px
+  );
 }
 
-[data-head-voice="orientation"]>h1 {
+[data-head-voice="orientation"] > h1 {
   padding-left: var(--ohang);
   color: var(--ink);
   background: var(--handbook);
@@ -384,18 +402,22 @@ body>nav~div>h1::after {
   letter-spacing: -0.03em;
 }
 
-[data-head-voice="orientation"]>h1::before {
+[data-head-voice="orientation"] > h1::before {
   color: var(--fg-2);
 }
 
-[data-head-voice="orientation"]>h1::after {
+[data-head-voice="orientation"] > h1::after {
   height: 17px;
   width: 124px;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0 1.5px,
+    transparent 1.5px 4px
+  );
 }
 
 /* CITIZEN-led chapter → photocopied samizdat cover */
-[data-head-voice="citizen"]>h1 {
+[data-head-voice="citizen"] > h1 {
   padding-left: var(--ohang);
   color: #0d0d0d;
   background: var(--photocopy);
@@ -406,14 +428,14 @@ body>nav~div>h1::after {
   letter-spacing: 0.01em;
 }
 
-[data-head-voice="citizen"]>h1::before {
+[data-head-voice="citizen"] > h1::before {
   content: "UNAUTHORIZED INSERTION";
   font-family: var(--stamp);
   color: #7a1f1f;
   letter-spacing: 0.18em;
 }
 
-[data-head-voice="citizen"]>h1::after {
+[data-head-voice="citizen"] > h1::after {
   height: 0;
   width: auto;
   margin-top: var(--space-3);
@@ -435,7 +457,7 @@ body>nav~div>h1::after {
    LEFT-ALIGNED on the SAME generous left margin (--ohang) as its chapter title
    card and the Orientation voice (the Employee Profile look), so the header and
    the body below it share one left edge on every default page. */
-#react-viewer> :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, figure, table) {
+#react-viewer > :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, figure, table) {
   max-width: calc(var(--measure) + var(--ohang) + var(--space-6));
   margin-inline: 0;
   padding-left: var(--ohang);
@@ -443,7 +465,7 @@ body>nav~div>h1::after {
 }
 
 /* The "<-- Back to ... Table of Contents" courtesy line (also the TOC intro line) */
-#react-viewer>p:first-child {
+#react-viewer > p:first-child {
   max-width: 64rem;
   margin: 0;
   padding: 0 var(--space-6) var(--space-6) var(--ohang);
@@ -453,7 +475,7 @@ body>nav~div>h1::after {
   color: var(--fg-2);
 }
 
-#react-viewer>p:first-child a {
+#react-viewer > p:first-child a {
   color: var(--ink);
   font-weight: var(--w-semi);
   text-decoration-thickness: 1px;
@@ -461,12 +483,12 @@ body>nav~div>h1::after {
 }
 
 /* Trailing empty nodes the export leaves behind */
-#react-viewer>h1:empty,
-#react-viewer>p:empty,
-[data-voice]>h1:empty,
-[data-voice]> :is(h2, h3, h4):empty,
-[data-voice]>p:empty,
-#react-viewer>div:empty {
+#react-viewer > h1:empty,
+#react-viewer > p:empty,
+[data-voice] > h1:empty,
+[data-voice] > :is(h2, h3, h4):empty,
+[data-voice] > p:empty,
+#react-viewer > div:empty {
   display: none;
 }
 
@@ -488,7 +510,7 @@ strong {
         (Table of Contents, Preamble body, stray paragraphs). These selectors
         only match DIRECT children of #react-viewer, so they never collide with
         voiced content nested inside [data-voice] regions. ---- */
-#react-viewer>p {
+#react-viewer > p {
   font-size: 17px;
   line-height: 1.62;
   color: #23262b;
@@ -496,7 +518,7 @@ strong {
   text-wrap: pretty;
 }
 
-#react-viewer>h1 {
+#react-viewer > h1 {
   font-family: var(--font-display);
   font-weight: var(--w-bold);
   font-size: clamp(28px, 3.4vw, 38px);
@@ -506,64 +528,68 @@ strong {
   color: var(--ink);
 }
 
-#react-viewer>h1::after {
+#react-viewer > h1::after {
   content: "";
   display: block;
   margin-top: var(--space-4);
   height: 15px;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0 1.5px,
+    transparent 1.5px 4px
+  );
 }
 
 /* Default (un-voiced) handbook environment — used by pages not yet wrapped in a
    [data-voice] region (e.g. corporate-personas). Keyed to the shared scale so
    levels line up with the voiced pages. */
-#react-viewer>h2 {
+#react-viewer > h2 {
   font-family: var(--font-display);
   font-weight: var(--w-bold);
   font-size: var(--h2-size);
   margin: var(--space-6) 0 var(--space-2);
 }
 
-#react-viewer>h3 {
+#react-viewer > h3 {
   font-weight: var(--w-bold);
   font-size: var(--h3-size);
   margin: var(--space-5) 0 var(--space-2);
 }
 
-#react-viewer>h4 {
+#react-viewer > h4 {
   font-weight: var(--w-bold);
   font-size: var(--h4-size);
   margin: var(--space-5) 0 var(--space-2);
 }
 
-#react-viewer>p a {
+#react-viewer > p a {
   color: var(--ink);
   font-weight: var(--w-semi);
   text-underline-offset: 2px;
 }
 
-#react-viewer>hr {
+#react-viewer > hr {
   margin: var(--space-6) 0;
   border-top: 1px solid var(--hairline);
 }
 
-#react-viewer>hr+hr {
+#react-viewer > hr + hr {
   margin-top: calc(-1 * var(--space-6) + 6px);
   border-top: 3px double var(--hairline-strong);
 }
 
-#react-viewer>p em {
+#react-viewer > p em {
   font-style: italic;
   color: var(--slate);
 }
 
 /* Table of Contents — the chapter index (a direct-child blockquote) */
-#react-viewer>blockquote {
+#react-viewer > blockquote {
   margin: var(--space-6) 0 var(--space-7);
   padding-block: 0;
 }
 
-#react-viewer>blockquote h2 {
+#react-viewer > blockquote h2 {
   font-family: var(--font-display);
   font-weight: var(--w-bold);
   font-size: 23px;
@@ -573,35 +599,35 @@ strong {
   letter-spacing: var(--track-tight);
 }
 
-#react-viewer>blockquote h2 a {
+#react-viewer > blockquote h2 a {
   color: var(--ink);
   text-decoration: none;
   transition: opacity 140ms ease;
 }
 
-#react-viewer>blockquote h2 a:hover {
+#react-viewer > blockquote h2 a:hover {
   opacity: 0.55;
 }
 
-#react-viewer>blockquote>p {
+#react-viewer > blockquote > p {
   margin: 0 0 var(--space-4);
 }
 
 /* Adjacent direct-child blockquotes (e.g. the motivational-quotes list) sit
    apart without empty <p> spacers. Only matches when quotes stack directly —
    the single-blockquote TOC is unaffected. */
-#react-viewer>blockquote+blockquote {
+#react-viewer > blockquote + blockquote {
   margin-top: calc(var(--space-7) + var(--space-6));
 }
 
-#react-viewer>blockquote sup {
+#react-viewer > blockquote sup {
   font-size: 14.5px;
   font-style: italic;
   color: var(--fg-2);
   letter-spacing: 0;
 }
 
-#react-viewer>blockquote em {
+#react-viewer > blockquote em {
   font-style: italic;
 }
 
@@ -623,7 +649,8 @@ strong {
 
 /* a left-aligned reading column sitting against a generous left page margin;
    heading markers hang back into that margin. Panels/figures keep their own. */
-[data-voice="orientation"]> :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, div:not([data-panel-type])) {
+[data-voice="orientation"]
+  > :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, div:not([data-panel-type])) {
   max-width: 44rem;
   margin-inline: 0;
   position: relative;
@@ -638,7 +665,7 @@ strong {
 }
 
 /* SECTION TITLES — big, bold, black; the stacked striped rule beneath */
-[data-voice="orientation"]>h2 {
+[data-voice="orientation"] > h2 {
   font-family: var(--font-display);
   font-weight: var(--w-black);
   font-size: var(--h2-size);
@@ -648,12 +675,16 @@ strong {
   color: var(--ink);
 }
 
-[data-voice="orientation"]>h2::after {
+[data-voice="orientation"] > h2::after {
   content: "";
   display: block;
   margin-top: var(--space-4);
   height: 17px;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0 1.5px,
+    transparent 1.5px 4px
+  );
 }
 
 [data-voice="orientation"] h3 {
@@ -714,7 +745,7 @@ strong {
   border: 1px solid var(--ink);
 }
 
-[data-voice="orientation"] blockquote>p:first-child {
+[data-voice="orientation"] blockquote > p:first-child {
   font-family: var(--font-display);
   font-weight: var(--w-semi);
   font-size: 18px;
@@ -766,7 +797,11 @@ strong {
 [data-voice="orientation"] hr {
   margin: var(--space-6) 0;
   border-top: none;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0 1.5px,
+    transparent 1.5px 4px
+  );
   height: 11px;
 }
 
@@ -779,7 +814,7 @@ strong {
   max-width: 46rem;
 }
 
-#react-viewer>figure {
+#react-viewer > figure {
   margin: var(--space-7) 0;
   max-width: calc(46rem + var(--ohang) + var(--space-6));
 }
@@ -821,8 +856,16 @@ strong {
   color: var(--paper);
   background-color: var(--lumon-blue);
   background-image:
-    radial-gradient(120% 72% at 28% -8%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 44%),
-    radial-gradient(130% 120% at 102% 118%, rgba(11, 32, 64, 0.50), rgba(11, 32, 64, 0) 52%);
+    radial-gradient(
+      120% 72% at 28% -8%,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0) 44%
+    ),
+    radial-gradient(
+      130% 120% at 102% 118%,
+      rgba(11, 32, 64, 0.5),
+      rgba(11, 32, 64, 0) 52%
+    );
   padding: var(--space-8) clamp(28px, 6vw, 80px) var(--space-9);
   padding-left: var(--pad-l);
 }
@@ -836,7 +879,19 @@ strong {
   border: 1px solid rgba(244, 243, 238, 0.14);
 }
 
-[data-voice="publisher"]> :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, div:not([data-panel-type]):not(.binder)) {
+[data-voice="publisher"]
+  > :is(
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    blockquote,
+    ul,
+    ol,
+    hr,
+    div:not([data-panel-type]):not(.binder)
+  ) {
   max-width: var(--measure);
   margin-inline: 0;
   position: relative;
@@ -860,7 +915,7 @@ strong {
   font-size: 12px;
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
-  color: rgba(244, 243, 238, 0.70);
+  color: rgba(244, 243, 238, 0.7);
   margin: 0 0 var(--space-6);
   padding: 0;
   border: none;
@@ -895,7 +950,11 @@ strong {
   margin-top: var(--space-5);
   height: 9px;
   width: 104px;
-  background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--paper) 0 1px,
+    transparent 1px 3px
+  );
 }
 
 [data-voice="publisher"] h3 {
@@ -943,7 +1002,7 @@ strong {
   border-left: 4px solid var(--paper);
 }
 
-[data-voice="publisher"] blockquote>p:first-child {
+[data-voice="publisher"] blockquote > p:first-child {
   margin-top: 0;
 }
 
@@ -974,13 +1033,17 @@ strong {
   margin: var(--space-6) 0;
 }
 
-[data-voice="publisher"] hr+hr {
+[data-voice="publisher"] hr + hr {
   margin-top: calc(-1 * var(--space-6) + 6px);
   border-top: none;
   height: 9px;
   width: 104px;
   margin-inline: 0;
-  background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--paper) 0 1px,
+    transparent 1px 3px
+  );
 }
 
 /* === PUBLISHER MICHROMA ============================================================
@@ -993,7 +1056,7 @@ strong {
    =============================================================================== */
 [data-voice="publisher"] h2,
 [data-voice="publisher"] h3,
-[data-head-voice="publisher"]>h1 {
+[data-head-voice="publisher"] > h1 {
   font-family: var(--font-display-pub);
   font-weight: var(--w-regular);
   letter-spacing: 0;
@@ -1010,7 +1073,7 @@ strong {
   line-height: 1.14;
 }
 
-[data-head-voice="publisher"]>h1 {
+[data-head-voice="publisher"] > h1 {
   font-size: clamp(27px, 4.2vw, 58px);
   line-height: 1.05;
 }
@@ -1027,7 +1090,9 @@ strong {
   padding-left: var(--ohang);
   /* align C.C. content with every other voice */
   position: relative;
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.10), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
   background-image:
     linear-gradient(115deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 22%),
     linear-gradient(295deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0) 30%);
@@ -1041,7 +1106,11 @@ strong {
   left: 0;
   right: 0;
   height: 3px;
-  background: repeating-linear-gradient(90deg, var(--photocopy-ink) 0 7px, transparent 7px 11px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--photocopy-ink) 0 7px,
+    transparent 7px 11px
+  );
   opacity: 0.5;
 }
 
@@ -1053,7 +1122,7 @@ strong {
   bottom: 0;
 }
 
-[data-voice="citizen"]> :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr) {
+[data-voice="citizen"] > :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr) {
   max-width: 40rem;
   margin-inline: 0;
   font-family: var(--typewriter);
@@ -1147,12 +1216,12 @@ strong {
   opacity: 0.6;
 }
 
-[data-voice="citizen"] hr+hr {
+[data-voice="citizen"] hr + hr {
   display: none;
 }
 
 /* a Citizen region leads with an inserted-page stamp on its first section */
-[data-voice="citizen"]>h2:first-of-type::before {
+[data-voice="citizen"] > h2:first-of-type::before {
   content: "UNAUTHORIZED INSERTION";
   display: inline-block;
   margin-bottom: 12px;
@@ -1166,7 +1235,7 @@ strong {
   opacity: 0.78;
 }
 
-[data-voice="citizen"]>h2:first-of-type {
+[data-voice="citizen"] > h2:first-of-type {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1211,7 +1280,7 @@ strong {
 }
 
 /* the lucide info-circle that ships in the markup → white, top-right of the header */
-[data-panel-type="info"]>div:first-child {
+[data-panel-type="info"] > div:first-child {
   position: absolute;
   top: 6px;
   right: 14px;
@@ -1221,12 +1290,12 @@ strong {
   color: var(--pure-white);
 }
 
-[data-panel-type="info"]>div:first-child svg {
+[data-panel-type="info"] > div:first-child svg {
   width: 20px;
   height: 20px;
 }
 
-[data-panel-type="info"]>div:last-child>p:first-child {
+[data-panel-type="info"] > div:last-child > p:first-child {
   margin-top: 0;
   font-family: var(--font-display);
   font-weight: var(--w-bold);
@@ -1234,7 +1303,7 @@ strong {
   color: var(--lumon-blue-deep);
 }
 
-[data-panel-type="info"]>div:last-child>p:first-child u {
+[data-panel-type="info"] > div:last-child > p:first-child u {
   text-decoration: none;
 }
 
@@ -1282,7 +1351,8 @@ strong {
   color: var(--photocopy-ink);
   transform: rotate(-0.6deg);
   box-shadow:
-    inset 0 0 60px rgba(0, 0, 0, 0.10), inset 0 0 0 1px rgba(0, 0, 0, 0.05),
+    inset 0 0 60px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.05),
     0 14px 30px -20px rgba(26, 29, 34, 0.55);
 }
 
@@ -1298,7 +1368,11 @@ strong {
   left: 0;
   right: 0;
   height: 3px;
-  background: repeating-linear-gradient(90deg, var(--photocopy-ink) 0 7px, transparent 7px 11px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--photocopy-ink) 0 7px,
+    transparent 7px 11px
+  );
   opacity: 0.5;
 }
 
@@ -1311,28 +1385,32 @@ strong {
 }
 
 /* hide the shipped lucide note icon — the stamp carries the identity */
-[data-panel-type="note"]>div:first-child {
+[data-panel-type="note"] > div:first-child {
   display: none;
 }
 
-[data-panel-type="note"]>div:last-child {
+[data-panel-type="note"] > div:last-child {
   position: relative;
   padding-top: 30px;
 }
 
 /* a strip of translucent tape draped over the top-right corner — the clipping
    was stuck on by hand, not by Lumon */
-[data-panel-type="note"]>div:last-child::after {
+[data-panel-type="note"] > div:last-child::after {
   content: "";
   position: absolute;
   top: -30px;
   right: -26px;
   width: 84px;
   height: 26px;
-  background: linear-gradient(118deg,
-      rgba(232, 229, 214, 0.30) 0%, rgba(214, 210, 192, 0.52) 50%, rgba(232, 229, 214, 0.30) 100%);
+  background: linear-gradient(
+    118deg,
+    rgba(232, 229, 214, 0.3) 0%,
+    rgba(214, 210, 192, 0.52) 50%,
+    rgba(232, 229, 214, 0.3) 100%
+  );
   border-left: 1px solid rgba(255, 255, 255, 0.45);
-  border-right: 1px solid rgba(0, 0, 0, 0.10);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.22);
   transform: rotate(44deg);
   mix-blend-mode: multiply;
@@ -1340,7 +1418,7 @@ strong {
 }
 
 /* the red "CONCERNED CITIZEN" insertion stamp, echoing the full-section stamp */
-[data-panel-type="note"]>div:last-child::before {
+[data-panel-type="note"] > div:last-child::before {
   content: "CONCERNED CITIZEN";
   position: absolute;
   top: 0;
@@ -1421,7 +1499,7 @@ strong {
   color: var(--fg-2);
 }
 
-[data-panel-type="warning"]>div:first-child {
+[data-panel-type="warning"] > div:first-child {
   flex: 0 0 auto;
   width: 18px;
   height: 18px;
@@ -1429,7 +1507,7 @@ strong {
   margin-top: 2px;
 }
 
-[data-panel-type="warning"]>div:first-child svg {
+[data-panel-type="warning"] > div:first-child svg {
   width: 16px;
   height: 16px;
 }
@@ -1468,7 +1546,7 @@ strong {
   color: rgba(244, 243, 238, 0.82);
 }
 
-[data-voice="publisher"] [data-panel-type="warning"]>div:first-child {
+[data-voice="publisher"] [data-panel-type="warning"] > div:first-child {
   color: rgba(244, 243, 238, 0.7);
 }
 
@@ -1504,7 +1582,9 @@ strong {
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--lumon-blue-deep);
-  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.55), inset 0 -1px 0 rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 2px 3px rgba(0, 0, 0, 0.55),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .binder i:nth-child(1) {
@@ -1573,32 +1653,32 @@ strong {
 /* ============================================================================
    7. RESPONSIVE
    ============================================================================ */
-@media (max-width:720px) {
+@media (max-width: 720px) {
   body {
     font-size: 16px;
   }
 
-  body>nav {
+  body > nav {
     padding: 0 var(--space-4);
     height: 54px;
   }
 
-  body>nav>a span {
+  body > nav > a span {
     display: none;
   }
 
-  body>nav~div {
+  body > nav ~ div {
     padding-top: 54px;
   }
 
   /* Chapters menu: anchor to the viewport so it never clips off the left edge
      on the smallest phones, and give summary + links proper 44px tap targets. */
-  body>nav summary {
+  body > nav summary {
     padding: 11px 16px;
     min-height: 44px;
   }
 
-  body>nav details ul {
+  body > nav details ul {
     position: fixed;
     left: var(--space-3);
     right: var(--space-3);
@@ -1606,29 +1686,40 @@ strong {
     min-width: 0;
     width: auto;
     max-height: calc(100vh - 64px);
-    box-shadow: var(--shadow-raised), 0 0 0 100vmax rgba(0, 0, 0, 0.18);
+    box-shadow:
+      var(--shadow-raised),
+      0 0 0 100vmax rgba(0, 0, 0, 0.18);
   }
 
-  body>nav details li a {
+  body > nav details li a {
     padding: 13px 14px;
     min-height: 44px;
     display: flex;
     align-items: center;
   }
 
-  body>nav~div>h1 {
+  body > nav ~ div > h1 {
     padding: var(--space-8) var(--space-6) var(--space-6);
   }
 
   /* keep default body content on the same (reduced) left margin as the header */
-  #react-viewer> :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, figure, table) {
+  #react-viewer
+    > :is(p, h1, h2, h3, h4, blockquote, ul, ol, hr, figure, table) {
     padding-left: var(--space-6);
   }
 
-  [data-head-voice="publisher"]>h1 {
+  [data-head-voice="publisher"] > h1 {
     background-image:
-      radial-gradient(120% 80% at 26% -10%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 46%),
-      radial-gradient(130% 130% at 104% 122%, rgba(11, 32, 64, 0.55), rgba(11, 32, 64, 0) 52%);
+      radial-gradient(
+        120% 80% at 26% -10%,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0) 46%
+      ),
+      radial-gradient(
+        130% 130% at 104% 122%,
+        rgba(11, 32, 64, 0.55),
+        rgba(11, 32, 64, 0) 52%
+      );
   }
 
   [data-voice] {
@@ -1668,7 +1759,7 @@ strong {
     margin-right: 0;
   }
 
-  #react-viewer>p:first-child {
+  #react-viewer > p:first-child {
     padding-inline: var(--space-6);
   }
 }
@@ -1677,7 +1768,7 @@ strong {
    8. PRINT — collapse the book to clean printed pages
    ============================================================================ */
 @media print {
-  body>nav {
+  body > nav {
     position: static;
   }
 
@@ -1698,14 +1789,14 @@ strong {
    9. NAVIGATION ENHANCEMENTS  (injected by lumon.js)
    9a. Current-page label, seated to the LEFT of the Chapters selector
    ============================================================================ */
-body>nav .nav-right {
+body > nav .nav-right {
   display: flex;
   align-items: center;
   gap: var(--space-4);
 }
 
 /* the page name reads as Lumon wayfinding: a thin pipe rule + tracked caps */
-body>nav .nav-page {
+body > nav .nav-page {
   display: inline-flex;
   align-items: center;
   gap: 14px;
@@ -1720,7 +1811,7 @@ body>nav .nav-page {
   text-overflow: ellipsis;
 }
 
-body>nav .nav-page::before {
+body > nav .nav-page::before {
   content: "";
   flex: none;
   width: 1px;
@@ -1733,7 +1824,7 @@ body>nav .nav-page::before {
        wide right margin: anchored to every heading, with hash links, smooth
        scroll, and live scroll-spy highlighting the section you're reading.
    ============================================================================ */
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
@@ -1788,7 +1879,7 @@ body>nav .nav-page::before {
 }
 
 /* show this index only where the right margin is genuinely free */
-@media (max-width:1240px) {
+@media (max-width: 1240px) {
   .page-index {
     display: none !important;
   }
@@ -1813,7 +1904,11 @@ body>nav .nav-page::before {
   right: 0;
   bottom: 0;
   height: 4px;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 2px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0 1px,
+    transparent 1px 2px
+  );
   opacity: 0.85;
 }
 
@@ -1845,7 +1940,10 @@ body>nav .nav-page::before {
   line-height: 1.32;
   text-decoration: none;
   text-wrap: pretty;
-  transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .page-index a .num {
@@ -1881,15 +1979,21 @@ body>nav .nav-page::before {
        the page you are reading."
    ============================================================================ */
 .page-index[data-multi-voice] {
-  transition: background-color .42s ease, border-color .42s ease,
-    box-shadow .42s ease, color .42s ease;
+  transition:
+    background-color 0.42s ease,
+    border-color 0.42s ease,
+    box-shadow 0.42s ease,
+    color 0.42s ease;
 }
 
 .page-index[data-multi-voice] .page-index__head,
 .page-index[data-multi-voice] .page-index__head::after,
 .page-index[data-multi-voice] a {
-  transition: color .42s ease, background-color .42s ease,
-    border-color .42s ease, background .42s ease;
+  transition:
+    color 0.42s ease,
+    background-color 0.42s ease,
+    border-color 0.42s ease,
+    background 0.42s ease;
 }
 
 /* a tiny voice tag under the head, naming the current hand */
@@ -1906,13 +2010,17 @@ body>nav .nav-page::before {
   font-weight: var(--w-semi);
   letter-spacing: 0.12em;
   opacity: 0.62;
-  transition: color .42s ease;
+  transition: color 0.42s ease;
 }
 
 /* ---- PUBLISHER skin — the corporate blue rules-panel ---- */
 .page-index[data-active-voice="publisher"] {
   background-color: var(--lumon-blue);
-  background-image: radial-gradient(130% 90% at 18% -10%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 52%);
+  background-image: radial-gradient(
+    130% 90% at 18% -10%,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0) 52%
+  );
   border-color: rgba(244, 243, 238, 0.18);
   box-shadow: var(--shadow-raised);
   color: var(--paper);
@@ -1925,7 +2033,11 @@ body>nav .nav-page::before {
 }
 
 .page-index[data-active-voice="publisher"] .page-index__head::after {
-  background: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 3px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--paper) 0 1px,
+    transparent 1px 3px
+  );
   opacity: 0.7;
 }
 
@@ -1962,7 +2074,11 @@ body>nav .nav-page::before {
 }
 
 .page-index[data-active-voice="orientation"] .page-index__head::after {
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0 1.5px,
+    transparent 1.5px 4px
+  );
   opacity: 0.9;
   height: 7px;
 }
@@ -1992,9 +2108,11 @@ body>nav .nav-page::before {
   background-image:
     linear-gradient(115deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 24%),
     linear-gradient(295deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 30%);
-  border-color: rgba(0, 0, 0, 0.20);
+  border-color: rgba(0, 0, 0, 0.2);
   color: var(--photocopy-ink);
-  box-shadow: inset 0 0 48px rgba(0, 0, 0, 0.09), var(--shadow-card);
+  box-shadow:
+    inset 0 0 48px rgba(0, 0, 0, 0.09),
+    var(--shadow-card);
 }
 
 /* torn / photocopied top + bottom edges, matching the C.C. sections */
@@ -2006,7 +2124,11 @@ body>nav .nav-page::before {
   right: 0;
   height: 3px;
   pointer-events: none;
-  background: repeating-linear-gradient(90deg, var(--photocopy-ink) 0 7px, transparent 7px 11px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--photocopy-ink) 0 7px,
+    transparent 7px 11px
+  );
   opacity: 0.45;
 }
 
@@ -2025,7 +2147,11 @@ body>nav .nav-page::before {
 }
 
 .page-index[data-active-voice="citizen"] .page-index__head::after {
-  background: repeating-linear-gradient(90deg, var(--photocopy-ink) 0 6px, transparent 6px 10px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--photocopy-ink) 0 6px,
+    transparent 6px 10px
+  );
   height: 2px;
   opacity: 0.5;
 }
