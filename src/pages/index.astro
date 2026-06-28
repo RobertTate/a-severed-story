@@ -23,11 +23,13 @@ import "../styles/lumon.css";
           <img src="/assets/lumon-globe-white.png" alt="Lumon Industries" />
           <span>Lumon Industries Presents</span>
         </div>
-        <div class="cv__stamp">Produced in Kier, PE<br />Edition - Alpha</div>
+        <div class="cv__stamp">
+          Produced in Kier, PE<br />·········<br />Alpha Edition
+        </div>
       </header>
 
       <section class="cv__main">
-        <h1 class="cv__title">A Severed Story</h1>
+        <h1 class="cv__title">Severed Story</h1>
         <div class="cv__rule" aria-hidden="true"></div>
         <p class="cv__sub">
           A tabletop roleplaying game exploring the lives of Lumon's happiest
@@ -39,7 +41,7 @@ import "../styles/lumon.css";
         <div class="cv__property">
           <div class="line1">Property of Lumon Industries</div>
           <div class="line2">
-            A passion project by Robert Tate. Not intended for Commercial Use.
+            A passion project by <a href="https://www.tiktok.com/@bobbytate.creates" target="_blank" rel="noopener noreferrer">Robert Tate</a>.<br />Not intended for Commercial Use.
             Praise Kier.
           </div>
         </div>
@@ -162,7 +164,8 @@ import "../styles/lumon.css";
   }
 
   .cv__brand span {
-    font-weight: var(--w-bold);
+    font-family: var(--font-label);
+    font-weight: var(--w-semi);
     font-size: 12px;
     letter-spacing: var(--track-eyebrow);
     text-transform: uppercase;
@@ -187,7 +190,8 @@ import "../styles/lumon.css";
 
   .cv__title {
     font-family: var(--font-display-pub);
-    font-weight: var(--w-regular);
+    font-weight: var(--w-semi);
+    max-width: 40rem;
     font-size: clamp(30px, min(7vw, 11vh), 72px);
     line-height: 1.02;
     letter-spacing: 0;
@@ -238,7 +242,8 @@ import "../styles/lumon.css";
   }
 
   .cv__property .line1 {
-    font-weight: var(--w-bold);
+    font-family: var(--font-label);
+    font-weight: var(--w-regular);
     font-size: 11px;
     letter-spacing: var(--track-eyebrow);
     text-transform: uppercase;
@@ -264,6 +269,7 @@ import "../styles/lumon.css";
     text-decoration: none;
     font-weight: var(--w-bold);
     font-size: 12px;
+    font-family: var(--font-label);
     letter-spacing: var(--track-eyebrow);
     text-transform: uppercase;
     white-space: nowrap;

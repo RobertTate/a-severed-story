@@ -40,7 +40,9 @@ const tab = tabTitle ?? `${title} · A Severed Story`;
       data-head-voice={headVoice}
       transition:animate={fade({ duration: "0.25s" })}
     >
-      <h1>{title}</h1>
+      <div class="titleCard">
+        <h1>{title}</h1>
+      </div>
       <div id="Main">
         <div id="react-viewer">
           <slot />
