@@ -10,6 +10,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Spline+Sans+Mono:wght@400;500;600&family=Kalam:wght@300;400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Michroma&display=swap");
 
+/* Adobe Fonts (Typekit) kit puq4byu — the real licensed faces the stacks below
+   have always named as fallbacks:
+     forma-djr-display      (n5 / weight 500)  → display
+     helvetica-neue-lt-pro  (n7 / weight 700)  → body / institutional text
+     manifold-extd-cf       (n4 400, n6 600)   → Publisher signage / extended caps
+   NOTE: only those weights are loaded by the kit; other weights synthesize. */
+@import url("https://use.typekit.net/puq4byu.css");
+
 /* ----------------------------------------------------------------------------
    TOKENS — Lumon design system (colors_and_type.css) + book-specific additions
 ---------------------------------------------------------------------------- */
@@ -49,15 +57,21 @@
   --hairline-strong: rgba(26, 29, 34, 0.42);
 
   --font-display:
-    "Hanken Grotesk", "Forma DJR Display", "Helvetica Neue", Arial, sans-serif;
+    "Hanken Grotesk", "Forma DJR Display", sans-serif;
   --font-text:
-    "Hanken Grotesk", "Forma DJR Text", "Helvetica Neue", Arial, sans-serif;
+    "Hanken Grotesk", "Forma DJR Text", sans-serif;
   --font-mono: "Spline Sans Mono", ui-monospace, Menlo, monospace;
-  /* Publisher title-card display face — Manifold Extended CF stand-in.
-     ROLLBACK: set this back to var(--font-display) to restore the original
-     light Hanken title cards (and remove the PUBLISHER MICHROMA block below). */
-  --font-display-pub: "Michroma", "Helvetica Neue", Arial, sans-serif;
+  /* Publisher display face — Lumon's real signage font, Manifold Extended CF.
+     Headers use 600 (the thick cut); all-caps labels/nav use 400 (the thin cut).
+     ROLLBACK: set this back to "Michroma" to restore the stand-in. */
+  --font-display-pub: "manifold-extd-cf", "Michroma",
+    sans-serif;
+  /* All-caps institutional signage/label system — nav chrome, "return to
+     contents" links, eyebrows. Same Manifold face, always the thin 400 cut.
+     ROLLBACK: set this back to var(--font-text) to restore Hanken labels. */
+  --font-label: "manifold-extd-cf", sans-serif;
 
+  --w-thin: 200;
   --w-light: 300;
   --w-regular: 400;
   --w-medium: 500;
@@ -214,7 +228,8 @@ body > nav > a img {
 }
 
 body > nav > a span {
-  font-weight: var(--w-bold);
+  font-family: var(--font-label);
+  font-weight: var(--w-regular);
   font-size: 12px;
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
@@ -332,7 +347,7 @@ body > nav ~ div {
         data-head-voice on the wrapper). A handbook chapter opens on warm white
         stock; a publisher chapter opens on the blue field — no jarring blue
         banner over a white page, and no binder holes on the card. ---- */
-body > nav ~ div > h1 {
+body > nav ~ div > .titleCard h1 {
   position: relative;
   margin: 0;
   padding: clamp(56px, 9vh, 104px) clamp(28px, 6vw, 80px) clamp(36px, 5vh, 54px);
@@ -341,7 +356,7 @@ body > nav ~ div > h1 {
   letter-spacing: -0.022em;
 }
 
-body > nav ~ div > h1::before {
+body > nav ~ div > .titleCard h1::before {
   content: "A Severed Story · Edition Alpha";
   display: block;
   margin-bottom: clamp(18px, 3vh, 30px);
@@ -352,7 +367,7 @@ body > nav ~ div > h1::before {
   text-transform: uppercase;
 }
 
-body > nav ~ div > h1::after {
+body > nav ~ div > .titleCard h1::after {
   content: "";
   display: block;
   margin-top: clamp(22px, 4vh, 34px);
@@ -361,9 +376,7 @@ body > nav ~ div > h1::after {
 }
 
 /* PUBLISHER-led chapter → the flooded corporate-blue title card */
-[data-head-voice="publisher"] > h1 {
-  padding-left: var(--ohang);
-  color: var(--paper);
+[data-head-voice="publisher"] > .titleCard {
   background-color: var(--lumon-blue);
   background-image:
     radial-gradient(
@@ -376,16 +389,21 @@ body > nav ~ div > h1::after {
       rgba(11, 32, 64, 0.55),
       rgba(11, 32, 64, 0) 52%
     );
-  font-weight: var(--w-light);
-  font-size: clamp(40px, 7vw, 100px);
   z-index: 3;
 }
 
-[data-head-voice="publisher"] > h1::before {
+
+[data-head-voice="publisher"] > .titleCard h1 {
+  padding-left: var(--ohang);
+  max-width: 67rem;
+  color: var(--paper);
+}
+
+[data-head-voice="publisher"] > .titleCard h1::before {
   color: rgba(244, 243, 238, 0.72);
 }
 
-[data-head-voice="publisher"] > h1::after {
+[data-head-voice="publisher"] > .titleCard h1::after {
   background: repeating-linear-gradient(
     to bottom,
     var(--paper) 0 1px,
@@ -393,20 +411,22 @@ body > nav ~ div > h1::after {
   );
 }
 
-[data-head-voice="orientation"] > h1 {
+[data-head-voice="orientation"] > .titleCard h1 {
   padding-left: var(--ohang);
   color: var(--ink);
   background: var(--handbook);
-  font-weight: var(--w-black);
+  /* match Orientation headers (Helvetica, capped at 700 — no 800) */
+  font-family: "helvetica-neue-lt-pro", sans-serif;
+  font-weight: var(--w-bold);
   font-size: clamp(38px, 6vw, 84px);
   letter-spacing: -0.03em;
 }
 
-[data-head-voice="orientation"] > h1::before {
+[data-head-voice="orientation"] > .titleCard h1::before {
   color: var(--fg-2);
 }
 
-[data-head-voice="orientation"] > h1::after {
+[data-head-voice="orientation"] > .titleCard h1::after {
   height: 17px;
   width: 124px;
   background: repeating-linear-gradient(
@@ -503,7 +523,7 @@ u {
 }
 
 strong {
-  font-weight: var(--w-bold);
+  font-weight: var(--w-medium);
 }
 
 /* ---- DEFAULT HANDBOOK ENVIRONMENT — unwrapped top-level content
@@ -642,6 +662,18 @@ strong {
 }
 
 [data-voice="orientation"] {
+  /* Orientation headers = Helvetica Neue LT Pro. Re-scoping --font-display here
+     flips h2/h3 (which name the var) to Helvetica. Body stays on --font-text
+     until Step 5 (→ Forma DJR Text). Helvetica tops out at 700, so heading
+     weights are capped there (no 800).
+     ROLLBACK: delete this line to restore Hanken headers. */
+  --font-display: "helvetica-neue-lt-pro", sans-serif;
+  /* Orientation body = Forma DJR Text. Re-scoping --font-text + declaring
+     font-family flips all running text (p, lists, h4, em/strong) to Forma;
+     headers stay Helvetica (--font-display). Kit weights: 400/400i/500/700.
+     ROLLBACK: delete these two lines to restore Hanken body. */
+  --font-text: "forma-djr-text", sans-serif;
+  font-family: var(--font-text);
   background: var(--handbook);
   color: var(--ink);
   padding: var(--space-4) clamp(28px, 6vw, 80px) var(--space-9) var(--ohang);
@@ -657,17 +689,24 @@ strong {
 }
 
 [data-voice="orientation"] p {
-  font-size: 17px;
+  font-size: 20px;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.02rem;
   line-height: 1.6;
   color: #1c1f24;
   margin: 0 0 1.1em;
   text-wrap: pretty;
 }
 
+[data-voice="orientation"] strong {
+  font-weight: var(--w-bold);
+}
+
+
 /* SECTION TITLES — big, bold, black; the stacked striped rule beneath */
 [data-voice="orientation"] > h2 {
   font-family: var(--font-display);
-  font-weight: var(--w-black);
+  font-weight: var(--w-bold);
   font-size: var(--h2-size);
   line-height: 1.02;
   letter-spacing: -0.022em;
@@ -745,12 +784,20 @@ strong {
   border: 1px solid var(--ink);
 }
 
+[data-voice="orientation"] blockquote p {
+  font-size: 16px;
+}
+
+
 [data-voice="orientation"] blockquote > p:first-child {
   font-family: var(--font-display);
   font-weight: var(--w-semi);
-  font-size: 18px;
   color: var(--ink);
   margin-top: 0;
+}
+
+[data-voice="orientation"] blockquote > p:last-child {
+  margin-bottom: 0;
 }
 
 [data-voice="orientation"] blockquote sub {
@@ -900,6 +947,7 @@ strong {
 
 [data-voice="publisher"] p {
   font-size: 17px;
+  font-weight: var(--w-light);
   line-height: 1.62;
   margin: 0 0 1.05em;
   color: var(--paper);
@@ -979,7 +1027,7 @@ strong {
 
 [data-voice="publisher"] a {
   color: var(--pure-white);
-  font-weight: var(--w-semi);
+  font-weight: var(--w-regular);
   text-underline-offset: 3px;
   text-decoration-color: rgba(255, 255, 255, 0.5);
 }
@@ -1029,6 +1077,36 @@ strong {
   margin: 0.2em 0;
 }
 
+[data-voice="publisher"] table {
+  width: 100%;
+  max-width: 50rem;
+  margin: var(--space-5) 0;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+[data-voice="publisher"] th,
+[data-voice="publisher"] td {
+  padding: var(--space-2) var(--space-4) var(--space-2) 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+[data-voice="publisher"] th {
+  color: var(--pure-white);
+  font-weight: var(--w-semi);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(244, 243, 238, 0.42);
+}
+
+[data-voice="publisher"] td {
+  border-bottom: 1px solid rgba(244, 243, 238, 0.16);
+}
+
+[data-voice="publisher"] tbody tr:last-child td {
+  border-bottom: none;
+}
+
 [data-voice="publisher"] hr {
   margin: var(--space-6) 0;
 }
@@ -1046,19 +1124,18 @@ strong {
   );
 }
 
-/* === PUBLISHER MICHROMA ============================================================
-   The Publisher voice's display headings use Michroma (a wide geometric grotesque
-   echoing Lumon's real signage face, Manifold Extended CF). Michroma ships a single
-   400 weight and is very wide, so sizes are dialed down, weight is set to regular,
-   and tracking is zeroed (the face is wide by design).
-   ROLLBACK: delete this whole block + the --font-display-pub var + "&family=Michroma"
-   from the @import at the top of this file. (Cover title is in index.html.)
+/* === PUBLISHER MANIFOLD ============================================================
+   The Publisher voice's display headings use Manifold Extended CF — Lumon's real
+   signage face. It's a wide face, so sizes stay dialed down and tracking is zeroed.
+   Headers use the 600 (thick) cut.
+   ROLLBACK: set --font-display-pub back to "Michroma" and weight back to
+   var(--w-regular).
    =============================================================================== */
 [data-voice="publisher"] h2,
 [data-voice="publisher"] h3,
-[data-head-voice="publisher"] > h1 {
+[data-head-voice="publisher"] > .titleCard h1 {
   font-family: var(--font-display-pub);
-  font-weight: var(--w-regular);
+  font-weight: var(--w-semi);
   letter-spacing: 0;
   overflow-wrap: break-word;
 }
@@ -1073,8 +1150,9 @@ strong {
   line-height: 1.14;
 }
 
-[data-head-voice="publisher"] > h1 {
+[data-head-voice="publisher"] > .titleCard h1 {
   font-size: clamp(27px, 4.2vw, 58px);
+  text-transform: uppercase;
   line-height: 1.05;
 }
 
@@ -1491,10 +1569,9 @@ strong {
   margin: var(--space-5) auto var(--space-5) 0;
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: flex-end;
+  line-height: 1;
   padding: var(--space-3) var(--space-4);
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
   background: transparent;
   color: var(--fg-2);
 }
@@ -1621,6 +1698,8 @@ strong {
 }
 
 [data-voice="publisher"] [data-backlink] {
+  font-family: var(--font-label);
+  font-weight: var(--w-regular);
   color: rgba(244, 243, 238, 0.6);
 }
 
@@ -1631,6 +1710,7 @@ strong {
 
 [data-voice="orientation"] [data-backlink] {
   color: var(--fg-2);
+  font-family: var(--font-display);
 }
 
 [data-voice="orientation"] [data-backlink] a {
@@ -1708,7 +1788,7 @@ strong {
     padding-left: var(--space-6);
   }
 
-  [data-head-voice="publisher"] > h1 {
+  [data-head-voice="publisher"] > .titleCard h1 {
     background-image:
       radial-gradient(
         120% 80% at 26% -10%,
@@ -1741,6 +1821,10 @@ strong {
 
   [data-voice="citizen"] {
     padding-left: var(--space-6);
+  }
+
+  [data-voice="orientation"] p {
+    font-size: 16px;
   }
 
   [data-voice="orientation"] h3::before {

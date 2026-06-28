@@ -86,6 +86,19 @@ function buildSectionIndex(): void {
     entries.push({ el: h, level: +h.tagName.charAt(1), text: txt });
   });
 
+  // Cross-page hash links (e.g. /employee-profile#…-liep) target a heading id.
+  // But those ids are assigned just above, at runtime — on a fresh load or a
+  // ClientRouter navigation the browser tries to scroll to the hash *before*
+  // this script runs, finds no matching element, and gives up. Now that the
+  // ids exist, honour the hash ourselves. (scroll-margin-top in lumon.css keeps
+  // the heading clear of the fixed header.)
+  if (location.hash.length > 1) {
+    const target = document.getElementById(
+      decodeURIComponent(location.hash.slice(1)),
+    );
+    if (target) target.scrollIntoView();
+  }
+
   if (entries.length < 3) return; // not worth an index
 
   // normalise levels to 1..3 for indentation. The indentation baseline comes
