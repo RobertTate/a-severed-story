@@ -18,12 +18,12 @@ interface Props {
   title: string;
   /** Voice of the opening region; tints the title card. Default: orientation. */
   headVoice?: "publisher" | "orientation" | "citizen";
-  /** Override the <title> tag. Defaults to `${title} · A Severed Story`. */
+  /** Override the <title> tag. Defaults to `${title} · Severed Story`. */
   tabTitle?: string;
 }
 
 const { title, headVoice = "orientation", tabTitle } = Astro.props;
-const tab = tabTitle ?? `${title} · A Severed Story`;
+const tab = tabTitle ?? `${title} · Severed Story`;
 ---
 
 <!doctype html>

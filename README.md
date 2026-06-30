@@ -1,8 +1,8 @@
-# A Severed Story
+# Severed Story
 
 *A light-hearted role-playing game system for describing the wonders of "innie" life within the walls of Lumon Industries!*
 
-Welcome, loyal and/or prospective Lumon customer! After months of research and development, Lumon's Public Relations department is delighted to present **A Severed Story** — a tabletop role-playing handbook that lets you experience the joys of severed life for yourself. No second-hand photos or videos here: just you, your friends, a twenty-sided die, and the warm embrace of the Severed Floor.
+Welcome, loyal and/or prospective Lumon customer! After months of research and development, Lumon's Public Relations department is delighted to present **Severed Story** — a tabletop role-playing handbook that lets you experience the joys of severed life for yourself. No second-hand photos or videos here: just you, your friends, a twenty-sided die, and the warm embrace of the Severed Floor.
 
 This repository contains the complete handbook, lovingly typeset as a web edition for your reading pleasure.
 
@@ -24,7 +24,7 @@ The handbook is organized into the following chapters, in suggested reading orde
 
 ## How It Plays
 
-*A Severed Story* is a heavy-roleplay, light-crunch corporate satire. The resolution backbone is a single twenty-sided die, rolled with **Confidence** or **Hesitance**. Tasks are rated by severity against a difficulty ladder, and accumulated **Stress** drives the tension toward Burnout. Which never happens, of course.
+*Severed Story* is a heavy-roleplay, light-crunch corporate satire. The resolution backbone is a single twenty-sided die, rolled with **Confidence** or **Hesitance**. Tasks are rated by severity against a difficulty ladder, and accumulated **Stress** drives the tension toward Burnout. Which never happens, of course.
 
 Your friendly GM (*General Manager*) guides the session.
 

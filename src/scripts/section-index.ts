@@ -1,5 +1,5 @@
 /* ============================================================================
-   A Severed Story — the floating "Floor Directory" section index.
+   Severed Story — the floating "Floor Directory" section index.
 
    This is the only runtime behaviour that survives the move to Astro: it must
    read the rendered headings to build an outline, so it cannot be authored
