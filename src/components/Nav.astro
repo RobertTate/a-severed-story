@@ -26,7 +26,7 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, "");
   </a>
   <div class="nav-right">
     {pageTitle && <span class="nav-page">{pageTitle}</span>}
-    <details>
+    <details class="chapters-menu">
       <summary>Chapters</summary>
       <ul>
         {
@@ -45,3 +45,12 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, "");
     </details>
   </div>
 </nav>
+
+<script>
+  // Close the Chapters dropdown when the user clicks anywhere outside it.
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll<HTMLDetailsElement>(".chapters-menu[open]").forEach((menu) => {
+      if (!menu.contains(event.target as Node)) menu.open = false;
+    });
+  });
+</script>
