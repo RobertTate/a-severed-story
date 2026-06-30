@@ -221,7 +221,7 @@ body > nav > a {
 }
 
 body > nav > a img {
-  height: 32px;
+  height: 36px;
   width: auto;
   filter: invert(1) brightness(1.85) contrast(1.05);
   /* black globe → white on dark bar */
@@ -229,7 +229,7 @@ body > nav > a img {
 
 body > nav > a span {
   font-family: var(--font-label);
-  font-weight: var(--w-regular);
+  font-weight: var(--w-bold);
   font-size: 12px;
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
@@ -265,7 +265,7 @@ body > nav summary::-webkit-details-marker {
 
 body > nav summary::after {
   content: "▾";
-  font-size: 10px;
+  font-size: 16px;
   letter-spacing: 0;
   opacity: 0.7;
 }
@@ -343,6 +343,224 @@ body > nav details li:first-child a {
   font-weight: var(--w-bold);
 }
 
+/* ---- Voice-aware nav chrome ----------------------------------------------
+   Like the floating Directory, the fixed header re-skins to match the voice of
+   the section currently in view (section-index.ts sets data-active-voice as you
+   scroll). The default styling above IS the Publisher skin — the official dark
+   corporate bar — so only Orientation and Citizen need overrides. The dropdown
+   popover stays a paper card in every voice; only the bar itself changes.
+
+   The crossfade is gated on [data-multi-voice] so a single-voice page seats its
+   skin instantly with no fade on load. */
+body > nav[data-multi-voice],
+body > nav[data-multi-voice] > a,
+body > nav[data-multi-voice] > a span,
+body > nav[data-multi-voice] > a img,
+body > nav[data-multi-voice] summary,
+body > nav[data-multi-voice] .nav-page,
+body > nav[data-multi-voice] .nav-page::before {
+  transition:
+    background-color 0.42s ease,
+    border-color 0.42s ease,
+    box-shadow 0.42s ease,
+    color 0.42s ease,
+    filter 0.42s ease;
+}
+
+/* ---- ORIENTATION skin — clean white handbook stock, black ink ---- */
+body > nav[data-active-voice="orientation"] {
+  background: var(--handbook);
+  color: var(--ink);
+  box-shadow: 0 1px 0 var(--hairline-strong);
+}
+
+body > nav[data-active-voice="orientation"] > a,
+body > nav[data-active-voice="orientation"] > a span {
+  color: var(--ink);
+}
+
+body > nav[data-active-voice="orientation"] > a img {
+  filter: none; /* black globe sits on the light bar as-is */
+}
+
+body > nav[data-active-voice="orientation"] .nav-page {
+  color: var(--fg-2);
+}
+
+body > nav[data-active-voice="orientation"] .nav-page::before {
+  background: var(--hairline-strong);
+}
+
+body > nav[data-active-voice="orientation"] summary {
+  color: var(--ink);
+  border-color: var(--hairline-strong);
+}
+
+body > nav[data-active-voice="orientation"] summary:hover {
+  background: rgba(26, 29, 34, 0.05);
+  border-color: var(--ink);
+}
+
+body > nav[data-active-voice="orientation"] details[open] summary {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ---- CITIZEN skin — photocopied samizdat scrap, typewriter ink, red stamp ---- */
+body > nav[data-active-voice="citizen"] {
+  background-color: var(--photocopy);
+  background-image:
+    linear-gradient(115deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 24%),
+    linear-gradient(295deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 30%);
+  color: var(--photocopy-ink);
+  box-shadow:
+    inset 0 0 48px rgba(0, 0, 0, 0.09),
+    0 1px 0 rgba(0, 0, 0, 0.22);
+}
+
+/* a torn / photocopied bottom edge, matching the C.C. directory + sections */
+body > nav[data-active-voice="citizen"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--photocopy-ink) 0 7px,
+    transparent 7px 11px
+  );
+  opacity: 0.45;
+}
+
+body > nav[data-active-voice="citizen"] > a img {
+  filter: none;
+  opacity: 0.85;
+}
+
+body > nav[data-active-voice="citizen"] > a span {
+  font-family: var(--stamp);
+  color: #7a1f1f;
+  letter-spacing: 0.08em;
+}
+
+body > nav[data-active-voice="citizen"] .nav-page {
+  font-family: var(--typewriter);
+  color: #3c372f;
+}
+
+body > nav[data-active-voice="citizen"] .nav-page::before {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+body > nav[data-active-voice="citizen"] summary {
+  font-family: var(--typewriter);
+  color: var(--photocopy-ink);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+body > nav[data-active-voice="citizen"] summary:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: var(--photocopy-ink);
+}
+
+body > nav[data-active-voice="citizen"] details[open] summary {
+  background: #7a1f1f;
+  color: var(--photocopy);
+  border-color: #7a1f1f;
+}
+
+/* ---- The Chapters popover, skinned to the active voice -------------------
+   The dropdown card adopts the same stock as that voice's Directory skin so the
+   open menu reads as part of the page you're in, not a foreign panel. */
+
+/* PUBLISHER — the corporate Lumon-blue rules panel, paper text */
+body > nav[data-active-voice="publisher"] details ul {
+  background-color: var(--lumon-blue);
+  background-image: radial-gradient(
+    130% 90% at 18% -10%,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0) 52%
+  );
+  border-color: rgba(244, 243, 238, 0.18);
+}
+
+body > nav[data-active-voice="publisher"] details ul::before {
+  font-family: var(--font-mono);
+  color: rgba(244, 243, 238, 0.66);
+  border-bottom-color: rgba(244, 243, 238, 0.2);
+}
+
+body > nav[data-active-voice="publisher"] details li a {
+  color: rgba(244, 243, 238, 0.78);
+  border-bottom-color: rgba(244, 243, 238, 0.12);
+}
+
+body > nav[data-active-voice="publisher"] details li a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--pure-white);
+}
+
+body > nav[data-active-voice="publisher"] details li a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--pure-white);
+  box-shadow: inset 3px 0 0 var(--paper);
+}
+
+/* ORIENTATION — whiter handbook stock, display-cut label */
+body > nav[data-active-voice="orientation"] details ul {
+  background: var(--handbook);
+  border-color: var(--hairline-strong);
+}
+
+body > nav[data-active-voice="orientation"] details ul::before {
+  font-family: var(--font-display);
+  color: var(--fg-2);
+  border-bottom-color: var(--hairline);
+}
+
+body > nav[data-active-voice="orientation"] details li a:hover {
+  background: rgba(26, 29, 34, 0.05);
+}
+
+/* CITIZEN — photocopied scrap, typewriter ink, red stamp */
+body > nav[data-active-voice="citizen"] details ul {
+  background-color: var(--photocopy);
+  background-image:
+    linear-gradient(115deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 24%),
+    linear-gradient(295deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 30%);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0 0 48px rgba(0, 0, 0, 0.09),
+    var(--shadow-raised);
+}
+
+body > nav[data-active-voice="citizen"] details ul::before {
+  font-family: var(--stamp);
+  color: #7a1f1f;
+  border-bottom-color: rgba(0, 0, 0, 0.18);
+}
+
+body > nav[data-active-voice="citizen"] details li a {
+  font-family: var(--typewriter);
+  color: #3c372f;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body > nav[data-active-voice="citizen"] details li a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--photocopy-ink);
+}
+
+body > nav[data-active-voice="citizen"] details li a[aria-current="page"] {
+  background: rgba(122, 31, 31, 0.07);
+  color: var(--photocopy-ink);
+  box-shadow: inset 3px 0 0 #7a1f1f;
+}
+
 /* ---- The page wrapper (everything below nav) ---- */
 body > nav ~ div {
   position: relative;
@@ -399,6 +617,7 @@ body > nav ~ div > .titleCard h1::after {
       rgba(11, 32, 64, 0) 52%
     );
   z-index: 3;
+  position: relative;
 }
 
 
@@ -867,7 +1086,7 @@ strong {
 [data-voice] figure {
   margin: var(--space-5) 0;
   padding: 0;
-  max-width: 46rem;
+  max-width: 44rem;
 }
 
 #react-viewer > figure {
