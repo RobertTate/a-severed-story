@@ -1,5 +1,5 @@
 /* ============================================================================
-   A SEVERED STORY — three-hand visual system
+   SEVERED STORY — three-hand visual system
    Styled entirely against [data-voice] regions and [data-panel-type] panels.
    One printed object. Three production methods. Three hands.
    ----------------------------------------------------------------------------
@@ -330,6 +330,15 @@ body > nav details li a:hover {
   background: var(--wall);
 }
 
+/* The chapter you're currently reading: filled, bold, with an accent bar so
+   it reads as "you are here" rather than a normal hover. */
+body > nav details li a[aria-current="page"] {
+  background: var(--concrete);
+  color: var(--ink);
+  font-weight: var(--w-bold);
+  box-shadow: inset 3px 0 0 var(--slate, var(--ink));
+}
+
 body > nav details li:first-child a {
   font-weight: var(--w-bold);
 }
@@ -357,7 +366,7 @@ body > nav ~ div > .titleCard h1 {
 }
 
 body > nav ~ div > .titleCard h1::before {
-  content: "A Severed Story · Edition Alpha";
+  content: "Severed Story · Edition Alpha";
   display: block;
   margin-bottom: clamp(18px, 3vh, 30px);
   font-family: var(--font-text);
@@ -1338,7 +1347,7 @@ strong {
 }
 
 [data-panel-type="info"]::before {
-  content: "RULE OF PLAY · A SEVERED STORY";
+  content: "RULE OF PLAY · SEVERED STORY";
   position: absolute;
   top: 0;
   left: 0;
@@ -1893,6 +1902,12 @@ body > nav .nav-page {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 720px) {
+  body > nav .nav-page {
+    display: none;
+  }
 }
 
 body > nav .nav-page::before {

@@ -12,12 +12,17 @@ interface Props {
 }
 
 const { pageTitle } = Astro.props;
+
+// The slug of the page currently being viewed, used to flag the matching
+// entry in the Chapters dropdown. Strip any trailing slash so "/preamble/"
+// and "/preamble" both match.
+const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, "");
 ---
 
 <nav transition:animate="none">
   <a href="/">
     <img src="/assets/lumon-globe-black.png" alt="Lumon Industries" />
-    <span>A Severed Story</span>
+    <span>Severed Story</span>
   </a>
   <div class="nav-right">
     {pageTitle && <span class="nav-page">{pageTitle}</span>}
@@ -27,7 +32,12 @@ const { pageTitle } = Astro.props;
         {
           chapters.map((c) => (
             <li>
-              <a href={`/${c.slug}`}>{c.navTitle ?? c.title}</a>
+              <a
+                href={`/${c.slug}`}
+                aria-current={c.slug === currentSlug ? "page" : undefined}
+              >
+                {c.navTitle ?? c.title}
+              </a>
             </li>
           ))
         }
